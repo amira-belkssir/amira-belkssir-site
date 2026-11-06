@@ -7,77 +7,88 @@
   <title>Amira Belkssir | Conseillère Fiscale à Tunis</title>
   <meta name="description" content="Amira Belkssir, conseillère fiscale à Tunis. Conseil fiscal, accompagnement à l’investissement et contentieux fiscal.">
   <style>
-    :root{--navy:#071725;--navy-2:#0b2030;--navy-3:#102b3d;--gold:#e5b45d;--gold-2:#bd8d43;--white:#f7f4ed;--muted:#d7dce0;--line:rgba(229,180,93,.55)}
+    :root{--navy:#071725;--navy2:#0b2030;--gold:#e5b45d;--gold2:#bd8d43;--white:#f7f4ed;--muted:#d7dce0;--line:rgba(229,180,93,.55)}
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
     body{font-family:Arial,Helvetica,sans-serif;background:var(--navy);color:var(--white);line-height:1.6}
     a{color:inherit;text-decoration:none}
-    .container{width:min(1180px, calc(100% - 48px));margin-inline:auto}
-    .site-header{position:sticky;top:0;z-index:20;background:rgba(5,18,29,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
-    .nav-wrap{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .brand{display:flex;align-items:center;gap:15px;min-width:max-content}
-    .brand-mark{width:65px;height:65px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#1761a0;font-family:Georgia,serif;font-size:35px;font-weight:bold;box-shadow:inset 0 0 0 3px rgba(229,180,93,.12);position:relative}
-    .brand-mark:after{content:'⚖';position:absolute;color:var(--gold);font-size:13px;left:5px;bottom:8px}
-    .brand-name{font-family:Georgia,serif;color:var(--gold);font-size:23px;letter-spacing:1.3px;line-height:1.15}
-    .brand-sub{display:block;color:#fff;font-size:12px;letter-spacing:3px;margin-top:5px;text-align:center}
-    .nav-links{display:flex;align-items:center;gap:clamp(16px,2.2vw,34px);font-family:Georgia,serif;font-size:15px}
-    .nav-links a{transition:color .2s}
+    .container{width:min(1380px,calc(100% - 48px));margin:auto}
+    .site-header{position:sticky;top:0;z-index:20;background:rgba(5,18,29,.98);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .nav-wrap{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:14px;min-width:max-content}
+    .brand-mark{width:66px;height:66px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#1761a0;font: bold 37px Georgia,serif;box-shadow:inset 0 0 0 3px #e5b45d22;position:relative}
+    .brand-mark:after{content:"⚖";position:absolute;color:var(--gold);font-size:13px;left:5px;bottom:8px}
+    .brand-name{font:23px/1.15 Georgia,serif;color:var(--gold);letter-spacing:1px}
+    .brand-sub{display:block;color:#fff;font:12px Arial,sans-serif;letter-spacing:2.5px;margin-top:5px;text-align:center}
+    .nav-links{display:flex;align-items:center;gap:clamp(12px,2vw,30px);font:16px Georgia,serif}
+    .nav-links a{white-space:nowrap;transition:.2s}
     .nav-links a:hover,.nav-links a.active{color:var(--gold)}
     .nav-links a.active{background:linear-gradient(135deg,var(--gold),#f0ca7d);color:#101820;padding:10px 17px;border-radius:6px}
-    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--gold);border-radius:8px;padding:11px 18px;color:var(--gold);font-weight:700;transition:.2s}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--gold);border-radius:9px;padding:10px 17px;color:var(--gold);font-weight:bold;white-space:nowrap}
     .nav-cta:hover,.btn-outline:hover{background:var(--gold);color:var(--navy)}
-    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--gold);border-radius:6px;padding:8px 11px;font-size:22px}
-    .hero{min-height:520px;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--gold);background:radial-gradient(circle at 20% 45%,#112d40 0,var(--navy) 65%);overflow:hidden}
-    .hero-copy{padding:70px max(7vw,calc((100vw - 1180px)/2)) 66px max(7vw,calc((100vw - 1180px)/2));display:flex;flex-direction:column;justify-content:center;align-items:flex-start;position:relative}
-    .eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:12px;font-weight:bold;margin-bottom:18px}
-    h1,h2,h3{font-family:Georgia,'Times New Roman',serif}
-    h1{font-size:clamp(38px,4.5vw,64px);line-height:1.05;color:var(--gold);margin-bottom:10px}
-    .hero-subtitle{font-family:Georgia,serif;font-size:clamp(23px,2.5vw,34px);line-height:1.2;margin-bottom:24px}
-    .ornament{width:min(440px,100%);height:1px;background:var(--gold);position:relative;margin:0 0 24px}
-    .ornament:after{content:'◆';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--navy);padding:0 12px;color:var(--gold);font-size:13px}
-    .hero-description{font-family:Georgia,serif;font-size:18px;max-width:510px;color:#e9e9e7;margin-bottom:28px}
-    .btn-gold{background:linear-gradient(135deg,var(--gold),#f0c879);color:#111b24;border:0;padding:13px 24px;border-radius:30px;font-family:Georgia,serif;font-size:16px}
-    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 22px #0005}
-    .hero-photo{min-height:520px;position:relative}
-    .hero-photo:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,transparent 25%),linear-gradient(0deg,rgba(4,15,24,.18),transparent 35%);z-index:1}
+    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--gold);border-radius:6px;padding:7px 11px;font-size:22px}
+    .hero{min-height:590px;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--gold);background:radial-gradient(circle at 20% 45%,#112d40 0,var(--navy) 65%);overflow:hidden}
+    .hero-copy{padding:40px clamp(28px,5vw,85px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;position:relative;background:linear-gradient(115deg,#071725 0%,#0a1d2b 78%,#102638 100%)}
+    .hero-copy:before{content:"";position:absolute;left:0;top:0;bottom:0;width:13px;background:linear-gradient(145deg,var(--gold) 0 12%,transparent 12% 88%,var(--gold) 88%)}
+    .hero-emblem{width:118px;height:118px;border:3px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#1761a0;font: bold 72px Georgia,serif;box-shadow:inset 0 0 0 5px #e5b45d20;margin:0 auto 12px;position:relative}
+    .hero-emblem:after{content:"⚖";position:absolute;left:11px;bottom:13px;color:var(--gold);font-size:19px}
+    .hero-copy h1{font:clamp(38px,4.3vw,66px)/1.05 Georgia,"Times New Roman",serif;color:var(--gold);text-align:center;width:100%;margin:0 0 7px;letter-spacing:1px}
+    .hero-subtitle{font:clamp(20px,2.2vw,31px) Georgia,serif;letter-spacing:3px;text-align:center;width:100%;margin-bottom:17px}
+    .hero-rule{height:2px;background:var(--gold);width:90%;max-width:550px;margin:0 auto 18px;position:relative}
+    .hero-rule:after{content:"◆";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--navy);padding:0 12px;color:var(--gold);font-size:14px}
+    .hero-details{width:min(100%,500px);margin:0 auto;color:#f4eee3;font:clamp(17px,1.8vw,25px) Georgia,serif}
+    .hero-details p{display:flex;align-items:center;gap:15px;margin:5px 0}
+    .hero-details b{width:37px;height:37px;border:2px solid var(--gold);border-radius:50%;display:inline-grid;place-items:center;color:var(--gold);font:20px Arial;flex:0 0 37px}
+    .hero-tagline{color:var(--gold);font:bold 14px Georgia,serif;letter-spacing:1.2px;margin:17px auto 3px;text-align:center;width:100%}
+    .hero-motto{font:italic 18px Georgia,serif;text-align:center;width:100%}
+    .hero-photo{min-height:590px;position:relative;background:#102638}
     .hero-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center 38%}
+    .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,23,37,.22),transparent 22%),linear-gradient(0deg,rgba(4,15,24,.12),transparent 35%);pointer-events:none}
     .trust-strip{border-bottom:1px solid var(--line);background:#081a28}
-    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:24px 0}
-    .trust-item{display:flex;align-items:center;justify-content:center;gap:17px;padding:6px 20px}
-    .trust-item+.trust-item{border-left:1px solid var(--gold-2)}
-    .trust-icon{font-size:36px;color:var(--gold);line-height:1}
-    .trust-item strong{display:block;color:var(--gold);font-family:Georgia,serif;font-size:19px}
-    .trust-item span:last-child{font-family:Georgia,serif;color:#e7e7e7;font-size:14px}
-    section.content{padding:82px 0;border-bottom:1px solid rgba(189,141,67,.28)}
+    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:20px 0}
+    .trust-item{display:flex;align-items:center;justify-content:center;gap:18px;padding:8px 18px}
+    .trust-item+.trust-item{border-left:1px solid var(--gold2)}
+    .trust-icon{font-size:43px;color:var(--gold);line-height:1}
+    .trust-item strong{display:block;color:var(--gold);font: bold clamp(15px,1.7vw,22px) Georgia,serif}
+    .trust-item span:last-child{font:16px Georgia,serif;color:#e7e7e7}
+    section.content{padding:78px 0;border-bottom:1px solid #bd8d4348}
     .section-heading{text-align:center;margin-bottom:38px}
-    .section-heading .eyebrow{margin-bottom:8px}
+    .eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:12px;font-weight:bold;margin-bottom:10px}
+    h2,h3{font-family:Georgia,"Times New Roman",serif}
     h2{font-size:clamp(30px,3.5vw,42px);color:var(--gold);line-height:1.2}
     .section-intro{max-width:760px;margin:15px auto 0;color:var(--muted);font-size:17px;text-align:center}
-    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
-    .about-visual{min-height:310px;border-radius:12px;overflow:hidden;border:1px solid var(--line);position:relative;background:linear-gradient(135deg,#152f40,#081725);display:grid;place-items:center}
-    .about-visual img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;opacity:.72}
-    .about-visual:after{content:'BC';position:absolute;right:18px;bottom:-45px;font-family:Georgia,serif;font-size:150px;color:#e5b45d1b;font-weight:bold}
-    .about-copy h2{text-align:left;margin-bottom:18px}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+    .about-visual{min-height:310px;border-radius:12px;overflow:hidden;border:1px solid var(--line);position:relative;background:#102638}
+    .about-visual img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+    .about-copy h2{margin-bottom:18px}
     .about-copy p{color:var(--muted);font-size:16px;margin-bottom:17px}
+    .btn-gold{background:linear-gradient(135deg,var(--gold),#f0c879);color:#111b24;border:0;padding:13px 24px;border-radius:30px;font:16px Georgia,serif}
     .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .service-card{border:1px solid var(--gold-2);border-radius:12px;padding:30px 24px;background:linear-gradient(145deg,#0b2030,#081725);min-height:205px;transition:transform .2s,border-color .2s}
-    .service-card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 14px 30px #0003}
-    .service-icon{font-size:39px;color:var(--gold);margin-bottom:15px}
-    .service-card h3{color:var(--gold);font-size:22px;margin-bottom:10px}
+    .service-card{border:1px solid var(--gold2);border-radius:12px;padding:28px 24px;background:linear-gradient(145deg,#0b2030,#081725);min-height:200px}
+    .service-icon{font-size:39px;color:var(--gold);margin-bottom:12px}
+    .service-card h3{color:var(--gold);font-size:22px;margin-bottom:9px}
     .service-card p{color:var(--muted);font-size:15px}
     .advice-panel{max-width:850px;margin:auto;text-align:center;background:linear-gradient(135deg,#102b3d,#091a28);border:1px solid var(--line);border-radius:14px;padding:42px 32px}
     .advice-panel p{color:var(--muted);margin:12px auto 22px;max-width:650px}
     .contact-section{background:linear-gradient(120deg,#0c2333,#071725)}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:850px;margin:0 auto}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:850px;margin:auto}
     .contact-card{border:1px solid var(--line);border-radius:10px;padding:22px;text-align:center;background:#071725}
-    .contact-card .contact-symbol{font-size:28px;color:var(--gold)}
+    .contact-symbol{font-size:28px;color:var(--gold)}
     .contact-card h3{color:var(--gold);font-size:19px;margin:7px 0}
     .contact-card a{color:#f4eee3;overflow-wrap:anywhere}
-    .contact-card a:hover{color:var(--gold)}
     footer{background:#04101a;color:#d7b16c;text-align:center;padding:24px 15px;font-size:13px}
-    @media(max-width:980px){.nav-wrap{min-height:78px}.nav-links{gap:13px;font-size:14px}.brand-name{font-size:19px}.brand-mark{width:56px;height:56px}.nav-cta{padding:9px 12px}.hero-copy{padding:55px 35px}.trust-item{padding-inline:10px}.trust-item strong{font-size:16px}}
-    @media(max-width:760px){html{scroll-padding-top:72px}.container{width:min(100% - 34px,560px)}.nav-wrap{min-height:72px}.brand{gap:10px}.brand-mark{width:48px;height:48px;font-size:28px}.brand-name{font-size:16px;letter-spacing:.5px}.brand-sub{font-size:9px;letter-spacing:2px}.menu-toggle{display:block}.nav-cta{display:none}.nav-links{display:none;position:absolute;left:0;right:0;top:72px;background:#061522;border-bottom:1px solid var(--line);padding:18px 24px 22px;flex-direction:column;align-items:stretch;gap:5px}.nav-links.open{display:flex}.nav-links a{padding:10px 12px}.nav-links a.active{background:transparent;color:var(--gold)}.hero{grid-template-columns:1fr}.hero-copy{padding:55px 28px 42px;order:1}.hero-photo{min-height:330px;order:0}.hero-photo:before{background:linear-gradient(0deg,var(--navy),transparent 40%)}.hero-description{font-size:16px}.trust-grid{grid-template-columns:1fr;padding:8px 0}.trust-item{justify-content:flex-start;padding:17px 10px}.trust-item+.trust-item{border-left:0;border-top:1px solid rgba(189,141,67,.35)}section.content{padding:60px 0}.about-grid{grid-template-columns:1fr;gap:28px}.about-visual{min-height:260px;order:2}.about-copy h2{text-align:center}.service-grid{grid-template-columns:1fr;gap:15px}.service-card{min-height:0;padding:24px}.contact-grid{grid-template-columns:1fr}.advice-panel{padding:32px 20px}}
-    @media(min-width:761px) and (max-width:1100px){.hero{min-height:460px}.hero-photo{min-height:460px}.service-grid{gap:14px}.service-card{padding:24px 18px}}
+    @media(max-width:1050px){.nav-wrap{gap:14px}.brand-name{font-size:19px}.brand-mark{width:56px;height:56px;font-size:32px}.nav-links{gap:12px;font-size:14px}.nav-cta{padding:9px 11px}.hero{min-height:500px}.hero-photo{min-height:500px}.hero-copy{padding-inline:32px}}
+    @media(max-width:760px){
+      html{scroll-padding-top:72px}.container{width:min(100% - 34px,560px)}
+      .nav-wrap{min-height:72px}.brand{gap:9px}.brand-mark{width:48px;height:48px;font-size:28px}.brand-name{font-size:16px;letter-spacing:.4px}.brand-sub{font-size:9px;letter-spacing:1.7px}
+      .menu-toggle{display:block}.nav-cta{display:none}
+      .nav-links{display:none;position:absolute;left:0;right:0;top:72px;background:#061522;border-bottom:1px solid var(--line);padding:16px 24px 20px;flex-direction:column;align-items:stretch;gap:4px}
+      .nav-links.open{display:flex}.nav-links a{padding:10px 12px}.nav-links a.active{background:transparent;color:var(--gold)}
+      .hero{grid-template-columns:1fr;min-height:0}.hero-photo{min-height:310px;order:0}.hero-copy{order:1;padding:36px 25px 40px}.hero-emblem{width:88px;height:88px;font-size:53px;margin-bottom:10px}.hero-copy h1{font-size:38px}.hero-subtitle{font-size:19px;letter-spacing:2px}.hero-details{font-size:19px}.hero-tagline{font-size:12px}
+      .trust-grid{grid-template-columns:1fr;padding:7px 0}.trust-item{justify-content:flex-start;padding:15px 10px}.trust-item+.trust-item{border-left:0;border-top:1px solid #bd8d4359}.trust-icon{width:48px;text-align:center}
+      section.content{padding:55px 0}.about-grid{grid-template-columns:1fr;gap:25px}.about-visual{min-height:250px;order:2}.about-copy{text-align:center}.service-grid{grid-template-columns:1fr;gap:14px}.service-card{min-height:0;padding:23px}.contact-grid{grid-template-columns:1fr}.advice-panel{padding:30px 19px}
+    }
+    @media(min-width:761px) and (max-width:900px){.nav-links{gap:8px;font-size:13px}.nav-cta{font-size:12px}.brand-name{font-size:16px}.brand-sub{font-size:9px}}
   </style>
 </head>
 <body>
@@ -89,11 +100,7 @@
     </a>
     <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     <nav class="nav-links" id="main-nav" aria-label="Navigation principale">
-      <a class="active" href="#accueil">Accueil</a>
-      <a href="#apropos">À propos</a>
-      <a href="#services">Nos Services⌄</a>
-      <a href="#conseils">Nos Conseils</a>
-      <a href="#contact">Contact</a>
+      <a class="active" href="#accueil">Accueil</a><a href="#apropos">À propos</a><a href="#services">Nos Services⌄</a><a href="#conseils">Nos Conseils</a><a href="#contact">Contact</a>
     </nav>
     <a class="nav-cta" href="tel:+21650073838">☎ Nous Contacter</a>
   </div>
@@ -101,26 +108,31 @@
 <main>
   <section class="hero" id="accueil">
     <div class="hero-copy">
-      <div class="eyebrow">Expertise · Stratégie · Performance</div>
-      <h1>Amira Belkssir</h1>
-      <div class="hero-subtitle">Conseillère Fiscale à Tunis</div>
-      <div class="ornament"></div>
-      <p class="hero-description">Un accompagnement professionnel fondé sur l'expertise, la stratégie et la confiance.</p>
-      <a class="btn btn-gold" href="#contact">Nous Contacter <span aria-hidden="true">›</span></a>
+      <div class="hero-emblem" aria-hidden="true">BC</div>
+      <h1>AMIRA BELKSSIR</h1>
+      <div class="hero-subtitle">CONSEILLÈRE FISCALE</div>
+      <div class="hero-rule"></div>
+      <div class="hero-details">
+        <p><b aria-hidden="true">✉</b> mirabelkssir@gmail.com</p>
+        <p><b aria-hidden="true">☎</b> 50 073 838</p>
+        <p><b aria-hidden="true">⌖</b> Tunis</p>
+      </div>
+      <div class="hero-tagline">EXPERTISE&nbsp; · &nbsp;STRATÉGIE&nbsp; · &nbsp;PERFORMANCE</div>
+      <div class="hero-motto">Votre confiance, notre engagement.</div>
     </div>
-    <div class="hero-photo"><img src="assets/hero-office.jpg" alt="Espace de travail professionnel d'Amira Belkssir"></div>
+    <div class="hero-photo"><img src="hero-office.jpg" alt="Espace de travail professionnel d'Amira Belkssir"></div>
   </section>
   <div class="trust-strip"><div class="container trust-grid">
-    <div class="trust-item"><span class="trust-icon">⚖</span><span><strong>DROIT FISCAL</strong><span>Conseil &amp; Optimisation</span></span></div>
+    <div class="trust-item"><span class="trust-icon">↗</span><span><strong>DROIT FISCAL</strong><span>Conseil &amp; Optimisation</span></span></div>
     <div class="trust-item"><span class="trust-icon">▤</span><span><strong>DROIT D’INVESTISSEMENT</strong><span>Accompagnement &amp; Structuration</span></span></div>
     <div class="trust-item"><span class="trust-icon">⚒</span><span><strong>CONTENTIEUX FISCAL</strong><span>Défense &amp; Représentation</span></span></div>
   </div></div>
   <section class="content" id="apropos"><div class="container about-grid">
-    <div class="about-visual"><img src="assets/hero-office.jpg" alt="Bureau professionnel"></div>
+    <div class="about-visual"><img src="hero-office.jpg" alt="Bureau professionnel"></div>
     <div class="about-copy"><div class="eyebrow">Votre confiance, notre engagement</div><h2>À propos</h2>
       <p>Amira Belkssir, Conseillère Fiscale à Tunis. Un accompagnement professionnel fondé sur l'expertise, la stratégie et la confiance.</p>
       <p>Un conseil attentif et un accompagnement adapté à vos enjeux fiscaux et à vos projets d’investissement.</p>
-      <a class="btn btn-gold" href="#contact">Prendre contact <span aria-hidden="true">›</span></a>
+      <a class="btn btn-gold" href="#contact">Prendre contact ›</a>
     </div>
   </div></section>
   <section class="content" id="services"><div class="container">
@@ -132,7 +144,7 @@
     </div>
   </div></section>
   <section class="content" id="conseils"><div class="container">
-    <div class="advice-panel"><div class="eyebrow">Expertise &amp; information</div><h2>Nos Conseils</h2><p>Découvrez nos conseils et informations pour mieux comprendre les questions fiscales et les opportunités d'investissement.</p><a class="btn btn-outline" href="#contact">Demander un conseil <span aria-hidden="true">›</span></a></div>
+    <div class="advice-panel"><div class="eyebrow">Expertise &amp; information</div><h2>Nos Conseils</h2><p>Découvrez nos conseils et informations pour mieux comprendre les questions fiscales et les opportunités d'investissement.</p><a class="btn btn-outline" href="#contact">Demander un conseil ›</a></div>
   </div></section>
   <section class="content contact-section" id="contact"><div class="container">
     <div class="section-heading"><div class="eyebrow">Parlons de votre projet</div><h2>Contact</h2><p class="section-intro">Pour toute demande d'information ou de consultation, contactez-nous.</p></div>
@@ -144,16 +156,16 @@
 </main>
 <footer>© 2026 Amira Belkssir - Tous droits réservés. · Tunis</footer>
 <script>
-  const menuButton = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.nav-links');
-  menuButton.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    menuButton.setAttribute('aria-expanded', String(isOpen));
-    menuButton.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+  const menuButton=document.querySelector('.menu-toggle');
+  const nav=document.querySelector('.nav-links');
+  menuButton.addEventListener('click',()=>{
+    const isOpen=nav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded',String(isOpen));
+    menuButton.setAttribute('aria-label',isOpen?'Fermer le menu':'Ouvrir le menu');
   });
-  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
     nav.classList.remove('open');
-    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-expanded','false');
   }));
 </script>
 </body>
