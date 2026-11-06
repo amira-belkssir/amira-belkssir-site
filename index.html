@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,8 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#071725">
 
-<title>Amira Belkssir | Conseillère Fiscale</title>
-<meta name="description" content="Amira Belkssir, conseillère fiscale à Tunis. Expertise, stratégie et performance.">
+<title>Amira Belkssir | Conseillère Fiscale à Tunis</title>
+
+<meta name="description" content="Amira Belkssir, conseillère fiscale à Tunis. Conseil fiscal, investissement et contentieux fiscal.">
 
 <style>
 :root {
@@ -16,6 +18,7 @@
   --gold2: #bd8d43;
   --white: #f7f4ed;
   --muted: #d7dce0;
+  --line: rgba(229,180,93,.55);
 }
 
 * {
@@ -26,148 +29,165 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 90px;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: var(--navy);
   color: var(--white);
+  line-height: 1.6;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-/* NAVIGATION */
+.container {
+  width: min(1380px, calc(100% - 48px));
+  margin: auto;
+}
 
-.header {
-  background: #061522;
-  border-bottom: 2px solid var(--gold);
+/* HEADER */
+
+.site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 20;
+  background: rgba(5,18,29,.98);
+  border-bottom: 1px solid var(--line);
 }
 
-.nav {
-  max-width: 1536px;
-  margin: auto;
-  min-height: 108px;
-  padding: 10px 4.5%;
+.nav-wrap {
+  min-height: 88px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
+  gap: 20px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 18px;
-  flex-shrink: 0;
+  gap: 14px;
+  min-width: max-content;
 }
 
-.logo {
-  width: 96px;
-  height: 96px;
+.brand-mark {
+  width: 66px;
+  height: 66px;
   border: 2px solid var(--gold);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   color: #1761a0;
-  font-family: Georgia, serif;
-  font-size: 47px;
-  font-weight: bold;
+  font: bold 37px Georgia, serif;
   position: relative;
 }
 
-.logo::after {
+.brand-mark:after {
   content: "⚖";
   position: absolute;
-  left: 7px;
-  bottom: 12px;
-  font-size: 18px;
   color: var(--gold);
+  font-size: 13px;
+  left: 5px;
+  bottom: 8px;
 }
 
 .brand-name {
+  font: 23px/1.15 Georgia, serif;
   color: var(--gold);
-  font: 30px Georgia, serif;
-  white-space: nowrap;
+  letter-spacing: 1px;
 }
 
 .brand-sub {
   display: block;
-  text-align: center;
-  color: white;
-  font: 14px Arial, sans-serif;
-  letter-spacing: 2px;
+  color: #fff;
+  font: 12px Arial, sans-serif;
+  letter-spacing: 2.5px;
   margin-top: 5px;
+  text-align: center;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(12px, 2vw, 35px);
-  font: 18px Georgia, serif;
+  gap: clamp(12px, 2vw, 30px);
+  font: 16px Georgia, serif;
 }
 
 .nav-links a {
   white-space: nowrap;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--gold);
 }
 
-.nav-links .active {
+.nav-links a.active {
   background: linear-gradient(135deg, var(--gold), #f0ca7d);
   color: #101820;
-  padding: 12px 20px;
+  padding: 10px 17px;
   border-radius: 6px;
 }
 
-.contact-button {
-  border: 2px solid var(--gold);
-  border-radius: 12px;
-  padding: 13px 20px;
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--gold);
+  border-radius: 9px;
+  padding: 10px 17px;
   color: var(--gold);
-  font: bold 16px Georgia, serif;
+  font-weight: bold;
   white-space: nowrap;
 }
 
-/* HERO */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--gold);
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-size: 22px;
+}
+
+/* HERO - DESKTOP */
 
 .hero {
-  max-width: 1536px;
-  margin: auto;
+  min-height: 590px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 600px;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  background: var(--navy);
   overflow: hidden;
 }
 
-.hero-left {
-  background: linear-gradient(120deg, #071725, #0b2030);
-  padding: 30px 5%;
+.hero-copy {
+  padding: 40px clamp(28px, 5vw, 85px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
   position: relative;
+  background: linear-gradient(
+    115deg,
+    #071725 0%,
+    #0a1d2b 78%,
+    #102638 100%
+  );
 }
 
-.hero-left::before {
+.hero-copy:before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 12px;
+  width: 13px;
   background: linear-gradient(
     145deg,
     var(--gold) 0 12%,
@@ -176,257 +196,370 @@ a {
   );
 }
 
-.hero-logo {
-  width: 190px;
-  height: 190px;
-  border: 4px solid var(--gold);
+.hero-emblem {
+  width: 118px;
+  height: 118px;
+  border: 3px solid var(--gold);
   border-radius: 50%;
+  display: grid;
+  place-items: center;
   color: #1761a0;
-  font: bold 115px Georgia, serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font: bold 72px Georgia, serif;
+  margin: 0 auto 12px;
   position: relative;
-  margin-bottom: 12px;
 }
 
-.hero-logo::after {
+.hero-emblem:after {
   content: "⚖";
   position: absolute;
-  left: 14px;
-  bottom: 20px;
-  font-size: 28px;
+  left: 11px;
+  bottom: 13px;
   color: var(--gold);
+  font-size: 19px;
 }
 
-.hero h1 {
-  font: clamp(35px, 4.2vw, 65px) Georgia, serif;
+.hero-copy h1 {
+  font: clamp(38px, 4.3vw, 66px)/1.05 Georgia, serif;
   color: var(--gold);
-  margin-bottom: 5px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 7px;
   letter-spacing: 1px;
 }
 
 .hero-subtitle {
-  font: clamp(19px, 2.2vw, 30px) Georgia, serif;
+  font: clamp(20px, 2.2vw, 31px) Georgia, serif;
   letter-spacing: 3px;
-  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 17px;
 }
 
-.hero-line {
-  width: 90%;
+.hero-rule {
   height: 2px;
   background: var(--gold);
-  margin-bottom: 18px;
-}
-
-.hero-info {
-  text-align: left;
   width: 90%;
-  max-width: 500px;
-  font: clamp(16px, 1.8vw, 25px) Georgia, serif;
+  max-width: 550px;
+  margin: 0 auto 18px;
+  position: relative;
 }
 
-.hero-info p {
-  margin: 8px 0;
+.hero-rule:after {
+  content: "◆";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--navy);
+  padding: 0 12px;
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.hero-details {
+  width: min(100%, 500px);
+  margin: 0 auto;
+  color: #f4eee3;
+  font: clamp(17px, 1.8vw, 25px) Georgia, serif;
+}
+
+.hero-details p {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 15px;
+  margin: 5px 0;
 }
 
-.hero-info b {
-  width: 38px;
-  height: 38px;
+.hero-details b {
+  width: 37px;
+  height: 37px;
   border: 2px solid var(--gold);
   border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
   color: var(--gold);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  font: 20px Arial;
+  flex: 0 0 37px;
 }
 
 .hero-tagline {
   color: var(--gold);
-  font: bold clamp(11px, 1.2vw, 16px) Georgia, serif;
-  letter-spacing: 1.3px;
-  margin-top: 18px;
+  font: bold 14px Georgia, serif;
+  letter-spacing: 1.2px;
+  margin: 17px auto 3px;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-motto {
   font: italic 18px Georgia, serif;
-  margin-top: 5px;
+  text-align: center;
+  width: 100%;
 }
 
-.hero-right {
+.hero-photo {
+  min-height: 590px;
   position: relative;
-  min-height: 600px;
   background: #102638;
 }
 
-.hero-right img {
-  position: absolute;
-  inset: 0;
+.hero-photo img {
   width: 100%;
   height: 100%;
+  position: absolute;
+  inset: 0;
   object-fit: cover;
   object-position: center 38%;
 }
 
 /* SERVICES STRIP */
 
-.services-strip {
+.trust-strip {
+  border-bottom: 1px solid var(--line);
   background: #081a28;
-  border-bottom: 2px solid var(--gold2);
 }
 
-.services-row {
-  max-width: 1536px;
-  margin: auto;
-  padding: 25px 4%;
+.trust-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  padding: 20px 0;
 }
 
-.strip-item {
+.trust-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 22px;
-  padding: 10px 20px;
+  gap: 18px;
+  padding: 8px 18px;
 }
 
-.strip-item + .strip-item {
-  border-left: 2px solid var(--gold2);
+.trust-item + .trust-item {
+  border-left: 1px solid var(--gold2);
 }
 
-.strip-icon {
+.trust-icon {
+  font-size: 43px;
   color: var(--gold);
-  font-size: 55px;
+  line-height: 1;
 }
 
-.strip-item h3 {
+.trust-item strong {
+  display: block;
   color: var(--gold);
-  font: bold clamp(15px, 1.8vw, 25px) Georgia, serif;
+  font: bold clamp(15px, 1.7vw, 22px) Georgia, serif;
 }
 
-.strip-item p {
-  font: clamp(13px, 1.4vw, 19px) Georgia, serif;
-  color: white;
+.trust-item span:last-child {
+  font: 16px Georgia, serif;
+  color: #e7e7e7;
 }
 
-/* OTHER SECTIONS */
+/* SECTIONS */
 
-.section {
-  padding: 75px 6%;
+section.content {
+  padding: 78px 0;
   border-bottom: 1px solid #bd8d4348;
 }
 
-.section-inner {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.section-title {
+.section-heading {
   text-align: center;
+  margin-bottom: 38px;
+}
+
+.eyebrow {
   color: var(--gold);
-  font: 42px Georgia, serif;
-  margin-bottom: 25px;
-}
-
-.section-text {
-  text-align: center;
-  color: var(--muted);
-  max-width: 800px;
-  margin: auto;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin-top: 35px;
-}
-
-.card {
-  border: 1px solid var(--gold2);
-  border-radius: 12px;
-  padding: 30px;
-  background: linear-gradient(145deg, #0b2030, #081725);
-}
-
-.card .icon {
-  font-size: 40px;
-  color: var(--gold);
-  margin-bottom: 15px;
-}
-
-.card h3 {
-  font: 24px Georgia, serif;
-  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
-.card p {
+h2, h3 {
+  font-family: Georgia, serif;
+}
+
+h2 {
+  font-size: clamp(30px, 3.5vw, 42px);
+  color: var(--gold);
+  line-height: 1.2;
+}
+
+.section-intro {
+  max-width: 760px;
+  margin: 15px auto 0;
   color: var(--muted);
-  line-height: 1.7;
+  font-size: 17px;
+  text-align: center;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-visual {
+  min-height: 310px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  position: relative;
+  background: #102638;
+}
+
+.about-visual img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+}
+
+.about-copy h2 {
+  margin-bottom: 18px;
+}
+
+.about-copy p {
+  color: var(--muted);
+  font-size: 16px;
+  margin-bottom: 17px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  border-radius: 9px;
+  padding: 10px 17px;
+  color: var(--gold);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold), #f0c879);
+  color: #111b24;
+  border: 0;
+  padding: 13px 24px;
+  border-radius: 30px;
+  font: 16px Georgia, serif;
+}
+
+/* SERVICE CARDS */
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.service-card {
+  border: 1px solid var(--gold2);
+  border-radius: 12px;
+  padding: 28px 24px;
+  background: linear-gradient(145deg, #0b2030, #081725);
+  min-height: 200px;
+}
+
+.service-icon {
+  font-size: 39px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.service-card h3 {
+  color: var(--gold);
+  font-size: 22px;
+  margin-bottom: 9px;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* ADVICE */
+
+.advice-panel {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  background: linear-gradient(135deg, #102b3d, #091a28);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 42px 32px;
+}
+
+.advice-panel p {
+  color: var(--muted);
+  margin: 12px auto 22px;
+  max-width: 650px;
+}
+
+/* CONTACT */
+
+.contact-section {
+  background: linear-gradient(120deg, #0c2333, #071725);
 }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
   max-width: 850px;
-  margin: 30px auto 0;
+  margin: auto;
 }
 
 .contact-card {
-  text-align: center;
-  border: 1px solid var(--gold2);
-  padding: 25px;
+  border: 1px solid var(--line);
   border-radius: 10px;
-  background: #081a28;
+  padding: 22px;
+  text-align: center;
+  background: #071725;
+}
+
+.contact-symbol {
+  font-size: 28px;
+  color: var(--gold);
 }
 
 .contact-card h3 {
   color: var(--gold);
-  margin-bottom: 10px;
+  font-size: 19px;
+  margin: 7px 0;
 }
 
 .contact-card a {
-  color: white;
+  color: #f4eee3;
   overflow-wrap: anywhere;
 }
 
 footer {
-  padding: 25px;
-  text-align: center;
   background: #04101a;
-  color: var(--gold);
+  color: #d7b16c;
+  text-align: center;
+  padding: 24px 15px;
+  font-size: 13px;
 }
 
-/* RESPONSIVE */
+/* TABLET */
 
 @media (max-width: 1050px) {
-  .nav {
-    padding: 10px 2%;
-    gap: 12px;
-  }
-
-  .logo {
-    width: 65px;
-    height: 65px;
-    font-size: 35px;
+  .nav-wrap {
+    gap: 14px;
   }
 
   .brand-name {
-    font-size: 20px;
+    font-size: 19px;
   }
 
-  .brand-sub {
-    font-size: 10px;
-    letter-spacing: 1.5px;
+  .brand-mark {
+    width: 56px;
+    height: 56px;
+    font-size: 32px;
   }
 
   .nav-links {
@@ -434,203 +567,312 @@ footer {
     font-size: 14px;
   }
 
-  .contact-button {
-    font-size: 12px;
-    padding: 10px;
-  }
-
-  .hero-logo {
-    width: 120px;
-    height: 120px;
-    font-size: 70px;
+  .nav-cta {
+    padding: 9px 11px;
   }
 
   .hero {
     min-height: 500px;
   }
 
-  .hero-right {
+  .hero-photo {
     min-height: 500px;
+  }
+
+  .hero-copy {
+    padding-inline: 32px;
   }
 }
 
+/* MOBILE - KEEP HERO HORIZONTAL */
+
 @media (max-width: 760px) {
-  .nav {
-    min-height: 75px;
-    padding: 8px 10px;
-    gap: 8px;
+
+  html {
+    scroll-padding-top: 62px;
   }
 
-  .logo {
-    width: 42px;
-    height: 42px;
-    font-size: 23px;
+  .container {
+    width: calc(100% - 20px);
   }
 
-  .logo::after {
-    font-size: 10px;
-    left: 3px;
-    bottom: 5px;
+  .nav-wrap {
+    min-height: 62px;
+    gap: 5px;
   }
 
   .brand {
     gap: 6px;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 21px;
+    flex: 0 0 36px;
+  }
+
+  .brand-mark:after {
+    font-size: 9px;
+    left: 3px;
+    bottom: 4px;
   }
 
   .brand-name {
-    font-size: 13px;
-    letter-spacing: 0;
+    font-size: clamp(11px, 3vw, 15px);
+    letter-spacing: .2px;
   }
 
   .brand-sub {
     font-size: 7px;
     letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 18px;
+    padding: 4px 8px;
+    flex: 0 0 auto;
+  }
+
+  .nav-cta {
+    display: none;
   }
 
   .nav-links {
-    gap: 7px;
-    font-size: 10px;
-  }
-
-  .nav-links .active {
-    padding: 7px 8px;
-  }
-
-  .contact-button {
     display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 62px;
+    background: #061522;
+    border-bottom: 1px solid var(--line);
+    padding: 12px 18px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    font-size: 14px;
   }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 8px 10px;
+  }
+
+  .nav-links a.active {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  /* IMPORTANT: HERO REMAINS TWO COLUMNS */
 
   .hero {
     grid-template-columns: 1fr 1fr;
     min-height: 0;
-  }
-
-  .hero-left {
-    padding: 20px 8px;
-  }
-
-  .hero-logo {
-    width: 65px;
-    height: 65px;
-    font-size: 38px;
-    border-width: 2px;
-  }
-
-  .hero-logo::after {
-    font-size: 11px;
-    left: 4px;
-    bottom: 7px;
-  }
-
-  .hero h1 {
-    font-size: clamp(16px, 4vw, 25px);
-    letter-spacing: 0;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(10px, 2.5vw, 15px);
-    letter-spacing: 1px;
-  }
-
-  .hero-line {
-    margin-bottom: 8px;
-  }
-
-  .hero-info {
-    width: 100%;
-    font-size: clamp(10px, 2.6vw, 15px);
-  }
-
-  .hero-info p {
-    gap: 5px;
-    margin: 5px 0;
-  }
-
-  .hero-info b {
-    width: 22px;
-    height: 22px;
-    font-size: 10px;
-  }
-
-  .hero-tagline {
-    font-size: 7px;
-    letter-spacing: 0;
-    margin-top: 8px;
-  }
-
-  .hero-motto {
-    font-size: 9px;
-  }
-
-  .hero-right {
-    min-height: 0;
     height: auto;
   }
 
-  .hero-right img {
+  .hero-copy {
+    order: 0;
+    padding: 12px 7px 14px;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .hero-copy:before {
+    width: 4px;
+  }
+
+  .hero-emblem {
+    width: clamp(42px, 13vw, 70px);
+    height: clamp(42px, 13vw, 70px);
+    border-width: 2px;
+    font-size: clamp(26px, 8vw, 44px);
+    margin-bottom: 6px;
+  }
+
+  .hero-emblem:after {
+    left: 4px;
+    bottom: 5px;
+    font-size: 10px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(14px, 4vw, 25px);
+    letter-spacing: 0;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(8px, 2.4vw, 14px);
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-bottom: 7px;
+  }
+
+  .hero-rule {
+    width: 95%;
+    height: 1px;
+    margin-bottom: 7px;
+  }
+
+  .hero-rule:after {
+    font-size: 7px;
+    padding: 0 4px;
+  }
+
+  .hero-details {
+    width: 100%;
+    font-size: clamp(8px, 2.5vw, 13px);
+    line-height: 1.3;
+  }
+
+  .hero-details p {
+    gap: 5px;
+    margin: 4px 0;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-details b {
+    width: clamp(16px, 5vw, 25px);
+    height: clamp(16px, 5vw, 25px);
+    flex: 0 0 clamp(16px, 5vw, 25px);
+    font-size: clamp(8px, 2.5vw, 13px);
+    border-width: 1px;
+  }
+
+  .hero-tagline {
+    font-size: clamp(6px, 1.8vw, 10px);
+    letter-spacing: .2px;
+    margin-top: 7px;
+    line-height: 1.3;
+  }
+
+  .hero-motto {
+    font-size: clamp(7px, 2vw, 11px);
+    line-height: 1.3;
+  }
+
+  .hero-photo {
+    order: 0;
+    min-height: 0;
+    height: auto;
+    position: relative;
+  }
+
+  .hero-photo img {
     position: absolute;
     width: 100%;
     height: 100%;
+    inset: 0;
     object-fit: cover;
     object-position: center 38%;
   }
 
-  .services-row {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 8px 3px;
+  /* THREE SERVICES STAY IN ONE ROW */
+
+  .trust-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 8px 0;
   }
 
-  .strip-item {
-    padding: 6px 4px;
-    gap: 5px;
+  .trust-item {
     justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+    padding: 8px 3px;
+    min-width: 0;
   }
 
-  .strip-item + .strip-item {
+  .trust-item + .trust-item {
     border-left: 1px solid var(--gold2);
+    border-top: 0;
   }
 
-  .strip-icon {
-    font-size: 17px;
+  .trust-icon {
+    font-size: clamp(18px, 6vw, 30px);
   }
 
-  .strip-item h3 {
-    font-size: 8px;
+  .trust-item strong {
+    font-size: clamp(8px, 2.5vw, 12px);
+    line-height: 1.25;
   }
 
-  .strip-item p {
-    font-size: 7px;
+  .trust-item span:last-child {
+    font-size: clamp(7px, 2vw, 10px);
+    line-height: 1.3;
   }
 
-  .section {
-    padding: 45px 5%;
+  /* LOWER SECTIONS */
+
+  section.content {
+    padding: 38px 0;
   }
 
-  .section-title {
-    font-size: 28px;
-  }
-
-  .cards {
+  .about-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-visual {
+    min-height: 200px;
+  }
+
+  .about-copy {
+    text-align: center;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .service-card {
+    min-height: 0;
+    padding: 20px;
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
   }
+
+  .advice-panel {
+    padding: 25px 15px;
+  }
+
+  .section-intro {
+    font-size: 14px;
+  }
 }
+
+/* VERY SMALL PHONES */
 
 @media (max-width: 360px) {
   .brand-name {
     font-size: 11px;
   }
 
-  .nav-links {
-    font-size: 8px;
-    gap: 4px;
+  .brand-sub {
+    font-size: 6px;
   }
 
-  .hero-info {
-    font-size: 9px;
+  .hero-copy {
+    padding-inline: 5px;
+  }
+
+  .hero-copy h1 {
+    font-size: 13px;
+  }
+
+  .hero-details {
+    font-size: 8px;
   }
 }
 </style>
@@ -638,18 +880,23 @@ footer {
 
 <body>
 
-<header class="header">
-  <div class="nav">
+<header class="site-header">
+  <div class="container nav-wrap">
 
     <a class="brand" href="#accueil">
-      <div class="logo">BC</div>
-      <div class="brand-name">
+      <span class="brand-mark">BC</span>
+      <span class="brand-name">
         AMIRA BELKSSIR
         <span class="brand-sub">CONSEILLÈRE FISCALE</span>
-      </div>
+      </span>
     </a>
 
-    <nav class="nav-links">
+    <button class="menu-toggle"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="main-nav">☰</button>
+
+    <nav class="nav-links" id="main-nav">
       <a class="active" href="#accueil">Accueil</a>
       <a href="#apropos">À propos</a>
       <a href="#services">Nos Services</a>
@@ -657,7 +904,7 @@ footer {
       <a href="#contact">Contact</a>
     </nav>
 
-    <a class="contact-button" href="tel:+21650073838">
+    <a class="nav-cta" href="tel:+21650073838">
       ☎ Nous Contacter
     </a>
 
@@ -668,9 +915,9 @@ footer {
 
 <section class="hero" id="accueil">
 
-  <div class="hero-left">
+  <div class="hero-copy">
 
-    <div class="hero-logo">BC</div>
+    <div class="hero-emblem">BC</div>
 
     <h1>AMIRA BELKSSIR</h1>
 
@@ -678,12 +925,25 @@ footer {
       CONSEILLÈRE FISCALE
     </div>
 
-    <div class="hero-line"></div>
+    <div class="hero-rule"></div>
 
-    <div class="hero-info">
-      <p><b>✉</b> mirabelkssir@gmail.com</p>
-      <p><b>☎</b> 50 073 838</p>
-      <p><b>⌖</b> Tunis</p>
+    <div class="hero-details">
+
+      <p>
+        <b>✉</b>
+        mirabelkssir@gmail.com
+      </p>
+
+      <p>
+        <b>☎</b>
+        50 073 838
+      </p>
+
+      <p>
+        <b>⌖</b>
+        Tunis
+      </p>
+
     </div>
 
     <div class="hero-tagline">
@@ -696,118 +956,193 @@ footer {
 
   </div>
 
-  <div class="hero-right">
+  <div class="hero-photo">
     <img src="hero-office.jpg"
-         alt="Amira Belkssir - Conseillère fiscale">
+         alt="Amira Belkssir Conseillère Fiscale">
   </div>
 
 </section>
 
-<div class="services-strip">
-  <div class="services-row">
+<div class="trust-strip">
+  <div class="container trust-grid">
 
-    <div class="strip-item">
-      <span class="strip-icon">↗</span>
-      <div>
-        <h3>DROIT FISCAL</h3>
-        <p>Conseil &amp; Optimisation</p>
-      </div>
+    <div class="trust-item">
+      <span class="trust-icon">↗</span>
+      <span>
+        <strong>DROIT FISCAL</strong>
+        <span>Conseil & Optimisation</span>
+      </span>
     </div>
 
-    <div class="strip-item">
-      <span class="strip-icon">▤</span>
-      <div>
-        <h3>DROIT D’INVESTISSEMENT</h3>
-        <p>Accompagnement &amp; Structuration</p>
-      </div>
+    <div class="trust-item">
+      <span class="trust-icon">▤</span>
+      <span>
+        <strong>DROIT D’INVESTISSEMENT</strong>
+        <span>Accompagnement & Structuration</span>
+      </span>
     </div>
 
-    <div class="strip-item">
-      <span class="strip-icon">⚒</span>
-      <div>
-        <h3>CONTENTIEUX FISCAL</h3>
-        <p>Défense &amp; Représentation</p>
-      </div>
+    <div class="trust-item">
+      <span class="trust-icon">⚒</span>
+      <span>
+        <strong>CONTENTIEUX FISCAL</strong>
+        <span>Défense & Représentation</span>
+      </span>
     </div>
 
   </div>
 </div>
 
-<section class="section" id="apropos">
-  <div class="section-inner">
-    <h2 class="section-title">À propos</h2>
-    <p class="section-text">
-      Amira Belkssir, Conseillère Fiscale à Tunis.
-      Un accompagnement professionnel fondé sur l'expertise,
-      la stratégie et la confiance.
-      Un conseil attentif et adapté à vos enjeux fiscaux
-      et à vos projets d’investissement.
-    </p>
-  </div>
-</section>
+<section class="content" id="apropos">
 
-<section class="section" id="services">
-  <div class="section-inner">
-    <h2 class="section-title">Nos Services</h2>
+  <div class="container about-grid">
 
-    <div class="cards">
+    <div class="about-visual">
+      <img src="hero-office.jpg" alt="Bureau professionnel">
+    </div>
 
-      <div class="card">
-        <div class="icon">⚖</div>
-        <h3>Droit Fiscal</h3>
-        <p>Conseil et optimisation fiscale.</p>
+    <div class="about-copy">
+
+      <div class="eyebrow">
+        Votre confiance, notre engagement
       </div>
 
-      <div class="card">
-        <div class="icon">↗</div>
-        <h3>Droit d’Investissement</h3>
-        <p>Accompagnement et structuration.</p>
-      </div>
+      <h2>À propos</h2>
 
-      <div class="card">
-        <div class="icon">▤</div>
-        <h3>Contentieux Fiscal</h3>
-        <p>Défense et représentation.</p>
-      </div>
+      <p>
+        Amira Belkssir, Conseillère Fiscale à Tunis.
+        Un accompagnement professionnel fondé sur
+        l'expertise, la stratégie et la confiance.
+      </p>
+
+      <p>
+        Un conseil attentif et un accompagnement
+        adapté à vos enjeux fiscaux et à vos projets
+        d’investissement.
+      </p>
+
+      <a class="btn btn-gold" href="#contact">
+        Prendre contact ›
+      </a>
 
     </div>
+
   </div>
+
 </section>
 
-<section class="section" id="conseils">
-  <div class="section-inner">
-    <h2 class="section-title">Nos Conseils</h2>
-    <p class="section-text">
-      Découvrez nos conseils et informations pour mieux comprendre
-      les questions fiscales et les opportunités d'investissement.
-    </p>
+<section class="content" id="services">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">
+        Nos domaines d’intervention
+      </div>
+
+      <h2>Nos Services</h2>
+
+      <p class="section-intro">
+        Des solutions professionnelles pour vous accompagner
+        dans vos démarches et décisions.
+      </p>
+
+    </div>
+
+    <div class="service-grid">
+
+      <article class="service-card">
+        <div class="service-icon">⚖</div>
+        <h3>Droit Fiscal</h3>
+        <p>Conseil et optimisation fiscale.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">↗</div>
+        <h3>Droit d’Investissement</h3>
+        <p>Accompagnement et structuration.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">▤</div>
+        <h3>Contentieux Fiscal</h3>
+        <p>Défense et représentation.</p>
+      </article>
+
+    </div>
+
   </div>
+
 </section>
 
-<section class="section" id="contact">
-  <div class="section-inner">
-    <h2 class="section-title">Contact</h2>
-    <p class="section-text">
-      Pour toute demande d'information ou de consultation,
-      contactez-nous.
-    </p>
+<section class="content" id="conseils">
+
+  <div class="container">
+
+    <div class="advice-panel">
+
+      <div class="eyebrow">
+        Expertise & information
+      </div>
+
+      <h2>Nos Conseils</h2>
+
+      <p>
+        Découvrez nos conseils et informations pour mieux
+        comprendre les questions fiscales et les opportunités
+        d'investissement.
+      </p>
+
+      <a class="btn" href="#contact">
+        Demander un conseil ›
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="content contact-section" id="contact">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">
+        Parlons de votre projet
+      </div>
+
+      <h2>Contact</h2>
+
+      <p class="section-intro">
+        Pour toute demande d'information ou de consultation,
+        contactez-nous.
+      </p>
+
+    </div>
 
     <div class="contact-grid">
 
       <div class="contact-card">
-        <h3>☎ Téléphone</h3>
+        <div class="contact-symbol">☎</div>
+        <h3>Téléphone</h3>
         <a href="tel:+21650073838">50 073 838</a>
       </div>
 
       <div class="contact-card">
-        <h3>✉ Email</h3>
+        <div class="contact-symbol">✉</div>
+        <h3>Email</h3>
         <a href="mailto:mirabelkssir@gmail.com">
           mirabelkssir@gmail.com
         </a>
       </div>
 
     </div>
+
   </div>
+
 </section>
 
 </main>
@@ -815,6 +1150,29 @@ footer {
 <footer>
   © 2026 Amira Belkssir - Tous droits réservés. · Tunis
 </footer>
+
+<script>
+const menuButton = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav-links');
+
+menuButton.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+
+  menuButton.setAttribute(
+    'aria-label',
+    isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
+  );
+});
+
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
 
 </body>
 </html>
