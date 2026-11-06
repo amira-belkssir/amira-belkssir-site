@@ -2,355 +2,321 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amira Belkssir | Conseillère Fiscale</title>
+<meta name="description" content="Amira Belkssir, conseillère fiscale à Tunis. Expertise, stratégie et accompagnement fiscal.">
 
-  <title>Amira Belkssir | Site officiel</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <meta name="description" content="Bienvenue sur le site officiel d'Amira Belkssir. Découvrez son univers et ses projets.">
+html {
+  scroll-behavior: smooth;
+}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #081725;
+  color: #fff;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* IMAGE PRINCIPALE */
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f7f4;
-      color: #242424;
-      line-height: 1.7;
-    }
+.hero {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
 
-    header {
-      background: #ffffff;
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    }
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-    .logo {
-      font-size: 23px;
-      font-weight: bold;
-      color: #8b6b4c;
-      text-decoration: none;
-    }
+/* BOUTONS INTERACTIFS SUR L'IMAGE */
 
-    nav {
-      display: flex;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
+.hotspot {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  border-radius: 5px;
+  cursor: pointer;
+  line-height: normal;
+  text-decoration: none;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+.hotspot:focus-visible {
+  outline: 3px solid #e8b85d;
+  outline-offset: 3px;
+  background: rgba(218, 166, 77, 0.15);
+}
 
-    nav a:hover {
-      color: #a47b55;
-    }
+/* Positions des boutons selon l'image */
 
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 20px;
-      background:
-        linear-gradient(
-          rgba(30, 25, 20, 0.55),
-          rgba(30, 25, 20, 0.55)
-        ),
-        url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=85")
-        center / cover no-repeat;
-      color: white;
-    }
+.accueil {
+  left: 36.5%;
+  top: 2.8%;
+  width: 7%;
+  height: 5%;
+}
 
-    .hero-content {
-      max-width: 750px;
-    }
+.apropos {
+  left: 45%;
+  top: 2.8%;
+  width: 5.5%;
+  height: 5%;
+}
 
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 68px);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
+.services {
+  left: 53.5%;
+  top: 2.8%;
+  width: 9%;
+  height: 5%;
+}
 
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #f1eee9;
-    }
+.conseils {
+  left: 65.5%;
+  top: 2.8%;
+  width: 8%;
+  height: 5%;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
-      background: #b18a64;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+.contact-menu {
+  left: 76%;
+  top: 2.8%;
+  width: 5.5%;
+  height: 5%;
+}
 
-    .btn:hover {
-      background: #94704e;
-      transform: translateY(-2px);
-    }
+.contact-button {
+  left: 85.5%;
+  top: 2.5%;
+  width: 12%;
+  height: 5.5%;
+}
 
-    section {
-      padding: 80px 7%;
-    }
+/* SECTIONS */
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
+section.content {
+  padding: 75px 8%;
+  text-align: center;
+  background: #0b1c2a;
+  border-top: 1px solid #b89455;
+}
 
-    .section-title h2 {
-      font-size: 34px;
-      color: #8b6b4c;
-      margin-bottom: 10px;
-    }
+section.content:nth-child(even) {
+  background: #102536;
+}
 
-    .section-title p {
-      color: #777;
-    }
+h2 {
+  color: #e4b65f;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
 
-    .about {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
+section p {
+  color: #e5e5e5;
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 750px;
+  margin: auto;
+}
 
-    .about p {
-      font-size: 17px;
-      color: #555;
-    }
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 35px;
+}
 
-    .projects {
-      background: #ffffff;
-    }
+.service {
+  border: 1px solid #a9854b;
+  padding: 25px;
+  border-radius: 8px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
-    }
+.service h3 {
+  color: #e4b65f;
+  margin-bottom: 12px;
+}
 
-    .card {
-      background: #f8f7f4;
-      padding: 35px 25px;
-      border-radius: 10px;
-      text-align: center;
-      border: 1px solid #eee6dc;
-      transition: 0.3s;
-    }
+.contact-links {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-    }
+.contact-links a {
+  color: #e4b65f;
+  text-decoration: none;
+  border: 1px solid #b89455;
+  padding: 12px 22px;
+  border-radius: 5px;
+}
 
-    .card .number {
-      font-size: 35px;
-      color: #b18a64;
-      margin-bottom: 15px;
-    }
+.contact-links a:hover {
+  background: #b89455;
+  color: #081725;
+}
 
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 21px;
-    }
+footer {
+  background: #06121d;
+  color: #d7b16c;
+  text-align: center;
+  padding: 22px;
+  font-size: 14px;
+}
 
-    .card p {
-      color: #666;
-      font-size: 15px;
-    }
+/* الهاتف */
 
-    .contact {
-      text-align: center;
-    }
+@media (max-width: 600px) {
+  section.content {
+    padding: 45px 6%;
+  }
 
-    .contact p {
-      margin-bottom: 25px;
-      color: #666;
-    }
+  h2 {
+    font-size: 25px;
+  }
 
-    footer {
-      background: #292622;
-      color: #eee;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 14px;
-    }
-
-    footer span {
-      color: #c6a17d;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        justify-content: center;
-        text-align: center;
-      }
-
-      nav {
-        justify-content: center;
-        gap: 15px;
-      }
-
-      .hero {
-        min-height: 75vh;
-      }
-
-      section {
-        padding: 60px 6%;
-      }
-    }
-  </style>
+  section p {
+    font-size: 15px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <a href="#accueil" class="logo">
-      Amira Belkssir
+<!-- PAGE D'ACCUEIL -->
+
+<main>
+
+<div class="hero" id="accueil">
+
+  <img src="amira-home.png"
+       alt="Amira Belkssir - Conseillère Fiscale">
+
+  <!-- Menu interactif -->
+
+  <a class="hotspot accueil"
+     href="#accueil"
+     aria-label="Accueil"></a>
+
+  <a class="hotspot apropos"
+     href="#apropos"
+     aria-label="À propos"></a>
+
+  <a class="hotspot services"
+     href="#services"
+     aria-label="Nos Services"></a>
+
+  <a class="hotspot conseils"
+     href="#conseils"
+     aria-label="Nos Conseils"></a>
+
+  <a class="hotspot contact-menu"
+     href="#contact"
+     aria-label="Contact"></a>
+
+  <a class="hotspot contact-button"
+     href="tel:+21650073838"
+     aria-label="Nous Contacter"></a>
+
+</div>
+
+<!-- À PROPOS -->
+
+<section class="content" id="apropos">
+
+  <h2>À propos</h2>
+
+  <p>
+    Amira Belkssir, Conseillère Fiscale à Tunis.
+    Un accompagnement professionnel fondé sur
+    l'expertise, la stratégie et la confiance.
+  </p>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="content" id="services">
+
+  <h2>Nos Services</h2>
+
+  <div class="service-list">
+
+    <div class="service">
+      <h3>Droit Fiscal</h3>
+      <p>Conseil et optimisation fiscale.</p>
+    </div>
+
+    <div class="service">
+      <h3>Droit d'Investissement</h3>
+      <p>Accompagnement et structuration.</p>
+    </div>
+
+    <div class="service">
+      <h3>Contentieux Fiscal</h3>
+      <p>Défense et représentation.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONSEILS -->
+
+<section class="content" id="conseils">
+
+  <h2>Nos Conseils</h2>
+
+  <p>
+    Découvrez nos conseils et informations
+    pour mieux comprendre les questions fiscales
+    et les opportunités d'investissement.
+  </p>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="content" id="contact">
+
+  <h2>Contact</h2>
+
+  <p>
+    Pour toute demande d'information ou
+    de consultation, contactez-nous.
+  </p>
+
+  <div class="contact-links">
+
+    <a href="tel:+21650073838">
+      50 073 838
     </a>
 
-    <nav>
-      <a href="#accueil">Accueil</a>
-      <a href="#apropos">À propos</a>
-      <a href="#projets">Projets</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <a href="mailto:mirabelkssir@gmail.com">
+      Envoyer un email
+    </a>
 
-  <main>
+  </div>
 
-    <section class="hero" id="accueil">
-      <div class="hero-content">
+</section>
 
-        <h1>Bienvenue dans mon univers</h1>
+</main>
 
-        <p>
-          Découvrez mon parcours, mes projets
-          et ma passion à travers un espace
-          qui me ressemble.
-        </p>
-
-        <a href="#apropos" class="btn">
-          Découvrir mon univers
-        </a>
-
-      </div>
-    </section>
-
-    <section id="apropos">
-
-      <div class="section-title">
-        <h2>À propos de moi</h2>
-        <p>Une présentation de mon univers</p>
-      </div>
-
-      <div class="about">
-        <p>
-          Je suis Amira Belkssir.
-          Bienvenue sur mon site officiel.
-
-          Cet espace a été créé pour partager
-          mon parcours, mes idées, mes projets
-          et les choses qui me passionnent.
-
-          Découvrez mon univers et restez
-          connectés pour suivre mes nouveautés.
-        </p>
-      </div>
-
-    </section>
-
-    <section class="projects" id="projets">
-
-      <div class="section-title">
-        <h2>Mon univers</h2>
-        <p>Découvrez les différentes facettes de mon parcours</p>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <div class="number">01</div>
-          <h3>Mon parcours</h3>
-          <p>
-            Découvrez mon histoire,
-            mon expérience et mon évolution.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="number">02</div>
-          <h3>Mes projets</h3>
-          <p>
-            Un aperçu de mes réalisations,
-            de mes idées et de mes ambitions.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="number">03</div>
-          <h3>Mes passions</h3>
-          <p>
-            Explorez les inspirations
-            et les passions qui me définissent.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section class="contact" id="contact">
-
-      <div class="section-title">
-        <h2>Restons en contact</h2>
-        <p>
-          Vous souhaitez me contacter
-          ou en savoir plus ?
-        </p>
-      </div>
-
-      <p>
-        N'hésitez pas à me contacter
-        pour échanger.
-      </p>
-
-      <a href="mailto:" class="btn">
-        Me contacter
-      </a>
-
-    </section>
-
-  </main>
-
-  <footer>
-    <p>
-      © 2026 <span>Amira Belkssir</span>.
-      Tous droits réservés.
-    </p>
-  </footer>
+<footer>
+  © 2026 Amira Belkssir - Tous droits réservés.
+</footer>
 
 </body>
 </html>
