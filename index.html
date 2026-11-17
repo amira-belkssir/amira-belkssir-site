@@ -12,6 +12,7 @@
 :root {
   --navy:#071725;
   --navy2:#0b2030;
+  --card:#102a3d;
   --gold:#e5b45d;
   --gold2:#bd8d43;
   --white:#f7f4ed;
@@ -33,6 +34,7 @@ a {color:inherit;text-decoration:none;}
 .container {width:min(1380px,calc(100% - 48px));margin:auto;}
 
 /* HEADER */
+
 .site-header {
   position:sticky;
   top:0;
@@ -100,7 +102,6 @@ a {color:inherit;text-decoration:none;}
 }
 
 .nav-links a {white-space:nowrap;}
-
 .nav-links a:hover,
 .nav-links a.active {color:var(--gold);}
 
@@ -134,6 +135,7 @@ a {color:inherit;text-decoration:none;}
 }
 
 /* HERO */
+
 .hero {
   min-height:590px;
   display:grid;
@@ -223,6 +225,8 @@ a {color:inherit;text-decoration:none;}
   font-size:14px;
 }
 
+/* CONTACT DETAILS - NEW DESIGN */
+
 .hero-details {
   width:min(100%,500px);
   margin:0 auto;
@@ -233,21 +237,36 @@ a {color:inherit;text-decoration:none;}
 .hero-details p {
   display:flex;
   align-items:center;
-  gap:15px;
-  margin:5px 0;
+  gap:14px;
+  margin:9px 0;
+  min-width:0;
 }
 
-.hero-details b {
-  width:37px;
-  height:37px;
-  border:2px solid var(--gold);
-  border-radius:50%;
-  display:inline-grid;
+.contact-icon {
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+  display:grid;
   place-items:center;
   color:var(--gold);
-  font:20px Arial;
-  flex:0 0 37px;
 }
+
+.contact-icon svg {
+  width:23px;
+  height:23px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.hero-details a {
+  transition:color .2s;
+  overflow-wrap:anywhere;
+}
+
+.hero-details a:hover {color:var(--gold);}
 
 .hero-tagline {
   color:var(--gold);
@@ -279,48 +298,106 @@ a {color:inherit;text-decoration:none;}
   object-position:center 38%;
 }
 
-/* SERVICES */
+/* SERVICES - NEW LUXURY CARDS */
+
 .trust-strip {
+  padding:25px 0;
+  background:linear-gradient(180deg,#081a28,#071725);
   border-bottom:1px solid var(--line);
-  background:#081a28;
 }
 
 .trust-grid {
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  padding:20px 0;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
 }
 
 .trust-item {
+  min-width:0;
+  min-height:135px;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:18px;
-  padding:8px 18px;
+  flex-direction:column;
+  text-align:center;
+  gap:9px;
+  padding:18px 12px;
+  background:linear-gradient(145deg,#102b3e,#0b2030);
+  border:1px solid rgba(229,180,93,.42);
+  border-radius:12px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease,
+             border-color .25s ease,
+             background .25s ease,
+             box-shadow .25s ease;
 }
 
-.trust-item+.trust-item {
-  border-left:1px solid var(--gold2);
+.trust-item:before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:20%;
+  right:20%;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.trust-item:hover {
+  transform:translateY(-5px);
+  border-color:var(--gold);
+  background:#14334a;
+  box-shadow:0 9px 25px rgba(0,0,0,.25);
 }
 
 .trust-icon {
-  font-size:43px;
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
   color:var(--gold);
-  line-height:1;
+}
+
+.trust-icon svg {
+  width:34px;
+  height:34px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
 
 .trust-item strong {
   display:block;
   color:var(--gold);
-  font:bold clamp(15px,1.7vw,22px) Georgia,serif;
+  font:bold clamp(14px,1.5vw,19px) Georgia,serif;
+  line-height:1.35;
+  margin-bottom:4px;
 }
 
-.trust-item span:last-child {
-  font:16px Georgia,serif;
+.trust-item .service-description {
+  display:block;
+  font:14px Georgia,serif;
   color:#e7e7e7;
+  line-height:1.4;
+}
+
+.trust-item .service-arrow {
+  color:var(--gold);
+  font-size:15px;
+  opacity:0;
+  transform:translateY(4px);
+  transition:.2s;
+}
+
+.trust-item:hover .service-arrow {
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* FOOTER */
+
 .copyright {
   background:var(--navy);
   color:var(--gold);
@@ -332,9 +409,7 @@ a {color:inherit;text-decoration:none;}
   letter-spacing:.5px;
 }
 
-/* =================================
-   AMIRA VIRTUAL ASSISTANT
-================================= */
+/* AMIRA VIRTUAL ASSISTANT */
 
 .amira-widget {
   position:fixed;
@@ -347,8 +422,6 @@ a {color:inherit;text-decoration:none;}
   gap:8px;
 }
 
-/* TRANSPARENT ASSISTANT IMAGE */
-
 .amira-design {
   display:block;
   width:220px;
@@ -360,17 +433,8 @@ a {color:inherit;text-decoration:none;}
   transition:transform .25s ease;
 }
 
-.amira-design:hover {
-  transform:scale(1.02);
-}
-
-/* HIDE IMAGE WHEN CHAT IS OPEN */
-
-.amira-widget.chat-open .amira-design {
-  display:none;
-}
-
-/* CHAT WINDOW */
+.amira-design:hover {transform:scale(1.02);}
+.amira-widget.chat-open .amira-design {display:none;}
 
 .amira-chat {
   display:none;
@@ -393,17 +457,9 @@ a {color:inherit;text-decoration:none;}
 }
 
 @keyframes chatAppear {
-  from {
-    opacity:0;
-    transform:translateY(10px);
-  }
-  to {
-    opacity:1;
-    transform:translateY(0);
-  }
+  from {opacity:0;transform:translateY(10px);}
+  to {opacity:1;transform:translateY(0);}
 }
-
-/* CHAT HEADER */
 
 .amira-chat-header {
   flex-shrink:0;
@@ -449,8 +505,6 @@ a {color:inherit;text-decoration:none;}
   padding:0 5px;
 }
 
-/* LANGUAGE SELECTOR */
-
 .amira-language {
   flex-shrink:0;
   display:flex;
@@ -478,8 +532,6 @@ a {color:inherit;text-decoration:none;}
   border-color:#e5b45d;
 }
 
-/* SCROLLABLE CHAT BODY */
-
 .amira-chat-body {
   flex:1;
   min-height:0;
@@ -494,16 +546,11 @@ a {color:inherit;text-decoration:none;}
   scrollbar-color:#bd8d43 #eee8dc;
 }
 
-.amira-chat-body::-webkit-scrollbar {
-  width:5px;
-}
-
+.amira-chat-body::-webkit-scrollbar {width:5px;}
 .amira-chat-body::-webkit-scrollbar-thumb {
   background:#bd8d43;
   border-radius:10px;
 }
-
-/* MESSAGES */
 
 .amira-messages {
   display:flex;
@@ -548,8 +595,6 @@ a {color:inherit;text-decoration:none;}
   margin-right:6px;
 }
 
-/* QUICK QUESTIONS */
-
 .amira-choices {
   display:flex;
   flex-direction:column;
@@ -571,10 +616,7 @@ a {color:inherit;text-decoration:none;}
   transition:.2s;
 }
 
-.amira-choice span {
-  display:block;
-}
-
+.amira-choice span {display:block;}
 .amira-choice .ar {
   direction:rtl;
   text-align:right;
@@ -582,11 +624,7 @@ a {color:inherit;text-decoration:none;}
   margin-top:4px;
 }
 
-.amira-choice:hover {
-  background:#eee5d5;
-}
-
-/* NOTE */
+.amira-choice:hover {background:#eee5d5;}
 
 .amira-note {
   font-size:12px;
@@ -594,8 +632,6 @@ a {color:inherit;text-decoration:none;}
   text-align:center;
   padding:4px 5px 7px;
 }
-
-/* INPUT AREA */
 
 .amira-input-area {
   flex-shrink:0;
@@ -619,9 +655,7 @@ a {color:inherit;text-decoration:none;}
   color:#142b3b;
 }
 
-.amira-input:focus {
-  border-color:#bd8d43;
-}
+.amira-input:focus {border-color:#bd8d43;}
 
 .amira-action {
   width:39px;
@@ -649,14 +683,10 @@ a {color:inherit;text-decoration:none;}
 }
 
 @keyframes pulse {
-  50% {
-    box-shadow:0 0 0 5px rgba(179,38,38,.18);
-  }
+  50% {box-shadow:0 0 0 5px rgba(179,38,38,.18);}
 }
 
-.amira-chat-footer {
-  display:none;
-}
+.amira-chat-footer {display:none;}
 
 /* TABLET */
 
@@ -668,10 +698,7 @@ a {color:inherit;text-decoration:none;}
     height:56px;
     font-size:32px;
   }
-  .nav-links {
-    gap:12px;
-    font-size:14px;
-  }
+  .nav-links {gap:12px;font-size:14px;}
   .nav-cta {padding:9px 11px;}
   .hero,.hero-photo {min-height:500px;}
   .hero-copy {padding-inline:32px;}
@@ -681,19 +708,14 @@ a {color:inherit;text-decoration:none;}
 
 @media(max-width:760px) {
 
-  .container {
-    width:calc(100% - 20px);
-  }
+  .container {width:calc(100% - 20px);}
 
   .nav-wrap {
     min-height:62px;
     gap:5px;
   }
 
-  .brand {
-    gap:6px;
-    min-width:0;
-  }
+  .brand {gap:6px;min-width:0;}
 
   .brand-mark {
     width:36px;
@@ -812,17 +834,19 @@ a {color:inherit;text-decoration:none;}
   }
 
   .hero-details p {
-    gap:5px;
-    margin:4px 0;
-    overflow-wrap:anywhere;
+    gap:4px;
+    margin:5px 0;
   }
 
-  .hero-details b {
-    width:clamp(16px,5vw,25px);
-    height:clamp(16px,5vw,25px);
-    flex:0 0 clamp(16px,5vw,25px);
-    font-size:clamp(8px,2.5vw,13px);
-    border-width:1px;
+  .contact-icon {
+    width:clamp(17px,5vw,25px);
+    height:clamp(17px,5vw,25px);
+    flex:0 0 clamp(17px,5vw,25px);
+  }
+
+  .contact-icon svg {
+    width:clamp(14px,4vw,20px);
+    height:clamp(14px,4vw,20px);
   }
 
   .hero-tagline {
@@ -852,39 +876,43 @@ a {color:inherit;text-decoration:none;}
     object-position:center 38%;
   }
 
-  /* SERVICES */
+  /* SERVICE CARDS MOBILE */
+
+  .trust-strip {padding:12px 0;}
 
   .trust-grid {
     grid-template-columns:repeat(3,minmax(0,1fr));
-    padding:8px 0;
+    gap:6px;
   }
 
   .trust-item {
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
-    gap:5px;
-    padding:8px 3px;
-    min-width:0;
-  }
-
-  .trust-item+.trust-item {
-    border-left:1px solid var(--gold2);
+    min-height:110px;
+    padding:10px 4px;
+    gap:6px;
+    border-radius:8px;
   }
 
   .trust-icon {
-    font-size:clamp(18px,6vw,30px);
+    width:28px;
+    height:28px;
+  }
+
+  .trust-icon svg {
+    width:25px;
+    height:25px;
   }
 
   .trust-item strong {
     font-size:clamp(8px,2.5vw,12px);
-    line-height:1.25;
+    line-height:1.3;
   }
 
-  .trust-item span:last-child {
+  .trust-item .service-description {
     font-size:clamp(7px,2vw,10px);
     line-height:1.3;
   }
+
+  .trust-item .service-arrow {display:none;}
 
   .copyright {
     font-size:11px;
@@ -911,9 +939,7 @@ a {color:inherit;text-decoration:none;}
     min-height:280px;
   }
 
-  .amira-chat-title strong {
-    font-size:16px;
-  }
+  .amira-chat-title strong {font-size:16px;}
 
   .amira-choice {
     font-size:12px;
@@ -922,18 +948,13 @@ a {color:inherit;text-decoration:none;}
 }
 
 @media(max-width:360px) {
-
   .brand-name {font-size:11px;}
   .brand-sub {font-size:6px;}
   .hero-copy {padding-inline:5px;}
   .hero-copy h1 {font-size:13px;}
   .hero-details {font-size:8px;}
-
   .amira-design {width:155px;}
-
-  .amira-chat {
-    width:calc(100vw - 16px);
-  }
+  .amira-chat {width:calc(100vw - 16px);}
 }
 </style>
 </head>
@@ -947,7 +968,6 @@ a {color:inherit;text-decoration:none;}
 
     <a class="brand" href="#accueil">
       <span class="brand-mark">BC</span>
-
       <span class="brand-name">
         AMIRA BELKSSIR
         <span class="brand-sub">CONSEILLÈRE FISCALE</span>
@@ -978,92 +998,162 @@ a {color:inherit;text-decoration:none;}
 
 <main>
 
-  <section class="hero" id="accueil">
+<section class="hero" id="accueil">
 
-    <div class="hero-copy">
+  <div class="hero-copy">
 
-      <div class="hero-emblem">BC</div>
+    <div class="hero-emblem">BC</div>
 
-      <h1>AMIRA BELKSSIR</h1>
+    <h1>AMIRA BELKSSIR</h1>
 
-      <div class="hero-subtitle">
-        CONSEILLÈRE FISCALE
-      </div>
+    <div class="hero-subtitle">
+      CONSEILLÈRE FISCALE
+    </div>
 
-      <div class="hero-rule"></div>
+    <div class="hero-rule"></div>
 
-      <div class="hero-details">
+    <div class="hero-details">
 
-        <p><b>✉</b> mirabelkssir@gmail.com</p>
-        <p><b>☎</b> 50 073 838</p>
-        <p><b>⌖</b> Tunis</p>
+      <!-- EMAIL -->
+      <p>
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="m4 7 8 6 8-6"/>
+          </svg>
+        </span>
+        <a href="mailto:mirabelkssir@gmail.com">
+          mirabelkssir@gmail.com
+        </a>
+      </p>
 
-      </div>
+      <!-- PHONE -->
+      <p>
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 3h4l2 5-2.5 1.8a15 15 0 0 0 5.7 5.7L16 13l5 2v4c0 1.1-.9 2-2 2C10.7 21 3 13.3 3 5c0-1.1.9-2 2-2Z"/>
+          </svg>
+        </span>
+        <a href="tel:+21650073838">50 073 838</a>
+      </p>
 
-      <div class="hero-tagline">
-        EXPERTISE · STRATÉGIE · PERFORMANCE
-      </div>
-
-      <div class="hero-motto">
-        Votre confiance, notre engagement.
-      </div>
+      <!-- LOCATION -->
+      <p>
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+        </span>
+        <span>Tunis</span>
+      </p>
 
     </div>
 
-    <div class="hero-photo">
-      <img src="hero-office.jpg"
-        alt="Amira Belkssir Conseillère Fiscale">
+    <div class="hero-tagline">
+      EXPERTISE · STRATÉGIE · PERFORMANCE
     </div>
 
-  </section>
-
-  <!-- SERVICES -->
-
-  <div class="trust-strip" id="services">
-
-    <div class="container trust-grid">
-
-      <!-- DROIT FISCAL -->
-      <a class="trust-item" href="droit-fiscal.html"
-         aria-label="Découvrir le droit fiscal">
-
-        <span class="trust-icon">↗</span>
-
-        <span>
-          <strong>DROIT FISCAL</strong>
-          <span>Conseil & Optimisation</span>
-        </span>
-
-      </a>
-
-      <!-- DROIT D'INVESTISSEMENT -->
-      <a class="trust-item" href="droit-investissement.html"
-         aria-label="Découvrir le droit d'investissement">
-
-        <span class="trust-icon">▤</span>
-
-        <span>
-          <strong>DROIT D’INVESTISSEMENT</strong>
-          <span>Accompagnement & Structuration</span>
-        </span>
-
-      </a>
-
-      <!-- CONTENTIEUX FISCAL -->
-      <a class="trust-item" href="contentieux-fiscal.html"
-         aria-label="Découvrir le contentieux fiscal">
-
-        <span class="trust-icon">⚒</span>
-
-        <span>
-          <strong>CONTENTIEUX FISCAL</strong>
-          <span>Défense & Représentation</span>
-        </span>
-
-      </a>
-
+    <div class="hero-motto">
+      Votre confiance, notre engagement.
     </div>
+
   </div>
+
+  <div class="hero-photo">
+    <img src="hero-office.jpg"
+      alt="Amira Belkssir Conseillère Fiscale">
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<div class="trust-strip" id="services">
+
+  <div class="container trust-grid">
+
+    <!-- DROIT FISCAL -->
+
+    <a class="trust-item"
+       href="droit-fiscal.html"
+       aria-label="Découvrir le droit fiscal">
+
+      <span class="trust-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 20 20 4"/>
+          <path d="M11 4h9v9"/>
+          <path d="M4 14v6h6"/>
+        </svg>
+      </span>
+
+      <span>
+        <strong>DROIT FISCAL</strong>
+        <span class="service-description">
+          Conseil & Optimisation
+        </span>
+      </span>
+
+      <span class="service-arrow">Découvrir →</span>
+
+    </a>
+
+    <!-- DROIT D'INVESTISSEMENT -->
+
+    <a class="trust-item"
+       href="droit-investissement.html"
+       aria-label="Découvrir le droit d'investissement">
+
+      <span class="trust-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="14" rx="2"/>
+          <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+          <path d="M3 12h18"/>
+          <path d="M10 12v2h4v-2"/>
+        </svg>
+      </span>
+
+      <span>
+        <strong>DROIT D’INVESTISSEMENT</strong>
+        <span class="service-description">
+          Accompagnement & Structuration
+        </span>
+      </span>
+
+      <span class="service-arrow">Découvrir →</span>
+
+    </a>
+
+    <!-- CONTENTIEUX FISCAL -->
+
+    <a class="trust-item"
+       href="contentieux-fiscal.html"
+       aria-label="Découvrir le contentieux fiscal">
+
+      <span class="trust-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3v18"/>
+          <path d="M5 6h14"/>
+          <path d="m5 6-3 7h6L5 6Z"/>
+          <path d="m19 6-3 7h6l-3-7Z"/>
+          <path d="M8 21h8"/>
+          <path d="M9 17h6"/>
+        </svg>
+      </span>
+
+      <span>
+        <strong>CONTENTIEUX FISCAL</strong>
+        <span class="service-description">
+          Défense & Représentation
+        </span>
+      </span>
+
+      <span class="service-arrow">Découvrir →</span>
+
+    </a>
+
+  </div>
+</div>
 
 </main>
 
@@ -1073,20 +1163,13 @@ a {color:inherit;text-decoration:none;}
   © 2026 Amira Belkssir — Tous droits réservés.
 </footer>
 
-<!-- =================================
-     AMIRA VIRTUAL ASSISTANT
-================================= -->
+<!-- AMIRA VIRTUAL ASSISTANT -->
 
 <div class="amira-widget" id="amiraWidget">
 
-  <!-- CHAT WINDOW -->
-
   <div class="amira-chat" id="amiraChat">
 
-    <!-- HEADER -->
-
     <div class="amira-chat-header">
-
       <div class="amira-chat-title">
         <strong>Amira | Assistante virtuelle</strong>
         <span>
@@ -1098,10 +1181,7 @@ a {color:inherit;text-decoration:none;}
       <button class="amira-close"
         id="amiraClose"
         aria-label="Fermer">×</button>
-
     </div>
-
-    <!-- LANGUAGE -->
 
     <div class="amira-language">
 
@@ -1114,11 +1194,7 @@ a {color:inherit;text-decoration:none;}
 
     </div>
 
-    <!-- SCROLLABLE CONTENT -->
-
     <div class="amira-chat-body" id="amiraChatBody">
-
-      <!-- MESSAGES -->
 
       <div class="amira-messages" id="amiraMessages">
 
@@ -1129,8 +1205,6 @@ a {color:inherit;text-decoration:none;}
         </div>
 
       </div>
-
-      <!-- QUICK QUESTIONS -->
 
       <div class="amira-choices" id="amiraChoices">
 
@@ -1156,15 +1230,11 @@ a {color:inherit;text-decoration:none;}
 
       </div>
 
-      <!-- NOTE -->
-
       <div class="amira-note" id="amiraNote">
         Vous pouvez écrire ou parler à votre assistante.
       </div>
 
     </div>
-
-    <!-- FIXED INPUT -->
 
     <form class="amira-input-area" id="amiraForm">
 
@@ -1192,8 +1262,6 @@ a {color:inherit;text-decoration:none;}
 
   </div>
 
-  <!-- TRANSPARENT IMAGE -->
-
   <img
     src="amira_assistant_transparent.png"
     alt="Amira, votre assistante virtuelle"
@@ -1210,23 +1278,15 @@ const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 
 menuButton.addEventListener('click', () => {
-
   const isOpen = nav.classList.toggle('open');
-
   menuButton.setAttribute('aria-expanded', String(isOpen));
-
 });
 
 nav.querySelectorAll('a').forEach(link => {
-
   link.addEventListener('click', () => {
-
     nav.classList.remove('open');
-
     menuButton.setAttribute('aria-expanded', 'false');
-
   });
-
 });
 
 /* ELEMENTS */
@@ -1250,33 +1310,25 @@ let currentLanguage = 'fr';
 /* SCROLL */
 
 function scrollChatToBottom() {
-
   requestAnimationFrame(() => {
     amiraChatBody.scrollTop = amiraChatBody.scrollHeight;
   });
-
 }
 
 /* OPEN / CLOSE CHAT */
 
 function openAmiraChat() {
-
   amiraChat.classList.add('open');
   amiraWidget.classList.add('chat-open');
-
   scrollChatToBottom();
-
 }
 
 function closeAmiraChat() {
-
   amiraChat.classList.remove('open');
   amiraWidget.classList.remove('chat-open');
-
 }
 
 amiraDesign.addEventListener('click', openAmiraChat);
-
 amiraClose.addEventListener('click', closeAmiraChat);
 
 /* LANGUAGE */
@@ -1295,9 +1347,7 @@ document.querySelectorAll('.amira-language button').forEach(button => {
     if (currentLanguage === 'ar') {
 
       amiraInput.placeholder = 'اكتب رسالتك هنا...';
-
-      amiraNote.textContent =
-        'يمكنك الكتابة أو التحدث مع مساعدتك.';
+      amiraNote.textContent = 'يمكنك الكتابة أو التحدث مع مساعدتك.';
 
       addMessage(
         'مرحباً بك! أنا المساعدة الافتراضية لأميرة. كيف يمكنني مساعدتك؟'
@@ -1306,9 +1356,7 @@ document.querySelectorAll('.amira-language button').forEach(button => {
     } else {
 
       amiraInput.placeholder = 'Écrivez votre message...';
-
-      amiraNote.textContent =
-        'Vous pouvez écrire ou parler à votre assistante.';
+      amiraNote.textContent = 'Vous pouvez écrire ou parler à votre assistante.';
 
       addMessage(
         "Bonjour ! Je suis l'assistante IA d'Amira. Comment puis-je vous aider ?"
@@ -1329,7 +1377,6 @@ function addMessage(text, isUser = false) {
   if (isUser) {
 
     wrapper.className = 'amira-user-bubble';
-
     wrapper.textContent = text;
 
   } else {
@@ -1337,11 +1384,9 @@ function addMessage(text, isUser = false) {
     wrapper.className = 'amira-bubble';
 
     const textNode = document.createElement('span');
-
     textNode.textContent = text;
 
     const speaker = document.createElement('button');
-
     speaker.className = 'amira-speak';
     speaker.type = 'button';
     speaker.textContent = '🔊';
@@ -1357,9 +1402,7 @@ function addMessage(text, isUser = false) {
   }
 
   amiraMessages.appendChild(wrapper);
-
   scrollChatToBottom();
-
 }
 
 /* ANSWERS */
@@ -1405,31 +1448,23 @@ const answers = {
 const labels = {
 
   fiscal: {
-
     fr:"Je souhaite des informations sur le droit fiscal.",
     ar:"أريد معلومات حول القانون الجبائي."
-
   },
 
   investissement: {
-
     fr:"Je souhaite des informations sur le droit d'investissement.",
     ar:"أريد معلومات حول قانون الاستثمار."
-
   },
 
   contentieux: {
-
     fr:"Je souhaite des informations sur le contentieux fiscal.",
     ar:"أريد معلومات حول النزاعات الجبائية."
-
   },
 
   contact: {
-
     fr:"Je souhaite contacter le cabinet.",
     ar:"أريد التواصل مع مكتب أميرة."
-
   }
 
 };
@@ -1447,7 +1482,6 @@ function speakText(text, language) {
     );
 
     return;
-
   }
 
   window.speechSynthesis.cancel();
@@ -1479,13 +1513,10 @@ function speakText(text, language) {
   });
 
   if (preferredVoice || anyLanguageVoice) {
-
     utterance.voice = preferredVoice || anyLanguageVoice;
-
   }
 
   window.speechSynthesis.speak(utterance);
-
 }
 
 /* QUICK QUESTIONS */
@@ -1501,7 +1532,6 @@ amiraChoices.querySelectorAll('button').forEach(button => {
     const answer = answers[question][currentLanguage];
 
     addMessage(answer);
-
     speakText(answer, currentLanguage);
 
     if (question === 'contact') {
@@ -1519,7 +1549,6 @@ amiraChoices.querySelectorAll('button').forEach(button => {
         'display:block;text-align:center;background:#e5b45d;color:#071725;padding:11px;border-radius:8px;font-weight:bold;font-size:13px;margin:5px 0 12px;';
 
       amiraMessages.appendChild(contact);
-
       scrollChatToBottom();
 
     }
@@ -1539,7 +1568,6 @@ amiraForm.addEventListener('submit', event => {
   if (!text) return;
 
   addMessage(text, true);
-
   amiraInput.value = '';
 
   processMessage(text);
@@ -1557,33 +1585,25 @@ function processMessage(text) {
   if (
     /fiscal|impôt|impots|taxe|déclaration|جبائي|جباية|ضريبة|ضرائب/.test(value)
   ) {
-
     key = 'fiscal';
-
   }
 
   else if (
     /investissement|investir|projet|استثمار|الاستثمار|مشروع/.test(value)
   ) {
-
     key = 'investissement';
-
   }
 
   else if (
     /contentieux|litige|réclamation|نزاع|نزاعات|اعتراض/.test(value)
   ) {
-
     key = 'contentieux';
-
   }
 
   else if (
     /contact|téléphone|appeler|email|mail|اتصال|تواصل|هاتف/.test(value)
   ) {
-
     key = 'contact';
-
   }
 
   if (key) {
@@ -1591,11 +1611,8 @@ function processMessage(text) {
     const answer = answers[key][currentLanguage];
 
     setTimeout(() => {
-
       addMessage(answer);
-
       speakText(answer, currentLanguage);
-
     }, 400);
 
   } else {
@@ -1607,11 +1624,8 @@ function processMessage(text) {
       : "Merci pour votre message. Je n'ai pas bien compris votre demande. Vous pouvez choisir l'un des quatre sujets ou contacter directement le cabinet au 50 073 838.";
 
     setTimeout(() => {
-
       addMessage(unknown);
-
       speakText(unknown, currentLanguage);
-
     }, 400);
 
   }
@@ -1635,7 +1649,6 @@ if (SpeechRecognition) {
   recognition.onstart = () => {
 
     amiraMic.classList.add('listening');
-
     amiraMic.textContent = '🔴';
 
     amiraNote.textContent =
@@ -1648,7 +1661,6 @@ if (SpeechRecognition) {
   recognition.onend = () => {
 
     amiraMic.classList.remove('listening');
-
     amiraMic.textContent = '🎙';
 
     amiraNote.textContent =
@@ -1663,7 +1675,6 @@ if (SpeechRecognition) {
     const spokenText = event.results[0][0].transcript;
 
     amiraInput.value = spokenText;
-
     amiraForm.requestSubmit();
 
   };
@@ -1683,13 +1694,9 @@ if (SpeechRecognition) {
       currentLanguage === 'ar' ? 'ar-TN' : 'fr-FR';
 
     try {
-
       recognition.start();
-
     } catch (error) {
-
       console.log('Microphone déjà actif.');
-
     }
 
   });
@@ -1713,9 +1720,7 @@ if (SpeechRecognition) {
 if ('speechSynthesis' in window) {
 
   window.speechSynthesis.onvoiceschanged = () => {
-
     window.speechSynthesis.getVoices();
-
   };
 
 }
