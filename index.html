@@ -162,67 +162,97 @@ a {color:inherit;text-decoration:none;}
   border-top:1px solid rgba(229,180,93,.35);letter-spacing:.5px;
 }
 
-/* AMIRA ASSISTANT */
+/* ASSISTANT WIDGET */
 .amira-widget {
-  position:fixed;right:18px;bottom:12px;z-index:1000;
+  position:fixed;right:15px;bottom:10px;z-index:1000;
   display:flex;flex-direction:column;align-items:flex-end;gap:5px;
 }
 .amira-intro {
-  display:flex;align-items:center;gap:10px;
-  margin-right:8px;max-width:290px;
+  display:flex;align-items:center;gap:8px;
+  margin-right:5px;max-width:290px;
 }
 .amira-message {
   background:#fff;color:#142b3b;border:1px solid var(--gold);
-  border-radius:13px 13px 3px 13px;padding:11px 14px;
-  font-size:13px;line-height:1.45;
+  border-radius:14px 14px 3px 14px;padding:10px 13px;
+  font-size:13px;line-height:1.5;
   box-shadow:0 5px 20px rgba(0,0,0,.3);
   cursor:pointer;text-align:left;
 }
-.amira-message strong {display:block;color:#a8752f;margin-bottom:3px;}
+.amira-message strong {
+  display:block;color:#a8752f;margin-bottom:3px;
+}
 .amira-character {
-  width:155px;height:auto;max-height:255px;
-  object-fit:contain;object-position:bottom;cursor:pointer;
+  width:130px;height:auto;max-height:215px;
+  object-fit:contain;object-position:bottom;
+  cursor:pointer;
   filter:drop-shadow(0 5px 9px rgba(0,0,0,.25));
-  transform-origin:bottom center;
-  animation:amiraFloat 3.5s ease-in-out infinite;
   transition:transform .3s ease;
 }
-.amira-character:hover {transform:scale(1.04);}
-@keyframes amiraFloat {
-  0%,100% {transform:translateY(0);}
-  50% {transform:translateY(-7px);}
+.amira-character:hover {transform:scale(1.03);}
+
+/* GOLD AND BLUE ROUND PLATFORM */
+.amira-platform {
+  width:118px;height:19px;
+  border:2px solid var(--gold);
+  border-radius:50%;
+  background:linear-gradient(180deg,#153b56,#071725);
+  box-shadow:
+    0 0 7px #e5b45d,
+    0 0 14px rgba(229,180,93,.6),
+    0 4px 12px #006cff;
+  margin-top:-8px;
+  position:relative;
+}
+.amira-platform:after {
+  content:"";
+  position:absolute;inset:4px 9px;
+  border-radius:50%;
+  border:1px solid #348bff;
 }
 
-/* CHAT */
+/* CHAT WINDOW */
 .amira-chat {
-  display:none;width:min(350px,calc(100vw - 30px));
-  height:440px;max-height:65vh;
-  background:#f7f4ed;color:#142b3b;
-  border:1px solid var(--gold);border-radius:16px;
-  overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4);
+  display:none;
+  width:min(390px,calc(100vw - 24px));
+  height:570px;
+  max-height:75vh;
+  background:#f7f4ed;
+  color:#142b3b;
+  border:1.5px solid var(--gold);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 12px 40px rgba(0,0,0,.45);
   flex-direction:column;
 }
-.amira-chat.open {display:flex;animation:chatAppear .25s ease-out;}
+.amira-chat.open {
+  display:flex;
+  animation:chatAppear .25s ease-out;
+}
 @keyframes chatAppear {
   from {opacity:0;transform:translateY(12px);}
   to {opacity:1;transform:translateY(0);}
 }
 .amira-chat-header {
   background:linear-gradient(135deg,#071725,#15364a);
-  color:white;padding:13px 15px;display:flex;
-  align-items:center;justify-content:space-between;
+  color:white;padding:14px 16px;
+  display:flex;align-items:center;
+  justify-content:space-between;
   border-bottom:2px solid var(--gold);
 }
-.amira-chat-title {display:flex;flex-direction:column;}
-.amira-chat-title strong {font:bold 17px Georgia,serif;color:var(--gold);}
-.amira-chat-title span {font-size:11px;color:#e5e0d5;}
+.amira-chat-title {
+  display:flex;flex-direction:column;
+}
+.amira-chat-title strong {
+  font:bold 19px Georgia,serif;color:var(--gold);
+}
+.amira-chat-title span {font-size:12px;color:#e5e0d5;}
 .amira-online {
-  display:inline-block;width:7px;height:7px;
-  background:#63c58a;border-radius:50%;margin-right:4px;
+  display:inline-block;width:8px;height:8px;
+  background:#63c58a;border-radius:50%;margin-right:5px;
 }
 .amira-close {
   background:transparent;border:none;color:white;
-  font-size:25px;cursor:pointer;padding:0 5px;
+  font-size:28px;cursor:pointer;padding:0 5px;
 }
 .amira-chat-body {
   flex:1;overflow-y:auto;padding:15px 12px;
@@ -230,28 +260,98 @@ a {color:inherit;text-decoration:none;}
 }
 .amira-bubble {
   background:white;border:1px solid #e6d9c3;
-  border-radius:12px 12px 12px 3px;padding:10px 12px;
-  font-size:13px;line-height:1.5;max-width:90%;
-  align-self:flex-start;color:#263b4b;white-space:pre-line;
+  border-radius:13px 13px 13px 3px;
+  padding:11px 12px;font-size:13px;
+  line-height:1.6;max-width:94%;
+  align-self:flex-start;color:#263b4b;
+  white-space:pre-line;
 }
 .amira-user-bubble {
   background:#15364a;color:white;
-  border-radius:12px 12px 3px 12px;padding:10px 12px;
-  font-size:13px;line-height:1.5;max-width:90%;
+  border-radius:13px 13px 3px 13px;
+  padding:10px 12px;font-size:13px;
+  line-height:1.6;max-width:90%;
   align-self:flex-end;white-space:pre-line;
 }
+.amira-speak {
+  border:0;background:transparent;
+  color:#1761a0;font-size:19px;
+  cursor:pointer;margin-right:6px;
+}
+
+/* LANGUAGE SELECTOR */
+.amira-language {
+  display:flex;gap:8px;padding:10px 12px;
+  background:#eee8dc;border-bottom:1px solid #d9c7a8;
+}
+.amira-language button {
+  flex:1;padding:7px;border:1px solid #bd8d43;
+  border-radius:8px;background:white;color:#142b3b;
+  cursor:pointer;font-size:12px;font-weight:bold;
+}
+.amira-language button.selected {
+  background:#15364a;color:#fff;border-color:#e5b45d;
+}
+
+/* QUESTIONS */
 .amira-choices {
-  display:flex;flex-direction:column;gap:7px;padding:0 12px 12px;
+  display:flex;flex-direction:column;
+  gap:7px;padding:8px 12px 12px;
 }
 .amira-choice {
   background:transparent;border:1px solid #bd8d43;
-  border-radius:8px;padding:9px 10px;color:#142b3b;
-  font-size:12px;text-align:left;cursor:pointer;transition:.2s;
+  border-radius:9px;padding:9px 11px;
+  color:#142b3b;font-size:12px;
+  text-align:left;cursor:pointer;transition:.2s;
 }
-.amira-choice:hover {background:#e5b45d;color:#071725;}
+.amira-choice span {
+  display:block;
+}
+.amira-choice .ar {
+  direction:rtl;text-align:right;
+  color:#6b5a42;margin-top:2px;
+}
+.amira-choice:hover {
+  background:#e5b45d;color:#071725;
+}
+
+/* MESSAGE INPUT */
+.amira-input-area {
+  display:flex;align-items:center;gap:6px;
+  padding:10px;background:#e9e2d5;
+  border-top:1px solid #d4c3a7;
+}
+.amira-input {
+  flex:1;min-width:0;
+  border:1px solid #c6b28f;border-radius:20px;
+  background:#fff;padding:11px 13px;
+  font-size:13px;outline:none;color:#142b3b;
+}
+.amira-input:focus {border-color:#bd8d43;}
+.amira-action {
+  width:39px;height:39px;flex:0 0 39px;
+  border-radius:50%;border:1px solid var(--gold2);
+  background:#fff;color:#15364a;
+  font-size:19px;cursor:pointer;
+  display:grid;place-items:center;
+}
+.amira-action.send {
+  background:#15364a;color:#fff;
+}
+.amira-action.listening {
+  background:#b32626;color:white;
+  animation:pulse 1s infinite;
+}
+@keyframes pulse {
+  50% {box-shadow:0 0 0 6px rgba(179,38,38,.18);}
+}
 .amira-chat-footer {
-  background:#e9e2d5;text-align:center;padding:8px;
-  font-size:10px;color:#53606a;border-top:1px solid #d4c3a7;
+  background:#e9e2d5;text-align:center;
+  padding:7px;font-size:10px;color:#53606a;
+}
+.amira-note {
+  font-size:11px;color:#6d6d6d;
+  text-align:center;padding:0 8px 5px;
 }
 
 /* TABLET */
@@ -334,11 +434,18 @@ a {color:inherit;text-decoration:none;}
   .copyright {font-size:11px;padding:16px 8px;}
 
   .amira-widget {right:5px;bottom:5px;gap:3px;}
-  .amira-character {width:112px;max-height:175px;}
+  .amira-character {width:100px;max-height:155px;}
+  .amira-platform {width:91px;height:15px;margin-top:-5px;}
   .amira-intro {gap:5px;margin-right:4px;max-width:235px;}
-  .amira-message {padding:8px 10px;font-size:10px;max-width:175px;}
+  .amira-message {padding:8px 10px;font-size:10px;max-width:185px;}
   .amira-message strong {font-size:11px;}
-  .amira-chat {height:min(430px,65vh);max-height:65vh;}
+  .amira-chat {
+    width:min(390px,calc(100vw - 16px));
+    height:min(590px,77vh);
+    max-height:77vh;
+  }
+  .amira-chat-title strong {font-size:16px;}
+  .amira-choice {font-size:11px;padding:8px;}
 }
 @media(max-width:360px) {
   .brand-name {font-size:11px;}
@@ -346,7 +453,7 @@ a {color:inherit;text-decoration:none;}
   .hero-copy {padding-inline:5px;}
   .hero-copy h1 {font-size:13px;}
   .hero-details {font-size:8px;}
-  .amira-character {width:95px;}
+  .amira-character {width:90px;}
 }
 </style>
 </head>
@@ -382,7 +489,6 @@ a {color:inherit;text-decoration:none;}
 
 <main>
   <section class="hero" id="accueil">
-
     <div class="hero-copy">
       <div class="hero-emblem">BC</div>
       <h1>AMIRA BELKSSIR</h1>
@@ -410,7 +516,6 @@ a {color:inherit;text-decoration:none;}
 
   <div class="trust-strip" id="services">
     <div class="container trust-grid">
-
       <div class="trust-item">
         <span class="trust-icon">↗</span>
         <span>
@@ -434,7 +539,6 @@ a {color:inherit;text-decoration:none;}
           <span>Défense & Représentation</span>
         </span>
       </div>
-
     </div>
   </div>
 </main>
@@ -443,7 +547,7 @@ a {color:inherit;text-decoration:none;}
   © 2026 Amira Belkssir — Tous droits réservés.
 </footer>
 
-<!-- ASSISTANTE VIRTUELLE AMIRA -->
+<!-- ASSISTANTE VIRTUELLE -->
 
 <div class="amira-widget" id="amiraWidget">
 
@@ -457,43 +561,97 @@ a {color:inherit;text-decoration:none;}
       <button class="amira-close" id="amiraClose" aria-label="Fermer">×</button>
     </div>
 
+    <!-- CHOIX DE LANGUE -->
+    <div class="amira-language">
+      <button type="button" class="selected" data-lang="fr">🇫🇷 Français</button>
+      <button type="button" data-lang="ar">🇹🇳 العربية</button>
+    </div>
+
+    <!-- MESSAGES -->
     <div class="amira-chat-body" id="amiraMessages">
       <div class="amira-bubble">
         Bonjour et bienvenue !
 
-        Je suis Amira, votre assistante virtuelle. Je suis là pour accompagner nos clients et répondre à leurs premières questions.
-
-        Comment puis-je vous aider ?
+        Je suis l'assistante IA d'Amira. Besoin d'une information ? Je suis là pour vous aider.
       </div>
     </div>
 
+    <!-- QUESTIONS -->
     <div class="amira-choices" id="amiraChoices">
-      <button class="amira-choice" data-question="fiscal">Le droit fiscal</button>
-      <button class="amira-choice" data-question="investissement">Le droit d’investissement</button>
-      <button class="amira-choice" data-question="contentieux">Le contentieux fiscal</button>
-      <button class="amira-choice" data-question="contact">Prendre contact</button>
+
+      <button class="amira-choice" data-question="fiscal">
+        <span>Le droit fiscal</span>
+        <span class="ar">القانون الجبائي</span>
+      </button>
+
+      <button class="amira-choice" data-question="investissement">
+        <span>Le droit d’investissement</span>
+        <span class="ar">قانون الاستثمار</span>
+      </button>
+
+      <button class="amira-choice" data-question="contentieux">
+        <span>Le contentieux fiscal</span>
+        <span class="ar">النزاعات الجبائية</span>
+      </button>
+
+      <button class="amira-choice" data-question="contact">
+        <span>Prendre contact</span>
+        <span class="ar">التواصل مع أميرة</span>
+      </button>
+
     </div>
+
+    <div class="amira-note" id="amiraNote">
+      Vous pouvez écrire ou parler à votre assistante.
+    </div>
+
+    <!-- INPUT ET MICROPHONE -->
+    <form class="amira-input-area" id="amiraForm">
+
+      <button type="button" class="amira-action"
+        id="amiraMic" title="Parler">🎙</button>
+
+      <input
+        class="amira-input"
+        id="amiraInput"
+        type="text"
+        placeholder="Écrivez votre message..."
+        autocomplete="off">
+
+      <button type="submit" class="amira-action send"
+        aria-label="Envoyer">➤</button>
+
+    </form>
 
     <div class="amira-chat-footer">
       Amira Belkssir · Conseillère Fiscale
     </div>
+
   </div>
 
+  <!-- MESSAGE DE BIENVENUE -->
   <div class="amira-intro">
     <button class="amira-message" id="amiraWelcome" type="button">
-      <strong>Bonjour chers clients !</strong>
+      <strong>Bonjour !</strong>
+      Je suis l'assistante IA d'Amira.
       Besoin d'une information ? Je suis là pour vous aider.
     </button>
   </div>
 
+  <!-- PERSONNAGE -->
   <img
     src="amira-transparent.png"
     alt="Amira, votre assistante virtuelle"
     class="amira-character"
     id="amiraCharacter">
+
+  <!-- PLATEFORME CIRCULAIRE -->
+  <div class="amira-platform"></div>
+
 </div>
 
 <script>
+
 /* MENU */
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
@@ -501,10 +659,6 @@ const nav = document.querySelector('.nav-links');
 menuButton.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(isOpen));
-  menuButton.setAttribute(
-    'aria-label',
-    isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
-  );
 });
 
 nav.querySelectorAll('a').forEach(link => {
@@ -514,75 +668,366 @@ nav.querySelectorAll('a').forEach(link => {
   });
 });
 
-/* AMIRA CHAT */
+/* ELEMENTS */
 const amiraChat = document.getElementById('amiraChat');
 const amiraCharacter = document.getElementById('amiraCharacter');
 const amiraWelcome = document.getElementById('amiraWelcome');
 const amiraClose = document.getElementById('amiraClose');
 const amiraMessages = document.getElementById('amiraMessages');
 const amiraChoices = document.getElementById('amiraChoices');
+const amiraInput = document.getElementById('amiraInput');
+const amiraForm = document.getElementById('amiraForm');
+const amiraMic = document.getElementById('amiraMic');
+const amiraNote = document.getElementById('amiraNote');
 
-function toggleAmiraChat() {
-  amiraChat.classList.toggle('open');
+let currentLanguage = 'fr';
+
+/* OPEN / CLOSE CHAT */
+function openAmiraChat() {
+  amiraChat.classList.add('open');
 }
 
-amiraCharacter.addEventListener('click', toggleAmiraChat);
-amiraWelcome.addEventListener('click', toggleAmiraChat);
-
-amiraClose.addEventListener('click', () => {
+function closeAmiraChat() {
   amiraChat.classList.remove('open');
-});
-
-/* MESSAGES */
-function addMessage(text, isUser = false) {
-  const message = document.createElement('div');
-  message.className = isUser ? 'amira-user-bubble' : 'amira-bubble';
-  message.textContent = text;
-  amiraMessages.appendChild(message);
-  amiraMessages.scrollTop = amiraMessages.scrollHeight;
 }
 
-/* REPONSES */
-const answers = {
-  fiscal:
-    "Le droit fiscal concerne notamment la fiscalité des entreprises, les déclarations fiscales et l'optimisation fiscale.\n\nNotre cabinet peut vous accompagner selon votre situation.",
+amiraCharacter.addEventListener('click', openAmiraChat);
+amiraWelcome.addEventListener('click', openAmiraChat);
 
-  investissement:
-    "Le droit d'investissement porte notamment sur l'accompagnement des projets, leur structuration et les aspects fiscaux liés à l'investissement.\n\nNous pouvons étudier votre projet et vos besoins.",
+amiraClose.addEventListener('click', closeAmiraChat);
 
-  contentieux:
-    "Le contentieux fiscal concerne les litiges avec l'administration fiscale, les réclamations et les procédures de défense.\n\nNotre cabinet peut vous accompagner dans l'étude de votre dossier.",
-
-  contact:
-    "Vous pouvez contacter directement le cabinet Amira Belkssir au 50 073 838 ou par e-mail : mirabelkssir@gmail.com.\n\nNous serons ravis de vous accueillir."
-};
-
-/* QUESTIONS RAPIDES */
-amiraChoices.querySelectorAll('button').forEach(button => {
+/* LANGUAGE */
+document.querySelectorAll('.amira-language button').forEach(button => {
   button.addEventListener('click', () => {
-    const question = button.dataset.question;
 
-    const labels = {
-      fiscal:"Je souhaite des informations sur le droit fiscal.",
-      investissement:"Je souhaite des informations sur le droit d'investissement.",
-      contentieux:"Je souhaite des informations sur le contentieux fiscal.",
-      contact:"Je souhaite contacter le cabinet."
-    };
+    currentLanguage = button.dataset.lang;
 
-    addMessage(labels[question], true);
-    addMessage(answers[question]);
+    document.querySelectorAll('.amira-language button')
+      .forEach(b => b.classList.remove('selected'));
 
-    if (question === 'contact') {
-      const contact = document.createElement('a');
-      contact.href = 'tel:+21650073838';
-      contact.textContent = '☎ Appeler le cabinet';
-      contact.style.cssText =
-        'display:block;text-align:center;background:#e5b45d;color:#071725;padding:11px;border-radius:8px;font-weight:bold;font-size:13px;text-decoration:none;margin:5px 12px 12px;';
-      amiraMessages.appendChild(contact);
-      amiraMessages.scrollTop = amiraMessages.scrollHeight;
+    button.classList.add('selected');
+
+    if (currentLanguage === 'ar') {
+      amiraInput.placeholder = 'اكتب رسالتك هنا...';
+      amiraNote.textContent = 'يمكنك الكتابة أو التحدث مع مساعدتك.';
+      addMessage(
+        'مرحباً بك! أنا المساعدة الافتراضية لأميرة. كيف يمكنني مساعدتك؟'
+      );
+    } else {
+      amiraInput.placeholder = 'Écrivez votre message...';
+      amiraNote.textContent = 'Vous pouvez écrire ou parler à votre assistante.';
+      addMessage(
+        "Bonjour ! Je suis l'assistante IA d'Amira. Comment puis-je vous aider ?"
+      );
     }
   });
 });
+
+/* ADD MESSAGE */
+function addMessage(text, isUser = false) {
+
+  const wrapper = document.createElement('div');
+
+  if (isUser) {
+    wrapper.className = 'amira-user-bubble';
+    wrapper.textContent = text;
+  } else {
+
+    wrapper.className = 'amira-bubble';
+
+    const textNode = document.createElement('span');
+    textNode.textContent = text;
+
+    const speaker = document.createElement('button');
+    speaker.className = 'amira-speak';
+    speaker.type = 'button';
+    speaker.textContent = '🔊';
+    speaker.title = 'Écouter';
+
+    speaker.addEventListener('click', () => {
+      speakText(text, currentLanguage);
+    });
+
+    wrapper.appendChild(speaker);
+    wrapper.appendChild(textNode);
+  }
+
+  amiraMessages.appendChild(wrapper);
+  amiraMessages.scrollTop = amiraMessages.scrollHeight;
+}
+
+/* ANSWERS IN FRENCH AND ARABIC */
+const answers = {
+
+  fiscal: {
+    fr: "Le droit fiscal concerne notamment la fiscalité des entreprises, les déclarations fiscales et l'optimisation fiscale.\n\nNotre cabinet peut vous accompagner selon votre situation.",
+    ar: "يهتم القانون الجبائي بالضرائب المتعلقة بالمؤسسات والتصاريح الجبائية والتحسين الجبائي.\n\nيمكن لمكتب أميرة مرافقتكم حسب طبيعة وضعيتكم."
+  },
+
+  investissement: {
+    fr: "Le droit d'investissement porte notamment sur l'accompagnement des projets, leur structuration et les aspects fiscaux liés à l'investissement.\n\nNous pouvons étudier votre projet et vos besoins.",
+    ar: "يتعلق قانون الاستثمار بمرافقة المشاريع وتنظيمها والجوانب الجبائية المرتبطة بالاستثمار.\n\nيمكننا دراسة مشروعكم واحتياجاتكم."
+  },
+
+  contentieux: {
+    fr: "Le contentieux fiscal concerne les litiges avec l'administration fiscale, les réclamations et les procédures de défense.\n\nNotre cabinet peut vous accompagner dans l'étude de votre dossier.",
+    ar: "تتعلق النزاعات الجبائية بالخلافات مع الإدارة الجبائية والاعتراضات وإجراءات الدفاع.\n\nيمكن لمكتب أميرة مرافقتكم في دراسة ملفكم."
+  },
+
+  contact: {
+    fr: "Vous pouvez contacter directement le cabinet Amira Belkssir au 50 073 838 ou par e-mail : mirabelkssir@gmail.com.\n\nNous serons ravis de vous accueillir.",
+    ar: "يمكنكم التواصل مباشرة مع مكتب أميرة بلقصر على الرقم 50 073 838 أو عبر البريد الإلكتروني:\nmirabelkssir@gmail.com\n\nيسعدنا استقبالكم."
+  }
+};
+
+/* QUESTION LABELS */
+const labels = {
+  fiscal: {
+    fr:"Je souhaite des informations sur le droit fiscal.",
+    ar:"أريد معلومات حول القانون الجبائي."
+  },
+  investissement: {
+    fr:"Je souhaite des informations sur le droit d'investissement.",
+    ar:"أريد معلومات حول قانون الاستثمار."
+  },
+  contentieux: {
+    fr:"Je souhaite des informations sur le contentieux fiscal.",
+    ar:"أريد معلومات حول النزاعات الجبائية."
+  },
+  contact: {
+    fr:"Je souhaite contacter le cabinet.",
+    ar:"أريد التواصل مع مكتب أميرة."
+  }
+};
+
+/* SPEAK - FEMALE VOICE WHEN AVAILABLE */
+function speakText(text, language) {
+
+  if (!('speechSynthesis' in window)) {
+    alert(
+      language === 'ar'
+      ? 'خاصية الصوت غير متاحة في هذا المتصفح.'
+      : 'La lecture vocale n’est pas disponible sur ce navigateur.'
+    );
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  utterance.lang = language === 'ar' ? 'ar-TN' : 'fr-FR';
+  utterance.rate = 0.88;
+  utterance.pitch = 1.08;
+
+  const voices = window.speechSynthesis.getVoices();
+
+  const preferredVoice = voices.find(voice => {
+    const lang = voice.lang.toLowerCase();
+
+    return language === 'ar'
+      ? lang.startsWith('ar') && /female|femme|woman/i.test(voice.name)
+      : lang.startsWith('fr') && /female|femme|woman/i.test(voice.name);
+  });
+
+  const anyLanguageVoice = voices.find(voice => {
+    return language === 'ar'
+      ? voice.lang.toLowerCase().startsWith('ar')
+      : voice.lang.toLowerCase().startsWith('fr');
+  });
+
+  if (preferredVoice || anyLanguageVoice) {
+    utterance.voice = preferredVoice || anyLanguageVoice;
+  }
+
+  window.speechSynthesis.speak(utterance);
+}
+
+/* QUICK QUESTIONS */
+amiraChoices.querySelectorAll('button').forEach(button => {
+
+  button.addEventListener('click', () => {
+
+    const question = button.dataset.question;
+
+    addMessage(labels[question][currentLanguage], true);
+
+    const answer = answers[question][currentLanguage];
+
+    addMessage(answer);
+
+    speakText(answer, currentLanguage);
+
+    if (question === 'contact') {
+
+      const contact = document.createElement('a');
+
+      contact.href = 'tel:+21650073838';
+      contact.textContent =
+        currentLanguage === 'ar'
+        ? '☎ الاتصال بمكتب أميرة'
+        : '☎ Appeler le cabinet';
+
+      contact.style.cssText =
+        'display:block;text-align:center;background:#e5b45d;color:#071725;padding:11px;border-radius:8px;font-weight:bold;font-size:13px;margin:5px 12px 12px;';
+
+      amiraMessages.appendChild(contact);
+      amiraMessages.scrollTop = amiraMessages.scrollHeight;
+    }
+
+  });
+
+});
+
+/* SEND TEXT MESSAGE */
+amiraForm.addEventListener('submit', event => {
+
+  event.preventDefault();
+
+  const text = amiraInput.value.trim();
+
+  if (!text) return;
+
+  addMessage(text, true);
+
+  amiraInput.value = '';
+
+  processMessage(text);
+
+});
+
+/* SIMPLE KEYWORD RESPONSES */
+function processMessage(text) {
+
+  const value = text.toLowerCase();
+
+  let key = null;
+
+  if (
+    /fiscal|impôt|impots|taxe|déclaration|جبائي|جباية|ضريبة|ضرائب/.test(value)
+  ) {
+    key = 'fiscal';
+  }
+
+  else if (
+    /investissement|investir|projet|استثمار|الاستثمار|مشروع/.test(value)
+  ) {
+    key = 'investissement';
+  }
+
+  else if (
+    /contentieux|litige|réclamation|نزاع|نزاعات|اعتراض/.test(value)
+  ) {
+    key = 'contentieux';
+  }
+
+  else if (
+    /contact|téléphone|appeler|email|mail|اتصال|تواصل|هاتف/.test(value)
+  ) {
+    key = 'contact';
+  }
+
+  if (key) {
+
+    const answer = answers[key][currentLanguage];
+
+    setTimeout(() => {
+      addMessage(answer);
+      speakText(answer, currentLanguage);
+    }, 400);
+
+  } else {
+
+    const unknown = currentLanguage === 'ar'
+      ? 'شكراً على رسالتك. لم أتمكن من تحديد طلبك بدقة. يمكنك اختيار أحد المواضيع الأربعة أو التواصل مباشرة مع مكتب أميرة على الرقم 50 073 838.'
+      : "Merci pour votre message. Je n'ai pas bien compris votre demande. Vous pouvez choisir l'un des quatre sujets ou contacter directement le cabinet au 50 073 838.";
+
+    setTimeout(() => {
+      addMessage(unknown);
+      speakText(unknown, currentLanguage);
+    }, 400);
+  }
+}
+
+/* MICROPHONE - SPEECH RECOGNITION */
+const SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
+
+let recognition = null;
+
+if (SpeechRecognition) {
+
+  recognition = new SpeechRecognition();
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.onstart = () => {
+    amiraMic.classList.add('listening');
+    amiraMic.textContent = '🔴';
+    amiraNote.textContent =
+      currentLanguage === 'ar'
+      ? 'أنا أستمع إليك...'
+      : 'Je vous écoute...';
+  };
+
+  recognition.onend = () => {
+    amiraMic.classList.remove('listening');
+    amiraMic.textContent = '🎙';
+
+    amiraNote.textContent =
+      currentLanguage === 'ar'
+      ? 'يمكنك الكتابة أو التحدث مع مساعدتك.'
+      : 'Vous pouvez écrire ou parler à votre assistante.';
+  };
+
+  recognition.onresult = event => {
+
+    const spokenText = event.results[0][0].transcript;
+
+    amiraInput.value = spokenText;
+
+    amiraForm.requestSubmit();
+  };
+
+  recognition.onerror = () => {
+    amiraNote.textContent =
+      currentLanguage === 'ar'
+      ? 'لم أتمكن من سماعك. حاول مرة أخرى.'
+      : 'Je ne vous ai pas bien entendu. Réessayez.';
+  };
+
+  amiraMic.addEventListener('click', () => {
+
+    recognition.lang =
+      currentLanguage === 'ar' ? 'ar-TN' : 'fr-FR';
+
+    try {
+      recognition.start();
+    } catch (error) {
+      console.log('Microphone déjà actif.');
+    }
+
+  });
+
+} else {
+
+  amiraMic.addEventListener('click', () => {
+    alert(
+      currentLanguage === 'ar'
+      ? 'التعرف على الصوت غير مدعوم في هذا المتصفح. يمكنك الكتابة بدلاً من ذلك.'
+      : 'La reconnaissance vocale n’est pas prise en charge par ce navigateur. Vous pouvez écrire votre message.'
+    );
+  });
+
+}
+
+/* LOAD VOICES */
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.onvoiceschanged = () => {
+    window.speechSynthesis.getVoices();
+  };
+}
+
 </script>
 
 </body>
