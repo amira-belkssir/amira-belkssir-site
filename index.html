@@ -5,645 +5,348 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#071725">
-
 <title>Amira Belkssir | Conseillère Fiscale</title>
-
 <meta name="description" content="Amira Belkssir, conseillère fiscale à Tunis. Expertise, stratégie et performance.">
 
 <style>
 :root {
-  --navy: #071725;
-  --navy2: #0b2030;
-  --gold: #e5b45d;
-  --gold2: #bd8d43;
-  --white: #f7f4ed;
-  --muted: #d7dce0;
-  --line: rgba(229,180,93,.55);
+  --navy:#071725;
+  --navy2:#0b2030;
+  --gold:#e5b45d;
+  --gold2:#bd8d43;
+  --white:#f7f4ed;
+  --muted:#d7dce0;
+  --line:rgba(229,180,93,.55);
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+* {box-sizing:border-box;margin:0;padding:0;}
+html {scroll-behavior:smooth;}
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--navy);
-  color: var(--white);
-  line-height: 1.6;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--navy);
+  color:var(--white);
+  line-height:1.6;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(1380px, calc(100% - 48px));
-  margin: auto;
-}
+a {color:inherit;text-decoration:none;}
+.container {width:min(1380px,calc(100% - 48px));margin:auto;}
 
 /* HEADER */
-
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(5,18,29,.98);
-  border-bottom: 1px solid var(--line);
+  position:sticky;top:0;z-index:20;
+  background:rgba(5,18,29,.98);
+  border-bottom:1px solid var(--line);
 }
-
 .nav-wrap {
-  min-height: 88px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  min-height:88px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
 }
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: max-content;
-}
-
+.brand {display:flex;align-items:center;gap:14px;min-width:max-content;}
 .brand-mark {
-  width: 66px;
-  height: 66px;
-  border: 2px solid var(--gold);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #1761a0;
-  font: bold 37px Georgia, serif;
-  position: relative;
+  width:66px;height:66px;border:2px solid var(--gold);
+  border-radius:50%;display:grid;place-items:center;
+  color:#1761a0;font:bold 37px Georgia,serif;position:relative;
 }
-
 .brand-mark:after {
-  content: "⚖";
-  position: absolute;
-  color: var(--gold);
-  font-size: 13px;
-  left: 5px;
-  bottom: 8px;
+  content:"⚖";position:absolute;color:var(--gold);
+  font-size:13px;left:5px;bottom:8px;
 }
-
-.brand-name {
-  font: 23px/1.15 Georgia, serif;
-  color: var(--gold);
-  letter-spacing: 1px;
-}
-
+.brand-name {font:23px/1.15 Georgia,serif;color:var(--gold);letter-spacing:1px;}
 .brand-sub {
-  display: block;
-  color: #fff;
-  font: 12px Arial, sans-serif;
-  letter-spacing: 2.5px;
-  margin-top: 5px;
-  text-align: center;
+  display:block;color:#fff;font:12px Arial,sans-serif;
+  letter-spacing:2.5px;margin-top:5px;text-align:center;
 }
-
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: clamp(12px, 2vw, 30px);
-  font: 16px Georgia, serif;
+  display:flex;align-items:center;
+  gap:clamp(12px,2vw,30px);font:16px Georgia,serif;
 }
-
-.nav-links a {
-  white-space: nowrap;
-}
-
-.nav-links a:hover,
+.nav-links a {white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active {color:var(--gold);}
 .nav-links a.active {
-  color: var(--gold);
+  background:linear-gradient(135deg,var(--gold),#f0ca7d);
+  color:#101820;padding:10px 17px;border-radius:6px;
 }
-
-.nav-links a.active {
-  background: linear-gradient(135deg, var(--gold), #f0ca7d);
-  color: #101820;
-  padding: 10px 17px;
-  border-radius: 6px;
-}
-
 .nav-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  border: 1px solid var(--gold);
-  border-radius: 9px;
-  padding: 10px 17px;
-  color: var(--gold);
-  font-weight: bold;
-  white-space: nowrap;
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--gold);border-radius:9px;
+  padding:10px 17px;color:var(--gold);font-weight:bold;
+  white-space:nowrap;
 }
-
 .menu-toggle {
-  display: none;
-  background: none;
-  border: 1px solid var(--line);
-  color: var(--gold);
-  border-radius: 6px;
-  padding: 7px 11px;
-  font-size: 22px;
+  display:none;background:none;border:1px solid var(--line);
+  color:var(--gold);border-radius:6px;padding:7px 11px;font-size:22px;
 }
 
 /* HERO */
-
 .hero {
-  min-height: 590px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid var(--gold);
-  background: var(--navy);
-  overflow: hidden;
+  min-height:590px;display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--gold);background:var(--navy);overflow:hidden;
 }
-
 .hero-copy {
-  padding: 40px clamp(28px, 5vw, 85px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  position: relative;
-  background: linear-gradient(
-    115deg,
-    #071725 0%,
-    #0a1d2b 78%,
-    #102638 100%
-  );
+  padding:40px clamp(28px,5vw,85px);
+  display:flex;flex-direction:column;justify-content:center;
+  align-items:flex-start;position:relative;
+  background:linear-gradient(115deg,#071725 0%,#0a1d2b 78%,#102638 100%);
 }
-
 .hero-copy:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 13px;
-  background: linear-gradient(
-    145deg,
-    var(--gold) 0 12%,
-    transparent 12% 88%,
-    var(--gold) 88%
-  );
+  content:"";position:absolute;left:0;top:0;bottom:0;width:13px;
+  background:linear-gradient(145deg,var(--gold) 0 12%,transparent 12% 88%,var(--gold) 88%);
 }
-
 .hero-emblem {
-  width: 118px;
-  height: 118px;
-  border: 3px solid var(--gold);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #1761a0;
-  font: bold 72px Georgia, serif;
-  margin: 0 auto 12px;
-  position: relative;
+  width:118px;height:118px;border:3px solid var(--gold);
+  border-radius:50%;display:grid;place-items:center;color:#1761a0;
+  font:bold 72px Georgia,serif;margin:0 auto 12px;position:relative;
 }
-
 .hero-emblem:after {
-  content: "⚖";
-  position: absolute;
-  left: 11px;
-  bottom: 13px;
-  color: var(--gold);
-  font-size: 19px;
+  content:"⚖";position:absolute;left:11px;bottom:13px;
+  color:var(--gold);font-size:19px;
 }
-
 .hero-copy h1 {
-  font: clamp(38px, 4.3vw, 66px)/1.05 Georgia, serif;
-  color: var(--gold);
-  text-align: center;
-  width: 100%;
-  margin-bottom: 7px;
-  letter-spacing: 1px;
+  font:clamp(38px,4.3vw,66px)/1.05 Georgia,serif;
+  color:var(--gold);text-align:center;width:100%;
+  margin-bottom:7px;letter-spacing:1px;
 }
-
 .hero-subtitle {
-  font: clamp(20px, 2.2vw, 31px) Georgia, serif;
-  letter-spacing: 3px;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 17px;
+  font:clamp(20px,2.2vw,31px) Georgia,serif;
+  letter-spacing:3px;text-align:center;width:100%;margin-bottom:17px;
 }
-
 .hero-rule {
-  height: 2px;
-  background: var(--gold);
-  width: 90%;
-  max-width: 550px;
-  margin: 0 auto 18px;
-  position: relative;
+  height:2px;background:var(--gold);width:90%;max-width:550px;
+  margin:0 auto 18px;position:relative;
 }
-
 .hero-rule:after {
-  content: "◆";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--navy);
-  padding: 0 12px;
-  color: var(--gold);
-  font-size: 14px;
+  content:"◆";position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);background:var(--navy);
+  padding:0 12px;color:var(--gold);font-size:14px;
 }
-
 .hero-details {
-  width: min(100%, 500px);
-  margin: 0 auto;
-  color: #f4eee3;
-  font: clamp(17px, 1.8vw, 25px) Georgia, serif;
+  width:min(100%,500px);margin:0 auto;color:#f4eee3;
+  font:clamp(17px,1.8vw,25px) Georgia,serif;
 }
-
-.hero-details p {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 5px 0;
-}
-
+.hero-details p {display:flex;align-items:center;gap:15px;margin:5px 0;}
 .hero-details b {
-  width: 37px;
-  height: 37px;
-  border: 2px solid var(--gold);
-  border-radius: 50%;
-  display: inline-grid;
-  place-items: center;
-  color: var(--gold);
-  font: 20px Arial;
-  flex: 0 0 37px;
+  width:37px;height:37px;border:2px solid var(--gold);
+  border-radius:50%;display:inline-grid;place-items:center;
+  color:var(--gold);font:20px Arial;flex:0 0 37px;
 }
-
 .hero-tagline {
-  color: var(--gold);
-  font: bold 14px Georgia, serif;
-  letter-spacing: 1.2px;
-  margin: 17px auto 3px;
-  text-align: center;
-  width: 100%;
+  color:var(--gold);font:bold 14px Georgia,serif;
+  letter-spacing:1.2px;margin:17px auto 3px;text-align:center;width:100%;
 }
-
-.hero-motto {
-  font: italic 18px Georgia, serif;
-  text-align: center;
-  width: 100%;
-}
-
-.hero-photo {
-  min-height: 590px;
-  position: relative;
-  background: #102638;
-}
-
+.hero-motto {font:italic 18px Georgia,serif;text-align:center;width:100%;}
+.hero-photo {min-height:590px;position:relative;background:#102638;}
 .hero-photo img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  object-fit: cover;
-  object-position: center 38%;
+  width:100%;height:100%;position:absolute;inset:0;
+  object-fit:cover;object-position:center 38%;
 }
 
-/* THREE SERVICES */
-
-.trust-strip {
-  border-bottom: 1px solid var(--line);
-  background: #081a28;
-}
-
+/* SERVICES */
+.trust-strip {border-bottom:1px solid var(--line);background:#081a28;}
 .trust-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 20px 0;
+  display:grid;grid-template-columns:repeat(3,1fr);padding:20px 0;
 }
-
 .trust-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  padding: 8px 18px;
+  display:flex;align-items:center;justify-content:center;
+  gap:18px;padding:8px 18px;
 }
-
-.trust-item + .trust-item {
-  border-left: 1px solid var(--gold2);
-}
-
-.trust-icon {
-  font-size: 43px;
-  color: var(--gold);
-  line-height: 1;
-}
-
+.trust-item+.trust-item {border-left:1px solid var(--gold2);}
+.trust-icon {font-size:43px;color:var(--gold);line-height:1;}
 .trust-item strong {
-  display: block;
-  color: var(--gold);
-  font: bold clamp(15px, 1.7vw, 22px) Georgia, serif;
+  display:block;color:var(--gold);
+  font:bold clamp(15px,1.7vw,22px) Georgia,serif;
 }
+.trust-item span:last-child {font:16px Georgia,serif;color:#e7e7e7;}
 
-.trust-item span:last-child {
-  font: 16px Georgia, serif;
-  color: #e7e7e7;
-}
-
-/* COPYRIGHT FOOTER */
-
+/* FOOTER */
 .copyright {
-  background: var(--navy);
-  color: var(--gold);
-  text-align: center;
-  padding: 20px 10px;
-  font-family: Georgia, serif;
-  font-size: 13px;
-  border-top: 1px solid rgba(229,180,93,.35);
-  letter-spacing: .5px;
+  background:var(--navy);color:var(--gold);text-align:center;
+  padding:20px 10px;font-family:Georgia,serif;font-size:13px;
+  border-top:1px solid rgba(229,180,93,.35);letter-spacing:.5px;
+}
+
+/* AMIRA ASSISTANT */
+.amira-widget {
+  position:fixed;right:18px;bottom:12px;z-index:1000;
+  display:flex;flex-direction:column;align-items:flex-end;gap:5px;
+}
+.amira-intro {
+  display:flex;align-items:center;gap:10px;
+  margin-right:8px;max-width:290px;
+}
+.amira-message {
+  background:#fff;color:#142b3b;border:1px solid var(--gold);
+  border-radius:13px 13px 3px 13px;padding:11px 14px;
+  font-size:13px;line-height:1.45;
+  box-shadow:0 5px 20px rgba(0,0,0,.3);
+  cursor:pointer;text-align:left;
+}
+.amira-message strong {display:block;color:#a8752f;margin-bottom:3px;}
+.amira-character {
+  width:155px;height:auto;max-height:255px;
+  object-fit:contain;object-position:bottom;cursor:pointer;
+  filter:drop-shadow(0 5px 9px rgba(0,0,0,.25));
+  transform-origin:bottom center;
+  animation:amiraFloat 3.5s ease-in-out infinite;
+  transition:transform .3s ease;
+}
+.amira-character:hover {transform:scale(1.04);}
+@keyframes amiraFloat {
+  0%,100% {transform:translateY(0);}
+  50% {transform:translateY(-7px);}
+}
+
+/* CHAT */
+.amira-chat {
+  display:none;width:min(350px,calc(100vw - 30px));
+  height:440px;max-height:65vh;
+  background:#f7f4ed;color:#142b3b;
+  border:1px solid var(--gold);border-radius:16px;
+  overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4);
+  flex-direction:column;
+}
+.amira-chat.open {display:flex;animation:chatAppear .25s ease-out;}
+@keyframes chatAppear {
+  from {opacity:0;transform:translateY(12px);}
+  to {opacity:1;transform:translateY(0);}
+}
+.amira-chat-header {
+  background:linear-gradient(135deg,#071725,#15364a);
+  color:white;padding:13px 15px;display:flex;
+  align-items:center;justify-content:space-between;
+  border-bottom:2px solid var(--gold);
+}
+.amira-chat-title {display:flex;flex-direction:column;}
+.amira-chat-title strong {font:bold 17px Georgia,serif;color:var(--gold);}
+.amira-chat-title span {font-size:11px;color:#e5e0d5;}
+.amira-online {
+  display:inline-block;width:7px;height:7px;
+  background:#63c58a;border-radius:50%;margin-right:4px;
+}
+.amira-close {
+  background:transparent;border:none;color:white;
+  font-size:25px;cursor:pointer;padding:0 5px;
+}
+.amira-chat-body {
+  flex:1;overflow-y:auto;padding:15px 12px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.amira-bubble {
+  background:white;border:1px solid #e6d9c3;
+  border-radius:12px 12px 12px 3px;padding:10px 12px;
+  font-size:13px;line-height:1.5;max-width:90%;
+  align-self:flex-start;color:#263b4b;white-space:pre-line;
+}
+.amira-user-bubble {
+  background:#15364a;color:white;
+  border-radius:12px 12px 3px 12px;padding:10px 12px;
+  font-size:13px;line-height:1.5;max-width:90%;
+  align-self:flex-end;white-space:pre-line;
+}
+.amira-choices {
+  display:flex;flex-direction:column;gap:7px;padding:0 12px 12px;
+}
+.amira-choice {
+  background:transparent;border:1px solid #bd8d43;
+  border-radius:8px;padding:9px 10px;color:#142b3b;
+  font-size:12px;text-align:left;cursor:pointer;transition:.2s;
+}
+.amira-choice:hover {background:#e5b45d;color:#071725;}
+.amira-chat-footer {
+  background:#e9e2d5;text-align:center;padding:8px;
+  font-size:10px;color:#53606a;border-top:1px solid #d4c3a7;
 }
 
 /* TABLET */
-
-@media (max-width: 1050px) {
-  .nav-wrap {
-    gap: 14px;
-  }
-
-  .brand-name {
-    font-size: 19px;
-  }
-
-  .brand-mark {
-    width: 56px;
-    height: 56px;
-    font-size: 32px;
-  }
-
-  .nav-links {
-    gap: 12px;
-    font-size: 14px;
-  }
-
-  .nav-cta {
-    padding: 9px 11px;
-  }
-
-  .hero {
-    min-height: 500px;
-  }
-
-  .hero-photo {
-    min-height: 500px;
-  }
-
-  .hero-copy {
-    padding-inline: 32px;
-  }
+@media(max-width:1050px) {
+  .nav-wrap {gap:14px;}
+  .brand-name {font-size:19px;}
+  .brand-mark {width:56px;height:56px;font-size:32px;}
+  .nav-links {gap:12px;font-size:14px;}
+  .nav-cta {padding:9px 11px;}
+  .hero,.hero-photo {min-height:500px;}
+  .hero-copy {padding-inline:32px;}
 }
 
 /* MOBILE */
-
-@media (max-width: 760px) {
-  .container {
-    width: calc(100% - 20px);
-  }
-
-  .nav-wrap {
-    min-height: 62px;
-    gap: 5px;
-  }
-
-  .brand {
-    gap: 6px;
-    min-width: 0;
-  }
-
+@media(max-width:760px) {
+  .container {width:calc(100% - 20px);}
+  .nav-wrap {min-height:62px;gap:5px;}
+  .brand {gap:6px;min-width:0;}
   .brand-mark {
-    width: 36px;
-    height: 36px;
-    font-size: 21px;
-    flex: 0 0 36px;
+    width:36px;height:36px;font-size:21px;flex:0 0 36px;
   }
-
-  .brand-mark:after {
-    font-size: 9px;
-    left: 3px;
-    bottom: 4px;
-  }
-
-  .brand-name {
-    font-size: clamp(11px, 3vw, 15px);
-    letter-spacing: .2px;
-  }
-
-  .brand-sub {
-    font-size: 7px;
-    letter-spacing: 1px;
-    margin-top: 2px;
-  }
-
-  .menu-toggle {
-    display: block;
-    font-size: 18px;
-    padding: 4px 8px;
-  }
-
-  .nav-cta {
-    display: none;
-  }
-
+  .brand-mark:after {font-size:9px;left:3px;bottom:4px;}
+  .brand-name {font-size:clamp(11px,3vw,15px);letter-spacing:.2px;}
+  .brand-sub {font-size:7px;letter-spacing:1px;margin-top:2px;}
+  .menu-toggle {display:block;font-size:18px;padding:4px 8px;}
+  .nav-cta {display:none;}
   .nav-links {
-    display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 62px;
-    background: #061522;
-    border-bottom: 1px solid var(--line);
-    padding: 12px 18px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
-    font-size: 14px;
+    display:none;position:absolute;left:0;right:0;top:62px;
+    background:#061522;border-bottom:1px solid var(--line);
+    padding:12px 18px;flex-direction:column;
+    align-items:stretch;gap:4px;font-size:14px;
   }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 8px 10px;
-  }
-
-  .nav-links a.active {
-    background: transparent;
-    color: var(--gold);
-  }
-
-  .hero {
-    grid-template-columns: 1fr 1fr;
-    min-height: 0;
-    height: auto;
-  }
-
-  .hero-copy {
-    padding: 12px 7px 14px;
-    justify-content: center;
-    min-width: 0;
-  }
-
-  .hero-copy:before {
-    width: 4px;
-  }
-
+  .nav-links.open {display:flex;}
+  .nav-links a {padding:8px 10px;}
+  .nav-links a.active {background:transparent;color:var(--gold);}
+  .hero {grid-template-columns:1fr 1fr;min-height:0;height:auto;}
+  .hero-copy {padding:12px 7px 14px;justify-content:center;min-width:0;}
+  .hero-copy:before {width:4px;}
   .hero-emblem {
-    width: clamp(42px, 13vw, 70px);
-    height: clamp(42px, 13vw, 70px);
-    border-width: 2px;
-    font-size: clamp(26px, 8vw, 44px);
-    margin-bottom: 6px;
+    width:clamp(42px,13vw,70px);height:clamp(42px,13vw,70px);
+    border-width:2px;font-size:clamp(26px,8vw,44px);margin-bottom:6px;
   }
-
-  .hero-emblem:after {
-    left: 4px;
-    bottom: 5px;
-    font-size: 10px;
-  }
-
+  .hero-emblem:after {left:4px;bottom:5px;font-size:10px;}
   .hero-copy h1 {
-    font-size: clamp(14px, 4vw, 25px);
-    letter-spacing: 0;
-    line-height: 1.1;
-    margin-bottom: 4px;
+    font-size:clamp(14px,4vw,25px);letter-spacing:0;
+    line-height:1.1;margin-bottom:4px;
   }
-
   .hero-subtitle {
-    font-size: clamp(8px, 2.4vw, 14px);
-    letter-spacing: 1px;
-    line-height: 1.2;
-    margin-bottom: 7px;
+    font-size:clamp(8px,2.4vw,14px);letter-spacing:1px;
+    line-height:1.2;margin-bottom:7px;
   }
-
-  .hero-rule {
-    width: 95%;
-    height: 1px;
-    margin-bottom: 7px;
-  }
-
-  .hero-rule:after {
-    font-size: 7px;
-    padding: 0 4px;
-  }
-
-  .hero-details {
-    width: 100%;
-    font-size: clamp(8px, 2.5vw, 13px);
-    line-height: 1.3;
-  }
-
-  .hero-details p {
-    gap: 5px;
-    margin: 4px 0;
-    overflow-wrap: anywhere;
-  }
-
+  .hero-rule {width:95%;height:1px;margin-bottom:7px;}
+  .hero-rule:after {font-size:7px;padding:0 4px;}
+  .hero-details {width:100%;font-size:clamp(8px,2.5vw,13px);line-height:1.3;}
+  .hero-details p {gap:5px;margin:4px 0;overflow-wrap:anywhere;}
   .hero-details b {
-    width: clamp(16px, 5vw, 25px);
-    height: clamp(16px, 5vw, 25px);
-    flex: 0 0 clamp(16px, 5vw, 25px);
-    font-size: clamp(8px, 2.5vw, 13px);
-    border-width: 1px;
+    width:clamp(16px,5vw,25px);height:clamp(16px,5vw,25px);
+    flex:0 0 clamp(16px,5vw,25px);
+    font-size:clamp(8px,2.5vw,13px);border-width:1px;
   }
-
   .hero-tagline {
-    font-size: clamp(6px, 1.8vw, 10px);
-    letter-spacing: .2px;
-    margin-top: 7px;
-    line-height: 1.3;
+    font-size:clamp(6px,1.8vw,10px);letter-spacing:.2px;
+    margin-top:7px;line-height:1.3;
   }
-
-  .hero-motto {
-    font-size: clamp(7px, 2vw, 11px);
-    line-height: 1.3;
-  }
-
-  .hero-photo {
-    min-height: 0;
-    height: auto;
-    position: relative;
-  }
-
+  .hero-motto {font-size:clamp(7px,2vw,11px);line-height:1.3;}
+  .hero-photo {min-height:0;height:auto;position:relative;}
   .hero-photo img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    object-fit: cover;
-    object-position: center 38%;
+    position:absolute;width:100%;height:100%;inset:0;
+    object-fit:cover;object-position:center 38%;
   }
-
-  .trust-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    padding: 8px 0;
-  }
-
+  .trust-grid {grid-template-columns:repeat(3,minmax(0,1fr));padding:8px 0;}
   .trust-item {
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    gap: 5px;
-    padding: 8px 3px;
-    min-width: 0;
+    justify-content:center;flex-direction:column;text-align:center;
+    gap:5px;padding:8px 3px;min-width:0;
   }
+  .trust-item+.trust-item {border-left:1px solid var(--gold2);}
+  .trust-icon {font-size:clamp(18px,6vw,30px);}
+  .trust-item strong {font-size:clamp(8px,2.5vw,12px);line-height:1.25;}
+  .trust-item span:last-child {font-size:clamp(7px,2vw,10px);line-height:1.3;}
+  .copyright {font-size:11px;padding:16px 8px;}
 
-  .trust-item + .trust-item {
-    border-left: 1px solid var(--gold2);
-  }
-
-  .trust-icon {
-    font-size: clamp(18px, 6vw, 30px);
-  }
-
-  .trust-item strong {
-    font-size: clamp(8px, 2.5vw, 12px);
-    line-height: 1.25;
-  }
-
-  .trust-item span:last-child {
-    font-size: clamp(7px, 2vw, 10px);
-    line-height: 1.3;
-  }
-
-  .copyright {
-    font-size: 11px;
-    padding: 16px 8px;
-  }
+  .amira-widget {right:5px;bottom:5px;gap:3px;}
+  .amira-character {width:112px;max-height:175px;}
+  .amira-intro {gap:5px;margin-right:4px;max-width:235px;}
+  .amira-message {padding:8px 10px;font-size:10px;max-width:175px;}
+  .amira-message strong {font-size:11px;}
+  .amira-chat {height:min(430px,65vh);max-height:65vh;}
 }
-
-@media (max-width: 360px) {
-  .brand-name {
-    font-size: 11px;
-  }
-
-  .brand-sub {
-    font-size: 6px;
-  }
-
-  .hero-copy {
-    padding-inline: 5px;
-  }
-
-  .hero-copy h1 {
-    font-size: 13px;
-  }
-
-  .hero-details {
-    font-size: 8px;
-  }
+@media(max-width:360px) {
+  .brand-name {font-size:11px;}
+  .brand-sub {font-size:6px;}
+  .hero-copy {padding-inline:5px;}
+  .hero-copy h1 {font-size:13px;}
+  .hero-details {font-size:8px;}
+  .amira-character {width:95px;}
 }
 </style>
 </head>
@@ -652,7 +355,6 @@ a {
 
 <header class="site-header">
   <div class="container nav-wrap">
-
     <a class="brand" href="#accueil">
       <span class="brand-mark">BC</span>
       <span class="brand-name">
@@ -674,71 +376,39 @@ a {
       <a href="tel:+21650073838">Contact</a>
     </nav>
 
-    <a class="nav-cta" href="tel:+21650073838">
-      ☎ Nous Contacter
-    </a>
-
+    <a class="nav-cta" href="tel:+21650073838">☎ Nous Contacter</a>
   </div>
 </header>
 
 <main>
-
-  <!-- SECTION PRINCIPALE -->
-
   <section class="hero" id="accueil">
 
     <div class="hero-copy">
-
       <div class="hero-emblem">BC</div>
-
       <h1>AMIRA BELKSSIR</h1>
-
-      <div class="hero-subtitle">
-        CONSEILLÈRE FISCALE
-      </div>
-
+      <div class="hero-subtitle">CONSEILLÈRE FISCALE</div>
       <div class="hero-rule"></div>
 
       <div class="hero-details">
-
-        <p>
-          <b>✉</b>
-          mirabelkssir@gmail.com
-        </p>
-
-        <p>
-          <b>☎</b>
-          50 073 838
-        </p>
-
-        <p>
-          <b>⌖</b>
-          Tunis
-        </p>
-
+        <p><b>✉</b> mirabelkssir@gmail.com</p>
+        <p><b>☎</b> 50 073 838</p>
+        <p><b>⌖</b> Tunis</p>
       </div>
 
       <div class="hero-tagline">
         EXPERTISE · STRATÉGIE · PERFORMANCE
       </div>
-
       <div class="hero-motto">
         Votre confiance, notre engagement.
       </div>
-
     </div>
 
     <div class="hero-photo">
-      <img src="hero-office.jpg"
-           alt="Amira Belkssir Conseillère Fiscale">
+      <img src="hero-office.jpg" alt="Amira Belkssir Conseillère Fiscale">
     </div>
-
   </section>
 
-  <!-- LES TROIS SERVICES -->
-
   <div class="trust-strip" id="services">
-
     <div class="container trust-grid">
 
       <div class="trust-item">
@@ -766,26 +436,71 @@ a {
       </div>
 
     </div>
-
   </div>
-
 </main>
-
-<!-- FOOTER COPYRIGHT -->
 
 <footer class="copyright">
   © 2026 Amira Belkssir — Tous droits réservés.
 </footer>
 
+<!-- ASSISTANTE VIRTUELLE AMIRA -->
+
+<div class="amira-widget" id="amiraWidget">
+
+  <div class="amira-chat" id="amiraChat">
+
+    <div class="amira-chat-header">
+      <div class="amira-chat-title">
+        <strong>Amira | Assistante virtuelle</strong>
+        <span><i class="amira-online"></i> À votre écoute</span>
+      </div>
+      <button class="amira-close" id="amiraClose" aria-label="Fermer">×</button>
+    </div>
+
+    <div class="amira-chat-body" id="amiraMessages">
+      <div class="amira-bubble">
+        Bonjour et bienvenue !
+
+        Je suis Amira, votre assistante virtuelle. Je suis là pour accompagner nos clients et répondre à leurs premières questions.
+
+        Comment puis-je vous aider ?
+      </div>
+    </div>
+
+    <div class="amira-choices" id="amiraChoices">
+      <button class="amira-choice" data-question="fiscal">Le droit fiscal</button>
+      <button class="amira-choice" data-question="investissement">Le droit d’investissement</button>
+      <button class="amira-choice" data-question="contentieux">Le contentieux fiscal</button>
+      <button class="amira-choice" data-question="contact">Prendre contact</button>
+    </div>
+
+    <div class="amira-chat-footer">
+      Amira Belkssir · Conseillère Fiscale
+    </div>
+  </div>
+
+  <div class="amira-intro">
+    <button class="amira-message" id="amiraWelcome" type="button">
+      <strong>Bonjour chers clients !</strong>
+      Besoin d'une information ? Je suis là pour vous aider.
+    </button>
+  </div>
+
+  <img
+    src="amira-transparent.png"
+    alt="Amira, votre assistante virtuelle"
+    class="amira-character"
+    id="amiraCharacter">
+</div>
+
 <script>
+/* MENU */
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 
 menuButton.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
-
   menuButton.setAttribute('aria-expanded', String(isOpen));
-
   menuButton.setAttribute(
     'aria-label',
     isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
@@ -796,6 +511,76 @@ nav.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     nav.classList.remove('open');
     menuButton.setAttribute('aria-expanded', 'false');
+  });
+});
+
+/* AMIRA CHAT */
+const amiraChat = document.getElementById('amiraChat');
+const amiraCharacter = document.getElementById('amiraCharacter');
+const amiraWelcome = document.getElementById('amiraWelcome');
+const amiraClose = document.getElementById('amiraClose');
+const amiraMessages = document.getElementById('amiraMessages');
+const amiraChoices = document.getElementById('amiraChoices');
+
+function toggleAmiraChat() {
+  amiraChat.classList.toggle('open');
+}
+
+amiraCharacter.addEventListener('click', toggleAmiraChat);
+amiraWelcome.addEventListener('click', toggleAmiraChat);
+
+amiraClose.addEventListener('click', () => {
+  amiraChat.classList.remove('open');
+});
+
+/* MESSAGES */
+function addMessage(text, isUser = false) {
+  const message = document.createElement('div');
+  message.className = isUser ? 'amira-user-bubble' : 'amira-bubble';
+  message.textContent = text;
+  amiraMessages.appendChild(message);
+  amiraMessages.scrollTop = amiraMessages.scrollHeight;
+}
+
+/* REPONSES */
+const answers = {
+  fiscal:
+    "Le droit fiscal concerne notamment la fiscalité des entreprises, les déclarations fiscales et l'optimisation fiscale.\n\nNotre cabinet peut vous accompagner selon votre situation.",
+
+  investissement:
+    "Le droit d'investissement porte notamment sur l'accompagnement des projets, leur structuration et les aspects fiscaux liés à l'investissement.\n\nNous pouvons étudier votre projet et vos besoins.",
+
+  contentieux:
+    "Le contentieux fiscal concerne les litiges avec l'administration fiscale, les réclamations et les procédures de défense.\n\nNotre cabinet peut vous accompagner dans l'étude de votre dossier.",
+
+  contact:
+    "Vous pouvez contacter directement le cabinet Amira Belkssir au 50 073 838 ou par e-mail : mirabelkssir@gmail.com.\n\nNous serons ravis de vous accueillir."
+};
+
+/* QUESTIONS RAPIDES */
+amiraChoices.querySelectorAll('button').forEach(button => {
+  button.addEventListener('click', () => {
+    const question = button.dataset.question;
+
+    const labels = {
+      fiscal:"Je souhaite des informations sur le droit fiscal.",
+      investissement:"Je souhaite des informations sur le droit d'investissement.",
+      contentieux:"Je souhaite des informations sur le contentieux fiscal.",
+      contact:"Je souhaite contacter le cabinet."
+    };
+
+    addMessage(labels[question], true);
+    addMessage(answers[question]);
+
+    if (question === 'contact') {
+      const contact = document.createElement('a');
+      contact.href = 'tel:+21650073838';
+      contact.textContent = '☎ Appeler le cabinet';
+      contact.style.cssText =
+        'display:block;text-align:center;background:#e5b45d;color:#071725;padding:11px;border-radius:8px;font-weight:bold;font-size:13px;text-decoration:none;margin:5px 12px 12px;';
+      amiraMessages.appendChild(contact);
+      amiraMessages.scrollTop = amiraMessages.scrollHeight;
+    }
   });
 });
 </script>
