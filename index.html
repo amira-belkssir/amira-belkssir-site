@@ -164,98 +164,41 @@ a {color:inherit;text-decoration:none;}
 
 /* ASSISTANT WIDGET */
 .amira-widget {
-  position:fixed;right:15px;bottom:10px;z-index:1000;
-  display:flex;flex-direction:column;align-items:flex-end;gap:5px;
+  position:fixed;
+  right:8px;
+  bottom:8px;
+  z-index:1000;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:5px;
 }
 
-/* NEW WELCOME MESSAGE */
-.amira-intro {
-  display:flex;align-items:center;
-  margin-right:0;
-  max-width:340px;
-}
-.amira-message {
-  position:relative;
-  background:linear-gradient(145deg,#102f50,#071d35);
-  color:#f7f8fc;
-  border:1.5px solid #3979a8;
-  border-left:7px solid var(--gold);
-  border-radius:45px 45px 45px 45px;
-  padding:13px 17px;
-  font-size:13px;
-  line-height:1.55;
-  width:270px;
-  box-shadow:0 7px 20px rgba(0,0,0,.3);
-  cursor:pointer;
-  text-align:left;
-}
-.amira-message:after {
-  content:"";
-  position:absolute;
-  right:-12px;
-  top:42%;
-  width:0;height:0;
-  border-top:12px solid transparent;
-  border-bottom:12px solid transparent;
-  border-left:13px solid #3979a8;
-}
-.amira-message strong {
+/* COMPLETE ASSISTANT DESIGN IMAGE */
+.amira-design {
   display:block;
-  color:var(--gold);
-  font-size:19px;
-  margin-bottom:4px;
-}
-
-/* CHARACTER */
-.amira-character {
-  width:145px;
+  width:340px;
+  max-width:85vw;
   height:auto;
-  max-height:245px;
   object-fit:contain;
-  object-position:bottom;
   cursor:pointer;
-  filter:drop-shadow(0 5px 9px rgba(0,0,0,.3));
-  transition:transform .3s ease;
+  filter:drop-shadow(0 5px 12px rgba(0,0,0,.25));
+  transition:transform .25s ease;
 }
-.amira-character:hover {transform:scale(1.02);}
-
-/* NEW RECTANGULAR PLATFORM */
-.amira-platform {
-  width:145px;
-  height:25px;
-  margin-top:-5px;
-  border-radius:9px;
-  border:1.5px solid #e5b45d;
-  background:linear-gradient(
-    180deg,
-    #183c5b 0%,
-    #0b2741 55%,
-    #071725 100%
-  );
-  box-shadow:
-    0 3px 7px rgba(0,0,0,.45),
-    inset 0 2px 3px rgba(255,255,255,.13);
-  position:relative;
-}
-.amira-platform:before {
-  content:"";
-  position:absolute;
-  left:5px;right:5px;top:3px;
-  height:2px;
-  border-radius:5px;
-  background:rgba(229,180,93,.75);
+.amira-design:hover {
+  transform:scale(1.01);
 }
 
-/* CHAT WINDOW - COMPACT */
+/* CHAT WINDOW - SMALLER */
 .amira-chat {
   display:none;
-  width:min(355px,calc(100vw - 24px));
-  height:490px;
-  max-height:65vh;
+  width:min(320px,calc(100vw - 24px));
+  height:390px;
+  max-height:55vh;
   background:#f7f4ed;
   color:#142b3b;
   border:1.5px solid var(--gold);
-  border-radius:17px;
+  border-radius:15px;
   overflow:hidden;
   box-shadow:0 12px 35px rgba(0,0,0,.4);
   flex-direction:column;
@@ -270,122 +213,195 @@ a {color:inherit;text-decoration:none;}
 }
 .amira-chat-header {
   background:linear-gradient(135deg,#071725,#15364a);
-  color:white;padding:10px 13px;
-  display:flex;align-items:center;
+  color:white;
+  padding:9px 12px;
+  display:flex;
+  align-items:center;
   justify-content:space-between;
   border-bottom:1.5px solid var(--gold);
 }
 .amira-chat-title {
-  display:flex;flex-direction:column;
+  display:flex;
+  flex-direction:column;
 }
 .amira-chat-title strong {
-  font:bold 17px Georgia,serif;color:var(--gold);
+  font:bold 16px Georgia,serif;
+  color:var(--gold);
 }
-.amira-chat-title span {font-size:11px;color:#e5e0d5;}
+.amira-chat-title span {
+  font-size:10px;
+  color:#e5e0d5;
+}
 .amira-online {
-  display:inline-block;width:7px;height:7px;
-  background:#63c58a;border-radius:50%;margin-right:5px;
+  display:inline-block;
+  width:7px;
+  height:7px;
+  background:#63c58a;
+  border-radius:50%;
+  margin-right:5px;
 }
 .amira-close {
-  background:transparent;border:none;color:white;
-  font-size:26px;cursor:pointer;padding:0 5px;
+  background:transparent;
+  border:none;
+  color:white;
+  font-size:24px;
+  cursor:pointer;
+  padding:0 5px;
 }
 .amira-chat-body {
-  flex:1;min-height:0;overflow-y:auto;padding:11px 10px;
-  display:flex;flex-direction:column;gap:9px;
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  padding:9px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 .amira-bubble {
-  background:white;border:1px solid #d9c7a8;
+  background:white;
+  border:1px solid #d9c7a8;
   border-radius:12px 12px 12px 3px;
-  padding:9px 10px;font-size:12px;
-  line-height:1.5;max-width:94%;
-  align-self:flex-start;color:#263b4b;
+  padding:8px 9px;
+  font-size:12px;
+  line-height:1.5;
+  max-width:94%;
+  align-self:flex-start;
+  color:#263b4b;
   white-space:pre-line;
 }
 .amira-user-bubble {
-  background:#15364a;color:white;
+  background:#15364a;
+  color:white;
   border-radius:12px 12px 3px 12px;
-  padding:9px 10px;font-size:12px;
-  line-height:1.5;max-width:90%;
-  align-self:flex-end;white-space:pre-line;
+  padding:8px 9px;
+  font-size:12px;
+  line-height:1.5;
+  max-width:90%;
+  align-self:flex-end;
+  white-space:pre-line;
 }
 .amira-speak {
-  border:0;background:transparent;
-  color:#1761a0;font-size:17px;
-  cursor:pointer;margin-right:5px;
+  border:0;
+  background:transparent;
+  color:#1761a0;
+  font-size:16px;
+  cursor:pointer;
+  margin-right:5px;
 }
 
 /* LANGUAGE SELECTOR */
 .amira-language {
-  display:flex;gap:7px;padding:8px 10px;
-  background:#eee8dc;border-bottom:1px solid #d9c7a8;
+  display:flex;
+  gap:7px;
+  padding:7px 9px;
+  background:#eee8dc;
+  border-bottom:1px solid #d9c7a8;
 }
 .amira-language button {
-  flex:1;padding:6px;border:1px solid #bd8d43;
-  border-radius:7px;background:white;color:#142b3b;
-  cursor:pointer;font-size:11px;font-weight:bold;
+  flex:1;
+  padding:5px;
+  border:1px solid #bd8d43;
+  border-radius:7px;
+  background:white;
+  color:#142b3b;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:bold;
 }
 .amira-language button.selected {
-  background:#15364a;color:#fff;border-color:#e5b45d;
+  background:#15364a;
+  color:#fff;
+  border-color:#e5b45d;
 }
 
 /* QUESTIONS */
 .amira-choices {
-  display:flex;flex-direction:column;
-  gap:6px;padding:7px 10px 9px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  padding:6px 9px;
 }
 .amira-choice {
-  background:transparent;border:1px solid #bd8d43;
-  border-radius:8px;padding:7px 10px;
-  color:#142b3b;font-size:11px;
-  text-align:left;cursor:pointer;transition:.2s;
+  background:transparent;
+  border:1px solid #bd8d43;
+  border-radius:8px;
+  padding:6px 9px;
+  color:#142b3b;
+  font-size:11px;
+  text-align:left;
+  cursor:pointer;
+  transition:.2s;
 }
 .amira-choice span {display:block;}
 .amira-choice .ar {
-  direction:rtl;text-align:right;
-  color:#6b5a42;margin-top:1px;
+  direction:rtl;
+  text-align:right;
+  color:#6b5a42;
+  margin-top:1px;
 }
 .amira-choice:hover {
-  background:#e5b45d;color:#071725;
+  background:#e5b45d;
+  color:#071725;
 }
 
 /* MESSAGE INPUT */
 .amira-input-area {
-  display:flex;align-items:center;gap:6px;
-  padding:8px;background:#e9e2d5;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:7px;
+  background:#e9e2d5;
   border-top:1px solid #d4c3a7;
 }
 .amira-input {
-  flex:1;min-width:0;
-  border:1px solid #c6b28f;border-radius:20px;
-  background:#fff;padding:9px 12px;
-  font-size:12px;outline:none;color:#142b3b;
+  flex:1;
+  min-width:0;
+  border:1px solid #c6b28f;
+  border-radius:20px;
+  background:#fff;
+  padding:8px 10px;
+  font-size:12px;
+  outline:none;
+  color:#142b3b;
 }
 .amira-input:focus {border-color:#bd8d43;}
 .amira-action {
-  width:35px;height:35px;flex:0 0 35px;
-  border-radius:50%;border:1px solid var(--gold2);
-  background:#fff;color:#15364a;
-  font-size:17px;cursor:pointer;
-  display:grid;place-items:center;
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  border-radius:50%;
+  border:1px solid var(--gold2);
+  background:#fff;
+  color:#15364a;
+  font-size:16px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
 }
 .amira-action.send {
-  background:#15364a;color:#fff;
+  background:#15364a;
+  color:#fff;
 }
 .amira-action.listening {
-  background:#b32626;color:white;
+  background:#b32626;
+  color:white;
   animation:pulse 1s infinite;
 }
 @keyframes pulse {
   50% {box-shadow:0 0 0 5px rgba(179,38,38,.18);}
 }
 .amira-chat-footer {
-  background:#e9e2d5;text-align:center;
-  padding:5px;font-size:10px;color:#53606a;
+  background:#e9e2d5;
+  text-align:center;
+  padding:4px;
+  font-size:10px;
+  color:#53606a;
 }
 .amira-note {
-  font-size:10px;color:#6d6d6d;
-  text-align:center;padding:0 7px 4px;
+  font-size:10px;
+  color:#6d6d6d;
+  text-align:center;
+  padding:0 7px 4px;
 }
 
 /* TABLET */
@@ -413,10 +429,18 @@ a {color:inherit;text-decoration:none;}
   .menu-toggle {display:block;font-size:18px;padding:4px 8px;}
   .nav-cta {display:none;}
   .nav-links {
-    display:none;position:absolute;left:0;right:0;top:62px;
-    background:#061522;border-bottom:1px solid var(--line);
-    padding:12px 18px;flex-direction:column;
-    align-items:stretch;gap:4px;font-size:14px;
+    display:none;
+    position:absolute;
+    left:0;
+    right:0;
+    top:62px;
+    background:#061522;
+    border-bottom:1px solid var(--line);
+    padding:12px 18px;
+    flex-direction:column;
+    align-items:stretch;
+    gap:4px;
+    font-size:14px;
   }
   .nav-links.open {display:flex;}
   .nav-links a {padding:8px 10px;}
@@ -426,41 +450,64 @@ a {color:inherit;text-decoration:none;}
   .hero-copy {padding:12px 7px 14px;justify-content:center;min-width:0;}
   .hero-copy:before {width:4px;}
   .hero-emblem {
-    width:clamp(42px,13vw,70px);height:clamp(42px,13vw,70px);
-    border-width:2px;font-size:clamp(26px,8vw,44px);margin-bottom:6px;
+    width:clamp(42px,13vw,70px);
+    height:clamp(42px,13vw,70px);
+    border-width:2px;
+    font-size:clamp(26px,8vw,44px);
+    margin-bottom:6px;
   }
   .hero-emblem:after {left:4px;bottom:5px;font-size:10px;}
   .hero-copy h1 {
-    font-size:clamp(14px,4vw,25px);letter-spacing:0;
-    line-height:1.1;margin-bottom:4px;
+    font-size:clamp(14px,4vw,25px);
+    letter-spacing:0;
+    line-height:1.1;
+    margin-bottom:4px;
   }
   .hero-subtitle {
-    font-size:clamp(8px,2.4vw,14px);letter-spacing:1px;
-    line-height:1.2;margin-bottom:7px;
+    font-size:clamp(8px,2.4vw,14px);
+    letter-spacing:1px;
+    line-height:1.2;
+    margin-bottom:7px;
   }
   .hero-rule {width:95%;height:1px;margin-bottom:7px;}
   .hero-rule:after {font-size:7px;padding:0 4px;}
-  .hero-details {width:100%;font-size:clamp(8px,2.5vw,13px);line-height:1.3;}
+  .hero-details {
+    width:100%;
+    font-size:clamp(8px,2.5vw,13px);
+    line-height:1.3;
+  }
   .hero-details p {gap:5px;margin:4px 0;overflow-wrap:anywhere;}
   .hero-details b {
-    width:clamp(16px,5vw,25px);height:clamp(16px,5vw,25px);
+    width:clamp(16px,5vw,25px);
+    height:clamp(16px,5vw,25px);
     flex:0 0 clamp(16px,5vw,25px);
-    font-size:clamp(8px,2.5vw,13px);border-width:1px;
+    font-size:clamp(8px,2.5vw,13px);
+    border-width:1px;
   }
   .hero-tagline {
-    font-size:clamp(6px,1.8vw,10px);letter-spacing:.2px;
-    margin-top:7px;line-height:1.3;
+    font-size:clamp(6px,1.8vw,10px);
+    letter-spacing:.2px;
+    margin-top:7px;
+    line-height:1.3;
   }
   .hero-motto {font-size:clamp(7px,2vw,11px);line-height:1.3;}
   .hero-photo {min-height:0;height:auto;position:relative;}
   .hero-photo img {
-    position:absolute;width:100%;height:100%;inset:0;
-    object-fit:cover;object-position:center 38%;
+    position:absolute;
+    width:100%;
+    height:100%;
+    inset:0;
+    object-fit:cover;
+    object-position:center 38%;
   }
   .trust-grid {grid-template-columns:repeat(3,minmax(0,1fr));padding:8px 0;}
   .trust-item {
-    justify-content:center;flex-direction:column;text-align:center;
-    gap:5px;padding:8px 3px;min-width:0;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    gap:5px;
+    padding:8px 3px;
+    min-width:0;
   }
   .trust-item+.trust-item {border-left:1px solid var(--gold2);}
   .trust-icon {font-size:clamp(18px,6vw,30px);}
@@ -469,36 +516,31 @@ a {color:inherit;text-decoration:none;}
   .copyright {font-size:11px;padding:16px 8px;}
 
   /* ASSISTANT ON MOBILE */
-  .amira-widget {right:7px;bottom:7px;gap:3px;}
-  .amira-character {width:105px;max-height:165px;}
-  .amira-platform {width:108px;height:20px;margin-top:-4px;}
-  .amira-intro {margin-right:0;max-width:245px;}
-  .amira-message {
-    width:205px;
-    max-width:205px;
-    padding:9px 12px;
-    font-size:10px;
-    line-height:1.5;
-    border-left-width:5px;
+  .amira-widget {
+    right:3px;
+    bottom:3px;
+    gap:3px;
   }
-  .amira-message strong {font-size:15px;margin-bottom:2px;}
+  .amira-design {
+    width:260px;
+    max-width:82vw;
+  }
   .amira-chat {
-    width:min(340px,calc(100vw - 16px));
-    height:min(510px,65vh);
-    max-height:65vh;
+    width:min(310px,calc(100vw - 16px));
+    height:min(390px,55vh);
+    max-height:55vh;
   }
   .amira-chat-title strong {font-size:15px;}
-  .amira-choice {font-size:11px;padding:7px 9px;}
+  .amira-choice {font-size:11px;padding:6px 9px;}
 }
+
 @media(max-width:360px) {
   .brand-name {font-size:11px;}
   .brand-sub {font-size:6px;}
   .hero-copy {padding-inline:5px;}
   .hero-copy h1 {font-size:13px;}
   .hero-details {font-size:8px;}
-  .amira-character {width:95px;}
-  .amira-platform {width:98px;}
-  .amira-message {width:185px;font-size:9px;}
+  .amira-design {width:235px;}
 }
 </style>
 </head>
@@ -595,6 +637,7 @@ a {color:inherit;text-decoration:none;}
 <!-- ASSISTANTE VIRTUELLE -->
 <div class="amira-widget" id="amiraWidget">
 
+  <!-- CHAT WINDOW -->
   <div class="amira-chat" id="amiraChat">
 
     <div class="amira-chat-header">
@@ -669,24 +712,12 @@ a {color:inherit;text-decoration:none;}
 
   </div>
 
-  <!-- NEW WELCOME MESSAGE -->
-  <div class="amira-intro">
-    <button class="amira-message" id="amiraWelcome" type="button">
-      <strong>Bonjour !</strong>
-      Je suis l'assistante IA d'Amira.
-      Besoin d'une information ? Je suis là pour vous aider.
-    </button>
-  </div>
-
-  <!-- CHARACTER -->
+  <!-- COMPLETE DESIGN IMAGE -->
   <img
-    src="amira-transparent.png"
+    src="amira_belkssir_assistant_design.png"
     alt="Amira, votre assistante virtuelle"
-    class="amira-character"
-    id="amiraCharacter">
-
-  <!-- NEW RECTANGULAR PLATFORM -->
-  <div class="amira-platform"></div>
+    class="amira-design"
+    id="amiraDesign">
 
 </div>
 
@@ -710,8 +741,7 @@ nav.querySelectorAll('a').forEach(link => {
 
 /* ELEMENTS */
 const amiraChat = document.getElementById('amiraChat');
-const amiraCharacter = document.getElementById('amiraCharacter');
-const amiraWelcome = document.getElementById('amiraWelcome');
+const amiraDesign = document.getElementById('amiraDesign');
 const amiraClose = document.getElementById('amiraClose');
 const amiraMessages = document.getElementById('amiraMessages');
 const amiraChoices = document.getElementById('amiraChoices');
@@ -731,8 +761,7 @@ function closeAmiraChat() {
   amiraChat.classList.remove('open');
 }
 
-amiraCharacter.addEventListener('click', openAmiraChat);
-amiraWelcome.addEventListener('click', openAmiraChat);
+amiraDesign.addEventListener('click', openAmiraChat);
 amiraClose.addEventListener('click', closeAmiraChat);
 
 /* LANGUAGE */
