@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071725">
+
+<title>Mes Articles | Amira Belkssir</title>
+<meta name="description" content="Découvrez les conseils, analyses et actualités fiscales d'Amira Belkssir.">
+
+<style>
+:root {
+  --navy: #071725;
+  --navy2: #0b2030;
+  --gold: #e5b45d;
+  --gold2: #bd8d43;
+  --white: #f7f4ed;
+  --muted: #d7dce0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+
+header {
+  width: 100%;
+  padding: 22px 7%;
+  background: rgba(7, 23, 37, 0.96);
+  border-bottom: 1px solid rgba(229,180,93,0.22);
+}
+
+.logo {
+  font-family: Georgia, serif;
+  color: var(--gold);
+  font-size: 24px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 20px;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+/* INTRO */
+
+.intro {
+  text-align: center;
+  padding: 100px 20px 65px;
+  background: linear-gradient(180, var(--navy2), var(--navy));
+}
+
+.intro-label {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 5px;
+}
+
+.intro h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(38px, 6vw, 65px);
+  font-weight: normal;
+  margin: 25px 0;
+}
+
+.intro h1 span {
+  color: var(--gold);
+}
+
+.intro p {
+  max-width: 720px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* ARTICLE VIDEO */
+
+.articles-container {
+  padding: 20px 7% 90px;
+}
+
+.article-video-box {
+  position: relative;
+  width: 100%;
+  min-height: 470px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #102536;
+  border: 1px solid rgba(229,180,93,0.35);
+}
+
+.article-video-box video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(7,23,37,0.55),
+    rgba(7,23,37,0.82)
+  );
+}
+
+.article-text {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 30px;
+}
+
+.article-text .small-title {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 5px;
+}
+
+.article-text h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(26px, 4.5vw, 48px);
+  font-weight: normal;
+  line-height: 1.4;
+  margin: 28px 0;
+}
+
+.article-text p {
+  color: var(--white);
+  font-size: 16px;
+  line-height: 2;
+  max-width: 650px;
+  margin: auto;
+}
+
+/* GOLD LINE */
+
+.gold-line {
+  width: 65px;
+  height: 1px;
+  background: var(--gold);
+  margin: 30px auto;
+}
+
+/* RETURN BUTTON */
+
+.back-button {
+  display: inline-block;
+  margin-top: 38px;
+  padding: 13px 28px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  border-top: 1px solid rgba(229,180,93,0.2);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+}
+
+footer span {
+  color: var(--gold);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  header {
+    text-align: center;
+    padding: 20px 15px;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .intro {
+    padding: 75px 20px 50px;
+  }
+
+  .articles-container {
+    padding: 15px 5% 60px;
+  }
+
+  .article-video-box {
+    min-height: 380px;
+  }
+
+  .article-text {
+    padding: 25px 18px;
+  }
+
+  .article-text p {
+    font-size: 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">Amira Belkssir</a>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="index.html#about">À propos</a>
+    <a href="index.html#services">Nos Services</a>
+    <a href="mes-articles.html">Mes Articles</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- INTRO -->
+
+<section class="intro">
+  <span class="intro-label">EXPERTISE · ANALYSE · CONSEIL</span>
+
+  <h1>Mes <span>Articles</span></h1>
+
+  <p>
+    Découvrez nos réflexions, conseils, analyses et actualités
+    autour de la fiscalité, de l'investissement et de la gestion.
+  </p>
+</section>
+
+<!-- ARTICLE À VENIR -->
+
+<section class="articles-container">
+
+  <div class="article-video-box">
+
+    <video autoplay muted loop playsinline>
+      <source src="article-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="article-text">
+
+      <span class="small-title">ACTUALITÉS & EXPERTISE</span>
+
+      <div class="gold-line"></div>
+
+      <h2>PREMIER ARTICLE — BIENTÔT</h2>
+
+      <p>
+        Découvrez prochainement nos conseils,
+        analyses et actualités fiscales.
+      </p>
+
+      <div class="gold-line"></div>
+
