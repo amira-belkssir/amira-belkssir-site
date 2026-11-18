@@ -260,19 +260,27 @@ a {color:inherit;text-decoration:none;}
   width:100%;
 }
 
+/* AMIRA MAIN IMAGE */
+
 .hero-photo {
   min-height:590px;
   position:relative;
   background:#102638;
+  overflow:visible;
+  z-index:2;
 }
 
 .hero-photo img {
-  width:100%;
-  height:100%;
   position:absolute;
-  inset:0;
-  object-fit:cover;
-  object-position:center 38%;
+  width:116%;
+  height:110%;
+  max-width:none;
+  left:-8%;
+  bottom:0;
+  object-fit:contain;
+  object-position:center bottom;
+  z-index:3;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.25));
 }
 
 /* SERVICES */
@@ -681,6 +689,12 @@ a {color:inherit;text-decoration:none;}
   .nav-cta {padding:9px 11px;}
   .hero,.hero-photo {min-height:500px;}
   .hero-copy {padding-inline:32px;}
+
+  .hero-photo img {
+    width:118%;
+    height:110%;
+    left:-9%;
+  }
 }
 
 /* MOBILE */
@@ -829,19 +843,24 @@ a {color:inherit;text-decoration:none;}
     line-height:1.3;
   }
 
+  /* MAIN IMAGE MOBILE */
+
   .hero-photo {
     min-height:0;
-    height:auto;
+    height:310px;
     position:relative;
+    overflow:visible;
   }
 
   .hero-photo img {
     position:absolute;
-    width:100%;
-    height:100%;
-    inset:0;
-    object-fit:cover;
-    object-position:center 38%;
+    width:125%;
+    height:108%;
+    max-width:none;
+    left:-12.5%;
+    bottom:0;
+    object-fit:contain;
+    object-position:center bottom;
   }
 
   /* SERVICE CARDS MOBILE */
@@ -1038,7 +1057,7 @@ a {color:inherit;text-decoration:none;}
   </div>
 
   <div class="hero-photo">
-    <img src="hero-office.jpg"
+    <img src="amira-cutout.png"
       alt="Amira Belkssir Conseillère Fiscale">
   </div>
 
