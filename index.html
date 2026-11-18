@@ -120,7 +120,7 @@ a {color:inherit;text-decoration:none;}
   font-size:22px;
 }
 
-/* HERO - FULL IMAGE WITH TRANSPARENT TEXT */
+/* HERO */
 
 .hero {
   min-height:590px;
@@ -132,11 +132,7 @@ a {color:inherit;text-decoration:none;}
   isolation:isolate;
 }
 
-.hero::before {
-  display:none;
-}
-
-/* FULL BACKGROUND IMAGE */
+.hero::before {display:none;}
 
 .hero-photo {
   position:absolute;
@@ -157,7 +153,7 @@ a {color:inherit;text-decoration:none;}
   object-position:center 38%;
 }
 
-/* TRANSPARENT TEXT PANEL */
+/* HERO TEXT */
 
 .hero-copy {
   position:absolute;
@@ -167,16 +163,13 @@ a {color:inherit;text-decoration:none;}
   width:55%;
   height:100%;
   padding:35px clamp(20px,4vw,65px);
-
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:flex-start;
-
   background:rgba(7,23,37,.28);
   backdrop-filter:blur(1px);
   -webkit-backdrop-filter:blur(1px);
-
   border-right:1px solid rgba(229,180,93,.18);
   box-shadow:inset -15px 0 30px rgba(7,23,37,.08);
 }
@@ -444,7 +437,7 @@ a {color:inherit;text-decoration:none;}
   transform:translateY(0);
 }
 
-/* ASSISTANT + QUICK LINKS SECTION */
+/* ASSISTANT + QUICK LINKS */
 
 .assistant-section {
   background:linear-gradient(180deg,#071725,#081b2a);
@@ -460,7 +453,7 @@ a {color:inherit;text-decoration:none;}
   min-height:270px;
 }
 
-/* ASSISTANT IMAGE */
+/* ASSISTANT */
 
 .amira-widget {
   position:relative;
@@ -485,6 +478,36 @@ a {color:inherit;text-decoration:none;}
 
 .amira-design:hover {transform:scale(1.02);}
 .amira-widget.chat-open .amira-design {display:none;}
+
+/* QR CODE UNDER BONJOUR */
+
+.amira-qr {
+  position:absolute;
+  left:4%;
+  bottom:23%;
+  width:92px;
+  padding:6px;
+  background:#f7f4ed;
+  border:1.5px solid var(--gold);
+  border-radius:10px;
+  text-align:center;
+  z-index:6;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+}
+
+.amira-qr img {
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:4px;
+}
+
+.amira-qr p {
+  color:#071725;
+  font:bold 8px Arial,sans-serif;
+  line-height:1.3;
+  margin-top:4px;
+}
 
 /* ARTICLE AND APPOINTMENT BUTTONS */
 
@@ -883,7 +906,7 @@ a {color:inherit;text-decoration:none;}
     color:var(--gold);
   }
 
-  /* HERO - FULL IMAGE + TRANSPARENT TEXT */
+  /* HERO */
 
   .hero {
     display:block;
@@ -912,8 +935,6 @@ a {color:inherit;text-decoration:none;}
     object-position:center 38%;
   }
 
-  /* TRANSPARENT TEXT PANEL */
-
   .hero-copy {
     position:absolute;
     z-index:2;
@@ -924,11 +945,9 @@ a {color:inherit;text-decoration:none;}
     padding:12px 7px 14px;
     justify-content:center;
     min-width:0;
-
     background:rgba(7,23,37,.28);
     backdrop-filter:blur(1px);
     -webkit-backdrop-filter:blur(1px);
-
     border-right:1px solid rgba(229,180,93,.2);
   }
 
@@ -1039,7 +1058,7 @@ a {color:inherit;text-decoration:none;}
 
   .trust-item .service-arrow {display:none;}
 
-  /* MOBILE ASSISTANT AREA */
+  /* MOBILE ASSISTANT */
 
   .assistant-section {
     padding:14px 0 18px;
@@ -1065,6 +1084,21 @@ a {color:inherit;text-decoration:none;}
     object-fit:contain;
   }
 
+  /* QR MOBILE SIZE */
+
+  .amira-qr {
+    left:2%;
+    bottom:23%;
+    width:68px;
+    padding:4px;
+    border-radius:7px;
+  }
+
+  .amira-qr p {
+    font-size:6px;
+    margin-top:3px;
+  }
+
   .assistant-actions {
     width:100%;
     gap:12px;
@@ -1084,11 +1118,9 @@ a {color:inherit;text-decoration:none;}
     font-size:clamp(21px,6vw,29px);
   }
 
-  .assistant-action .action-arrow {
-    font-size:20px;
-  }
+  .assistant-action .action-arrow {font-size:20px;}
 
-  /* CHAT WINDOW ON MOBILE */
+  /* CHAT WINDOW MOBILE */
 
   .amira-chat {
     right:9px;
@@ -1134,6 +1166,10 @@ a {color:inherit;text-decoration:none;}
 
   .assistant-action .action-icon {font-size:20px;}
   .assistant-action .action-arrow {font-size:17px;}
+
+  .amira-qr {
+    width:62px;
+  }
 }
 </style>
 </head>
@@ -1288,9 +1324,7 @@ a {color:inherit;text-decoration:none;}
 
       <span>
         <strong>DROIT FISCAL</strong>
-        <span class="service-description">
-          Conseil & Optimisation
-        </span>
+        <span class="service-description">Conseil & Optimisation</span>
       </span>
 
       <span class="service-arrow">Découvrir →</span>
@@ -1311,9 +1345,7 @@ a {color:inherit;text-decoration:none;}
 
       <span>
         <strong>DROIT D’INVESTISSEMENT</strong>
-        <span class="service-description">
-          Accompagnement & Structuration
-        </span>
+        <span class="service-description">Accompagnement & Structuration</span>
       </span>
 
       <span class="service-arrow">Découvrir →</span>
@@ -1336,9 +1368,7 @@ a {color:inherit;text-decoration:none;}
 
       <span>
         <strong>CONTENTIEUX FISCAL</strong>
-        <span class="service-description">
-          Défense & Représentation
-        </span>
+        <span class="service-description">Défense & Représentation</span>
       </span>
 
       <span class="service-arrow">Découvrir →</span>
@@ -1347,7 +1377,7 @@ a {color:inherit;text-decoration:none;}
   </div>
 </div>
 
-<!-- ASSISTANT + TWO BUTTONS -->
+<!-- ASSISTANT + QR CODE + TWO BUTTONS -->
 
 <section class="assistant-section">
 
@@ -1360,6 +1390,14 @@ a {color:inherit;text-decoration:none;}
         alt="Amira, votre assistante virtuelle"
         class="amira-design"
         id="amiraDesign">
+
+      <!-- QR CODE UNDER BONJOUR -->
+      <div class="amira-qr">
+        <img
+          src="amira-qr.png"
+          alt="QR Code du site Amira Belkssir">
+        <p>Scannez pour visiter notre site</p>
+      </div>
 
     </div>
 
