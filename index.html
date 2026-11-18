@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -121,12 +120,11 @@ a {color:inherit;text-decoration:none;}
   font-size:22px;
 }
 
-/* HERO */
+/* HERO - FULL IMAGE WITH TRANSPARENT TEXT */
 
 .hero {
   min-height:590px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:block;
   border-bottom:1px solid var(--gold);
   background:var(--navy);
   overflow:hidden;
@@ -135,33 +133,51 @@ a {color:inherit;text-decoration:none;}
 }
 
 .hero::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  background-image:url("hero-office-new.jpg");
-  background-size:cover;
-  background-position:center;
+  display:none;
 }
 
-/* TRANSPARENT INFORMATION PANEL */
+/* FULL BACKGROUND IMAGE */
+
+.hero-photo {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-height:100%;
+  background:#102638;
+  z-index:0;
+}
+
+.hero-photo img {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 38%;
+}
+
+/* TRANSPARENT TEXT PANEL */
 
 .hero-copy {
-  padding:40px clamp(28px,5vw,85px);
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:0;
+  width:55%;
+  height:100%;
+  padding:35px clamp(20px,4vw,65px);
+
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:flex-start;
-  position:relative;
 
-  /* الشفافية */
-  background:rgba(7,23,37,.10);
+  background:rgba(7,23,37,.28);
+  backdrop-filter:blur(1px);
+  -webkit-backdrop-filter:blur(1px);
 
-  /* تمويه خفيف */
-  backdrop-filter:blur(2px);
-  -webkit-backdrop-filter:blur(2px);
-
-  border-right:1px solid rgba(229,180,93,.25);
+  border-right:1px solid rgba(229,180,93,.18);
   box-shadow:inset -15px 0 30px rgba(7,23,37,.08);
 }
 
@@ -172,7 +188,12 @@ a {color:inherit;text-decoration:none;}
   top:0;
   bottom:0;
   width:13px;
-  background:linear-gradient(145deg,var(--gold) 0 12%,transparent 12% 88%,var(--gold) 88%);
+  background:linear-gradient(
+    145deg,
+    var(--gold) 0 12%,
+    transparent 12% 88%,
+    var(--gold) 88%
+  );
 }
 
 .hero-emblem {
@@ -275,21 +296,6 @@ a {color:inherit;text-decoration:none;}
   font:italic 18px Georgia,serif;
   text-align:center;
   width:100%;
-}
-
-.hero-photo {
-  min-height:590px;
-  position:relative;
-  background:#102638;
-}
-
-.hero-photo img {
-  width:100%;
-  height:100%;
-  position:absolute;
-  inset:0;
-  object-fit:cover;
-  object-position:center 38%;
 }
 
 /* DESKTOP QUICK LINKS */
@@ -535,7 +541,7 @@ a {color:inherit;text-decoration:none;}
   font-family:Georgia,serif;
   font-size:15px;
   border-top:1px solid rgba(229,180,93,.35);
-  letter-spacing:.5px;
+  letter letter-spacing:.5px;
 }
 
 /* CHAT WINDOW */
@@ -810,7 +816,7 @@ a {color:inherit;text-decoration:none;}
 
   .nav-links {gap:10px;font-size:13px;}
   .nav-cta {padding:9px 11px;font-size:12px;}
-  .hero,.hero-photo {min-height:500px;}
+  .hero {min-height:500px;}
   .hero-copy {padding-inline:32px;}
   .hero-actions {width:160px;right:12px;}
   .quick-link {font-size:14px;min-height:75px;}
@@ -877,26 +883,53 @@ a {color:inherit;text-decoration:none;}
     color:var(--gold);
   }
 
-  /* HERO - TRANSPARENT MOBILE PANEL */
+  /* HERO - FULL IMAGE + TRANSPARENT TEXT */
 
   .hero {
-    grid-template-columns:1fr 1fr;
-    min-height:0;
-    height:auto;
+    display:block;
+    grid-template-columns:none;
+    min-height:430px;
+    height:430px;
+    position:relative;
+    overflow:hidden;
   }
 
+  .hero-photo {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    min-height:0;
+    z-index:0;
+  }
+
+  .hero-photo img {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 38%;
+  }
+
+  /* TRANSPARENT TEXT PANEL */
+
   .hero-copy {
+    position:absolute;
+    z-index:2;
+    left:0;
+    top:0;
+    height:100%;
+    width:53%;
     padding:12px 7px 14px;
     justify-content:center;
     min-width:0;
 
-    /* الشفافية نفسها على الهاتف */
-    background:rgba(7,23,37,.10);
+    background:rgba(7,23,37,.28);
+    backdrop-filter:blur(1px);
+    -webkit-backdrop-filter:blur(1px);
 
-    backdrop-filter:blur(2px);
-    -webkit-backdrop-filter:blur(2px);
-
-    border-right:1px solid rgba(229,180,93,.25);
+    border-right:1px solid rgba(229,180,93,.2);
   }
 
   .hero-copy:before {width:4px;}
@@ -909,7 +942,7 @@ a {color:inherit;text-decoration:none;}
 
   .hero-copy h1 {
     font-size:clamp(14px,4vw,25px);
-    letter-spacing:0;
+    letter letter-spacing:0;
     line-height:1.1;
     margin-bottom:4px;
   }
@@ -964,21 +997,6 @@ a {color:inherit;text-decoration:none;}
   .hero-motto {
     font-size:clamp(7px,2vw,11px);
     line-height:1.3;
-  }
-
-  .hero-photo {
-    min-height:0;
-    height:auto;
-    position:relative;
-  }
-
-  .hero-photo img {
-    position:absolute;
-    width:100%;
-    height:100%;
-    inset:0;
-    object-fit:cover;
-    object-position:center 38%;
   }
 
   .hero-actions {display:none;}
