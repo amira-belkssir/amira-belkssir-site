@@ -58,25 +58,14 @@ a {color:inherit;text-decoration:none;}
   min-width:max-content;
 }
 
+/* ORIGINAL LOGO - HEADER */
+
 .brand-mark {
   width:66px;
   height:66px;
-  border:2px solid var(--gold);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:#1761a0;
-  font:bold 37px Georgia,serif;
-  position:relative;
-}
-
-.brand-mark:after {
-  content:"⚖";
-  position:absolute;
-  color:var(--gold);
-  font-size:13px;
-  left:5px;
-  bottom:8px;
+  display:block;
+  object-fit:contain;
+  flex:0 0 66px;
 }
 
 .brand-name {
@@ -165,26 +154,14 @@ a {color:inherit;text-decoration:none;}
   background:linear-gradient(145deg,var(--gold) 0 12%,transparent 12% 88%,var(--gold) 88%);
 }
 
+/* ORIGINAL LOGO - HERO */
+
 .hero-emblem {
   width:118px;
   height:118px;
-  border:3px solid var(--gold);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:#1761a0;
-  font:bold 72px Georgia,serif;
+  display:block;
+  object-fit:contain;
   margin:0 auto 12px;
-  position:relative;
-}
-
-.hero-emblem:after {
-  content:"⚖";
-  position:absolute;
-  left:11px;
-  bottom:13px;
-  color:var(--gold);
-  font-size:19px;
 }
 
 .hero-copy h1 {
@@ -225,7 +202,7 @@ a {color:inherit;text-decoration:none;}
   font-size:14px;
 }
 
-/* CONTACT DETAILS - NEW DESIGN */
+/* CONTACT DETAILS */
 
 .hero-details {
   width:min(100%,500px);
@@ -298,7 +275,7 @@ a {color:inherit;text-decoration:none;}
   object-position:center 38%;
 }
 
-/* SERVICES - NEW LUXURY CARDS */
+/* SERVICES */
 
 .trust-strip {
   padding:25px 0;
@@ -693,11 +670,13 @@ a {color:inherit;text-decoration:none;}
 @media(max-width:1050px) {
   .nav-wrap {gap:14px;}
   .brand-name {font-size:19px;}
+
   .brand-mark {
     width:56px;
     height:56px;
-    font-size:32px;
+    flex:0 0 56px;
   }
+
   .nav-links {gap:12px;font-size:14px;}
   .nav-cta {padding:9px 11px;}
   .hero,.hero-photo {min-height:500px;}
@@ -717,17 +696,12 @@ a {color:inherit;text-decoration:none;}
 
   .brand {gap:6px;min-width:0;}
 
+  /* HEADER LOGO MOBILE */
+
   .brand-mark {
     width:36px;
     height:36px;
-    font-size:21px;
     flex:0 0 36px;
-  }
-
-  .brand-mark:after {
-    font-size:9px;
-    left:3px;
-    bottom:4px;
   }
 
   .brand-name {
@@ -788,18 +762,12 @@ a {color:inherit;text-decoration:none;}
 
   .hero-copy:before {width:4px;}
 
+  /* HERO LOGO MOBILE */
+
   .hero-emblem {
     width:clamp(42px,13vw,70px);
     height:clamp(42px,13vw,70px);
-    border-width:2px;
-    font-size:clamp(26px,8vw,44px);
-    margin-bottom:6px;
-  }
-
-  .hero-emblem:after {
-    left:4px;
-    bottom:5px;
-    font-size:10px;
+    margin:0 auto 6px;
   }
 
   .hero-copy h1 {
@@ -967,11 +935,17 @@ a {color:inherit;text-decoration:none;}
   <div class="container nav-wrap">
 
     <a class="brand" href="#accueil">
-      <span class="brand-mark">BC</span>
+
+      <img
+        src="belkssir_consulting_logo.png"
+        alt="Belkssir Consulting"
+        class="brand-mark">
+
       <span class="brand-name">
         AMIRA BELKSSIR
         <span class="brand-sub">CONSEILLÈRE FISCALE</span>
       </span>
+
     </a>
 
     <button class="menu-toggle"
@@ -1002,7 +976,10 @@ a {color:inherit;text-decoration:none;}
 
   <div class="hero-copy">
 
-    <div class="hero-emblem">BC</div>
+    <img
+      src="belkssir_consulting_logo.png"
+      alt="Belkssir Consulting"
+      class="hero-emblem">
 
     <h1>AMIRA BELKSSIR</h1>
 
