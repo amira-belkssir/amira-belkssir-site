@@ -121,7 +121,7 @@ a {color:inherit;text-decoration:none;}
   font-size:22px;
 }
 
-/* HERO - GLASS EFFECT */
+/* HERO */
 
 .hero {
   min-height:590px;
@@ -144,6 +144,8 @@ a {color:inherit;text-decoration:none;}
   background-position:center;
 }
 
+/* TRANSPARENT INFORMATION PANEL */
+
 .hero-copy {
   padding:40px clamp(28px,5vw,85px);
   display:flex;
@@ -152,13 +154,15 @@ a {color:inherit;text-decoration:none;}
   align-items:flex-start;
   position:relative;
 
-  background:rgba(7,23,37,.58);
+  /* الشفافية الجديدة */
+  background:rgba(7,23,37,.18);
 
-  backdrop-filter:blur(7px);
-  -webkit-backdrop-filter:blur(7px);
+  /* تمويه خفيف جداً */
+  backdrop-filter:blur(1px);
+  -webkit-backdrop-filter:blur(1px);
 
   border-right:1px solid rgba(229,180,93,.25);
-  box-shadow:inset -15px 0 30px rgba(7,23,37,.12);
+  box-shadow:inset -15px 0 30px rgba(7,23,37,.08);
 }
 
 .hero-copy:before {
@@ -873,7 +877,7 @@ a {color:inherit;text-decoration:none;}
     color:var(--gold);
   }
 
-  /* HERO - MOBILE GLASS EFFECT */
+  /* HERO - TRANSPARENT MOBILE PANEL */
 
   .hero {
     grid-template-columns:1fr 1fr;
@@ -886,10 +890,11 @@ a {color:inherit;text-decoration:none;}
     justify-content:center;
     min-width:0;
 
-    background:rgba(7,23,37,.62);
+    /* الشفافية نفسها على الهاتف */
+    background:rgba(7,23,37,.18);
 
-    backdrop-filter:blur(5px);
-    -webkit-backdrop-filter:blur(5px);
+    backdrop-filter:blur(1px);
+    -webkit-backdrop-filter:blur(1px);
 
     border-right:1px solid rgba(229,180,93,.25);
   }
@@ -975,8 +980,6 @@ a {color:inherit;text-decoration:none;}
     object-fit:cover;
     object-position:center 38%;
   }
-
-  /* HIDE DESKTOP BUTTONS ON MOBILE */
 
   .hero-actions {display:none;}
 
@@ -1227,8 +1230,6 @@ a {color:inherit;text-decoration:none;}
     <img src="hero-office.jpg"
       alt="Amira Belkssir Conseillère Fiscale">
 
-    <!-- DESKTOP BUTTONS -->
-
     <div class="hero-actions">
 
       <a href="articles.html" class="quick-link">
@@ -1334,8 +1335,6 @@ a {color:inherit;text-decoration:none;}
 
   <div class="container assistant-layout">
 
-    <!-- VIRTUAL ASSISTANT -->
-
     <div class="amira-widget" id="amiraWidget">
 
       <img
@@ -1345,8 +1344,6 @@ a {color:inherit;text-decoration:none;}
         id="amiraDesign">
 
     </div>
-
-    <!-- MOBILE BUTTONS / DESKTOP SECONDARY ACCESS -->
 
     <div class="assistant-actions">
 
