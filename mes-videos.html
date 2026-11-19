@@ -1,0 +1,884 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071725">
+
+<title>Mes vidéos | Amira Belkssir</title>
+<meta name="description" content="Découvrez les vidéos, conseils et contenus d'Amira Belkssir, conseillère fiscale.">
+
+<style>
+:root {
+  --navy:#071725;
+  --navy2:#0b2030;
+  --card:#102a3d;
+  --gold:#e5b45d;
+  --gold2:#bd8d43;
+  --white:#f7f4ed;
+  --muted:#d7dce0;
+  --line:rgba(229,180,93,.45);
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--navy);
+  color:var(--white);
+  line-height:1.6;
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+.container {
+  width:min(1200px,calc(100% - 40px));
+  margin:auto;
+}
+
+/* HEADER */
+
+.site-header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(5,18,29,.98);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+}
+
+.nav-wrap {
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-mark {
+  width:55px;
+  height:55px;
+  object-fit:contain;
+}
+
+.brand-name {
+  font:21px/1.2 Georgia,serif;
+  color:var(--gold);
+  letter-spacing:.6px;
+}
+
+.brand-sub {
+  display:block;
+  color:#fff;
+  font:10px Arial,sans-serif;
+  letter-spacing:2px;
+  text-align:center;
+  margin-top:4px;
+}
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:20px;
+  font:14px Georgia,serif;
+}
+
+.nav-links a {
+  transition:.2s;
+}
+
+.nav-links a:hover {
+  color:var(--gold);
+}
+
+.nav-cta {
+  padding:10px 16px;
+  border:1px solid var(--gold);
+  border-radius:8px;
+  color:var(--gold);
+  font-weight:bold;
+  white-space:nowrap;
+  transition:.2s;
+}
+
+.nav-cta:hover {
+  background:var(--gold);
+  color:var(--navy);
+}
+
+.menu-toggle {
+  display:none;
+  background:none;
+  border:1px solid var(--line);
+  color:var(--gold);
+  border-radius:6px;
+  padding:6px 10px;
+  font-size:21px;
+  cursor:pointer;
+}
+
+/* INTRO */
+
+.video-intro {
+  position:relative;
+  text-align:center;
+  padding:65px 20px 40px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(ellipse at center,
+    rgba(189,141,67,.12),
+    transparent 65%),
+    var(--navy);
+}
+
+.video-intro::before,
+.video-intro::after {
+  content:"";
+  position:absolute;
+  height:1px;
+  width:100px;
+  background:var(--gold);
+  top:50%;
+  opacity:.45;
+}
+
+.video-intro::before {
+  left:5%;
+}
+
+.video-intro::after {
+  right:5%;
+}
+
+.intro-icon {
+  font-size:34px;
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+.video-intro h1 {
+  font:clamp(32px,5vw,48px) Georgia,serif;
+  color:var(--gold);
+  letter-spacing:1.5px;
+  margin-bottom:12px;
+}
+
+.intro-line {
+  width:85px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0 auto 18px;
+}
+
+.video-intro p {
+  max-width:650px;
+  margin:auto;
+  color:var(--muted);
+  font:16px/1.8 Georgia,serif;
+}
+
+.intro-sub {
+  display:block;
+  color:var(--gold);
+  font:12px Arial,sans-serif;
+  letter-spacing:2px;
+  margin-top:18px;
+}
+
+/* VIDEO SECTION */
+
+.videos-section {
+  padding:45px 0 65px;
+}
+
+.section-heading {
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-heading h2 {
+  color:var(--gold);
+  font:29px Georgia,serif;
+  margin-bottom:8px;
+}
+
+.section-heading p {
+  color:#aebbc4;
+  font-size:14px;
+}
+
+.video-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:25px;
+}
+
+/* VIDEO CARD */
+
+.video-card {
+  background:linear-gradient(145deg,#102a3d,#091b29);
+  border:1px solid var(--line);
+  border-radius:15px;
+  overflow:hidden;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+
+.video-card:hover {
+  transform:translateY(-4px);
+  border-color:var(--gold);
+  box-shadow:0 12px 28px rgba(0,0,0,.3);
+}
+
+.video-frame {
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#020a10;
+  overflow:hidden;
+}
+
+.video-frame iframe {
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.video-info {
+  padding:17px 19px 19px;
+}
+
+.video-category {
+  display:inline-block;
+  color:var(--gold);
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+
+.video-info h3 {
+  font:21px Georgia,serif;
+  color:#fff;
+  margin-bottom:7px;
+}
+
+.video-info p {
+  color:#bdc8d0;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.video-meta {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:15px;
+  padding-top:12px;
+  border-top:1px solid rgba(229,180,93,.17);
+}
+
+.video-meta span {
+  color:#9eabb5;
+  font-size:11px;
+}
+
+.video-watch {
+  color:var(--gold);
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* BOTTOM */
+
+.video-bottom {
+  text-align:center;
+  padding:35px 20px;
+  background:linear-gradient(180deg,#0b2030,#071725);
+  border-top:1px solid var(--line);
+}
+
+.video-bottom h2 {
+  color:var(--gold);
+  font:25px Georgia,serif;
+  margin-bottom:10px;
+}
+
+.video-bottom p {
+  max-width:550px;
+  margin:auto;
+  color:#cbd3d9;
+  font-size:14px;
+}
+
+.bottom-contact {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:20px;
+  padding:12px 23px;
+  background:linear-gradient(135deg,#e5b45d,#f0ca7d);
+  color:#071725;
+  font-weight:bold;
+  border-radius:8px;
+  transition:.2s;
+}
+
+.bottom-contact:hover {
+  transform:translateY(-2px);
+  box-shadow:0 5px 18px rgba(229,180,93,.2);
+}
+
+/* BACK HOME */
+
+.back-home {
+  display:flex;
+  justify-content:center;
+  padding:22px 10px;
+  background:#061522;
+}
+
+.back-home a {
+  color:var(--gold);
+  font:14px Georgia,serif;
+  transition:.2s;
+}
+
+.back-home a:hover {
+  color:#fff;
+}
+
+/* FOOTER */
+
+.copyright {
+  background:var(--navy);
+  color:var(--gold);
+  text-align:center;
+  padding:18px 10px;
+  font:13px Georgia,serif;
+  border-top:1px solid rgba(229,180,93,.25);
+}
+
+/* TABLET */
+
+@media(max-width:850px) {
+
+  .nav-links {
+    gap:12px;
+    font-size:12px;
+  }
+
+  .brand-name {
+    font-size:18px;
+  }
+
+  .nav-cta {
+    font-size:12px;
+    padding:9px 11px;
+  }
+
+  .video-grid {
+    gap:16px;
+  }
+
+  .video-info {
+    padding:14px;
+  }
+
+  .video-info h3 {
+    font-size:19px;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:650px) {
+
+  .container {
+    width:calc(100% - 24px);
+  }
+
+  .nav-wrap {
+    min-height:62px;
+    gap:6px;
+  }
+
+  .brand {
+    gap:7px;
+  }
+
+  .brand-mark {
+    width:38px;
+    height:38px;
+  }
+
+  .brand-name {
+    font-size:13px;
+    letter-spacing:.2px;
+  }
+
+  .brand-sub {
+    font-size:7px;
+    letter-spacing:1px;
+    margin-top:3px;
+  }
+
+  .menu-toggle {
+    display:block;
+  }
+
+  .nav-cta {
+    display:none;
+  }
+
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:62px;
+    left:0;
+    right:0;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    background:#061522;
+    border-bottom:1px solid var(--line);
+    padding:10px 16px;
+    font-size:14px;
+  }
+
+  .nav-links.open {
+    display:flex;
+  }
+
+  .nav-links a {
+    padding:11px 8px;
+    border-bottom:1px solid rgba(229,180,93,.1);
+  }
+
+  .video-intro {
+    padding:42px 16px 30px;
+  }
+
+  .video-intro::before,
+  .video-intro::after {
+    width:35px;
+  }
+
+  .intro-icon {
+    font-size:28px;
+  }
+
+  .video-intro h1 {
+    font-size:32px;
+  }
+
+  .video-intro p {
+    font-size:14px;
+  }
+
+  .intro-sub {
+    font-size:10px;
+    letter-spacing:1.3px;
+  }
+
+  .videos-section {
+    padding:30px 0 40px;
+  }
+
+  .section-heading {
+    margin-bottom:23px;
+  }
+
+  .section-heading h2 {
+    font-size:24px;
+  }
+
+  .section-heading p {
+    font-size:12px;
+  }
+
+  .video-grid {
+    grid-template-columns:1fr;
+    gap:17px;
+  }
+
+  .video-card {
+    border-radius:12px;
+  }
+
+  .video-info {
+    padding:13px 15px 15px;
+  }
+
+  .video-info h3 {
+    font-size:19px;
+  }
+
+  .video-info p {
+    font-size:12px;
+  }
+
+  .video-bottom {
+    padding:28px 16px;
+  }
+
+  .video-bottom h2 {
+    font-size:22px;
+  }
+
+  .video-bottom p {
+    font-size:13px;
+  }
+
+  .copyright {
+    font-size:11px;
+    padding:15px 8px;
+  }
+}
+
+/* SMALL PHONES */
+
+@media(max-width:360px) {
+
+  .brand-name {
+    font-size:11px;
+  }
+
+  .brand-sub {
+    font-size:6px;
+  }
+
+  .video-intro h1 {
+    font-size:28px;
+  }
+
+  .video-info h3 {
+    font-size:17px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="site-header">
+
+  <div class="container nav-wrap">
+
+    <a class="brand" href="index.html">
+
+      <img
+        src="belkssir_consulting_logo.png"
+        alt="Belkssir Consulting"
+        class="brand-mark">
+
+      <span class="brand-name">
+        AMIRA BELKSSIR
+        <span class="brand-sub">CONSEILLÈRE FISCALE</span>
+      </span>
+
+    </a>
+
+    <button class="menu-toggle"
+      id="menuToggle"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="mainNav">
+
+      <a href="index.html">Accueil</a>
+
+      <a href="index.html#services">Nos Services</a>
+
+      <a href="mes-articles.html">Mes Articles</a>
+
+      <a href="mes-videos.html" style="color:var(--gold);">Mes vidéos</a>
+
+      <a href="tel:+21650073838">Contact</a>
+
+    </nav>
+
+    <a class="nav-cta" href="tel:+21650073838">
+      ☎ Nous Contacter
+    </a>
+
+  </div>
+
+</header>
+
+<!-- INTRO -->
+
+<section class="video-intro">
+
+  <div class="intro-icon">▶</div>
+
+  <h1>Mes vidéos</h1>
+
+  <div class="intro-line"></div>
+
+  <p>
+    Découvrez nos vidéos, conseils et informations
+    pour mieux comprendre les enjeux fiscaux,
+    juridiques et financiers.
+  </p>
+
+  <span class="intro-sub">
+    EXPERTISE · CONSEILS · INFORMATIONS
+  </span>
+
+</section>
+
+<!-- VIDEOS -->
+
+<section class="videos-section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <h2>Notre espace vidéo</h2>
+
+      <p>Retrouvez nos contenus et nos conseils en vidéo.</p>
+
+    </div>
+
+    <div class="video-grid">
+
+      <!-- VIDEO 1 -->
+
+      <article class="video-card">
+
+        <div class="video-frame">
+
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_1"
+            title="Vidéo 1 - Amira Belkssir"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="video-info">
+
+          <span class="video-category">Conseil fiscal</span>
+
+          <h3>Conseils & Fiscalité</h3>
+
+          <p>
+            Découvrez des informations et des conseils
+            pour mieux comprendre la fiscalité.
+          </p>
+
+          <div class="video-meta">
+            <span>Amira Belkssir</span>
+            <span class="video-watch">▶ Regarder la vidéo</span>
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- VIDEO 2 -->
+
+      <article class="video-card">
+
+        <div class="video-frame">
+
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_2"
+            title="Vidéo 2 - Amira Belkssir"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="video-info">
+
+          <span class="video-category">Investissement</span>
+
+          <h3>Comprendre l’investissement</h3>
+
+          <p>
+            Informations utiles concernant les projets,
+            l’investissement et leur structuration.
+          </p>
+
+          <div class="video-meta">
+            <span>Amira Belkssir</span>
+            <span class="video-watch">▶ Regarder la vidéo</span>
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- VIDEO 3 -->
+
+      <article class="video-card">
+
+        <div class="video-frame">
+
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_3"
+            title="Vidéo 3 - Amira Belkssir"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="video-info">
+
+          <span class="video-category">Droit fiscal</span>
+
+          <h3>Informations juridiques</h3>
+
+          <p>
+            Des explications pour mieux comprendre
+            certains aspects du droit fiscal.
+          </p>
+
+          <div class="video-meta">
+            <span>Amira Belkssir</span>
+            <span class="video-watch">▶ Regarder la vidéo</span>
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- VIDEO 4 -->
+
+      <article class="video-card">
+
+        <div class="video-frame">
+
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_4"
+            title="Vidéo 4 - Amira Belkssir"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="video-info">
+
+          <span class="video-category">Contentieux fiscal</span>
+
+          <h3>Défense & Accompagnement</h3>
+
+          <p>
+            Découvrez des informations sur les litiges fiscaux
+            et les démarches d’accompagnement.
+          </p>
+
+          <div class="video-meta">
+            <span>Amira Belkssir</span>
+            <span class="video-watch">▶ Regarder la vidéo</span>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="video-bottom">
+
+  <h2>Besoin d'informations complémentaires ?</h2>
+
+  <p>
+    Notre cabinet reste à votre disposition pour vous accompagner
+    et répondre à vos questions.
+  </p>
+
+  <a class="bottom-contact" href="tel:+21650073838">
+    ☎ Contacter le cabinet
+  </a>
+
+</section>
+
+<!-- BACK HOME -->
+
+<div class="back-home">
+
+  <a href="index.html">← Retour à l'accueil</a>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="copyright">
+
+  © 2026 Amira Belkssir — Tous droits réservés.
+
+</footer>
+
+<!-- MENU SCRIPT -->
+
+<script>
+
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
+
+menuToggle.addEventListener('click', function() {
+
+  const opened = mainNav.classList.toggle('open');
+
+  menuToggle.setAttribute('aria-expanded', String(opened));
+
+});
+
+mainNav.querySelectorAll('a').forEach(link => {
+
+  link.addEventListener('click', function() {
+
+    mainNav.classList.remove('open');
+
+    menuToggle.setAttribute('aria-expanded', 'false');
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
