@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071725">
+<title>Espace Administrateur | Amira Belkssir</title>
+<style>
+:root{--navy:#071725;--navy2:#0b2030;--card:#102a3d;--gold:#e5b45d;--gold2:#bd8d43;--white:#f7f4ed;--muted:#d7dce0;--line:rgba(229,180,93,.45)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--navy);color:var(--white);line-height:1.5;padding:24px 14px}
+.wrap{width:min(1100px,100%);margin:auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:12px 0 22px;border-bottom:1px solid var(--line);margin-bottom:25px}
+h1,h2{font-family:Georgia,serif;color:var(--gold)}
+h1{font-size:clamp(23px,4vw,34px)}
+.subtitle{color:var(--muted);font-size:14px;margin-top:5px}
+a{color:var(--gold);text-decoration:none}
+.panel{background:linear-gradient(145deg,var(--navy2),var(--card));border:1px solid var(--line);border-radius:16px;padding:clamp(17px,3vw,28px);box-shadow:0 12px 30px #0004;margin-bottom:20px}
+.login{max-width:430px;margin:8vh auto}
+label{display:block;font-size:13px;color:var(--muted);margin:12px 0 6px}
+input,textarea{width:100%;padding:12px;border:1px solid #8e744b;border-radius:8px;background:#f7f4ed;color:#142b3b;font:15px Arial;outline:none}
+textarea{min-height:90px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 2px #e5b45d30}
+button{border:1px solid var(--gold);border-radius:8px;padding:11px 16px;background:linear-gradient(135deg,var(--gold),#f0ca7d);color:#071725;font-weight:bold;cursor:pointer}
+button:hover{filter:brightness(1.07)}
+button.secondary{background:transparent;color:var(--gold)}
+button.danger{background:#762e32;border-color:#bd6868;color:#fff}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.error{color:#ffaaa5;font-size:13px;min-height:20px;margin-top:8px}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.full{grid-column:1/-1}
+.table-wrap{overflow-x:auto;margin-top:15px}
+table{width:100%;border-collapse:collapse;min-width:700px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--gold);font: bold 14px Georgia,serif;background:#071725}
+td{font-size:14px;overflow-wrap:anywhere}
+.row-actions{display:flex;gap:7px;flex-wrap:wrap}
+.row-actions button{padding:7px 10px;font-size:12px}
+.empty{text-align:center;color:var(--muted);padding:25px}
+.notice{font-size:12px;color:#d7dce0;margin-top:14px;line-height:1.6}
+#adminArea{display:none}
+@media(max-width:650px){body{padding:15px 10px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.panel{padding:16px}header{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Amira Belkssir</h1>
+      <div class="subtitle">Espace Administrateur · Gestion des rendez-vous</div>
+    </div>
+    <a href="index.html">← Retour au site</a>
+  </header>
+
+  <section class="panel login" id="loginPanel">
+    <h2>Connexion administrateur</h2>
+    <p class="subtitle">Veuillez saisir le mot de passe pour continuer.</p>
+    <form id="loginForm">
+      <label for="password">Mot de passe</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <div class="error" id="loginError" role="alert"></div>
+      <div class="actions"><button type="submit">Se connecter</button></div>
+    </form>
+  </section>
+
+  <main id="adminArea">
+    <section class="panel">
+      <div class="topline">
+        <div>
+          <h2 id="formTitle">Ajouter un client</h2>
+          <p class="subtitle">Saisissez les informations du rendez-vous.</p>
+        </div>
+        <button class="secondary" type="button" id="logoutBtn">Déconnexion</button>
+      </div>
+      <form id="clientForm">
+        <input type="hidden" id="recordId">
+        <div class="form-grid">
+          <div>
+            <label for="clientName">Nom du client</label>
+            <input id="clientName" maxlength="120" required>
+          </div>
+          <div>
+            <label for="appointmentDate">Date de rendez-vous</label>
+            <input id="appointmentDate" type="date" required>
+          </div>
+          <div>
+            <label for="clientPhone">Téléphone</label>
+            <input id="clientPhone" type="tel" maxlength="40" required>
+          </div>
+          <div class="full">
+            <label for="clientProblem">Problème</label>
+            <textarea id="clientProblem" maxlength="1500" required></textarea>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" id="saveBtn">Ajouter le client</button>
+          <button type="button" class="secondary" id="cancelEdit" hidden>Annuler la modification</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="topline">
+        <div>
+          <h2>Liste des rendez-vous</h2>
+          <p class="subtitle" id="recordCount">0 client</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Nom du client</th><th>Date de rendez-vous</th><th>Téléphone</th><th>Problème</th><th>Actions</th></tr></thead>
+          <tbody id="recordsBody"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="emptyMessage">Aucun rendez-vous enregistré pour le moment.</p>
+      <p class="notice">Prototype local : les données sont enregistrées uniquement dans le stockage de ce navigateur sur cet appareil. Elles ne sont ni synchronisées ni protégées par un véritable système d'authentification. N'y saisissez pas de données personnelles ou confidentielles réelles.</p>
+    </section>
+  </main>
+</div>
+
+<script>
+/*
+  PROTOTYPE UNIQUEMENT :
+  Un mot de passe placé dans JavaScript peut être lu ou contourné.
+  Ne pas utiliser pour protéger de vraies données personnelles.
+*/
+const ADMIN_PASSWORD = "Bc318226bc#";
+const STORAGE_KEY = "amiraBelkssirAppointments_v1";
+
+const loginPanel = document.getElementById("loginPanel");
+const adminArea = document.getElementById("adminArea");
+const loginForm = document.getElementById("loginForm");
+const loginError = document.getElementById("loginError");
+const clientForm = document.getElementById("clientForm");
+const recordsBody = document.getElementById("recordsBody");
+const emptyMessage = document.getElementById("emptyMessage");
+const recordCount = document.getElementById("recordCount");
+
+function getRecords(){
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+function saveRecords(records){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+}
+function makeCell(value){
+  const td = document.createElement("td");
+  td.textContent = value || "";
+  return td;
+}
+function renderRecords(){
+  const records = getRecords();
+  recordsBody.replaceChildren();
+  emptyMessage.style.display = records.length ? "none" : "block";
+  recordCount.textContent = records.length + (records.length > 1 ? " clients" : " client");
+
+  records.forEach(record => {
+    const tr = document.createElement("tr");
+    tr.append(
+      makeCell(record.name),
+      makeCell(record.date),
+      makeCell(record.phone),
+      makeCell(record.problem)
+    );
+    const actionsCell = document.createElement("td");
+    const actions = document.createElement("div");
+    actions.className = "row-actions";
+
+    const edit = document.createElement("button");
+    edit.type = "button";
+    edit.className = "secondary";
+    edit.textContent = "Modifier";
+    edit.addEventListener("click", () => editRecord(record.id));
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "danger";
+    remove.textContent = "Supprimer";
+    remove.addEventListener("click", () => deleteRecord(record.id));
+
+    actions.append(edit, remove);
+    actionsCell.append(actions);
+    tr.append(actionsCell);
+    recordsBody.append(tr);
+  });
+}
+function resetForm(){
+  clientForm.reset();
+  document.getElementById("recordId").value = "";
+  document.getElementById("formTitle").textContent = "Ajouter un client";
+  document.getElementById("saveBtn").textContent = "Ajouter le client";
+  document.getElementById("cancelEdit").hidden = true;
+}
+function editRecord(id){
+  const record = getRecords().find(item => item.id === id);
+  if (!record) return;
+  document.getElementById("recordId").value = record.id;
+  document.getElementById("clientName").value = record.name;
+  document.getElementById("appointmentDate").value = record.date;
+  document.getElementById("clientPhone").value = record.phone;
+  document.getElementById("clientProblem").value = record.problem;
+  document.getElementById("formTitle").textContent = "Modifier le client";
+  document.getElementById("saveBtn").textContent = "Enregistrer les modifications";
+  document.getElementById("cancelEdit").hidden = false;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function deleteRecord(id){
+  if (!confirm("Voulez-vous vraiment supprimer ce rendez-vous ?")) return;
+  saveRecords(getRecords().filter(item => item.id !== id));
+  renderRecords();
+  if (document.getElementById("recordId").value === id) resetForm();
+}
+
+loginForm.addEventListener("submit", event => {
+  event.preventDefault();
+  if (document.getElementById("password").value === ADMIN_PASSWORD) {
+    loginError.textContent = "";
+    loginPanel.style.display = "none";
+    adminArea.style.display = "block";
+    renderRecords();
+  } else {
+    loginError.textContent = "Mot de passe incorrect.";
+  }
+});
+
+clientForm.addEventListener("submit", event => {
+  event.preventDefault();
+  const id = document.getElementById("recordId").value;
+  const record = {
+    id: id || (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random()),
+    name: document.getElementById("clientName").value.trim(),
+    date: document.getElementById("appointmentDate").value,
+    phone: document.getElementById("clientPhone").value.trim(),
+    problem: document.getElementById("clientProblem").value.trim()
+  };
+  if (!record.name || !record.date || !record.phone || !record.problem) return;
+
+  const records = getRecords();
+  const index = records.findIndex(item => item.id === id);
+  if (index >= 0) records[index] = record;
+  else records.unshift(record);
+  saveRecords(records);
+  resetForm();
+  renderRecords();
+});
+document.getElementById("cancelEdit").addEventListener("click", resetForm);
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  adminArea.style.display = "none";
+  loginPanel.style.display = "block";
+  loginForm.reset();
+  resetForm();
+});
+</script>
+</body>
+</html>
