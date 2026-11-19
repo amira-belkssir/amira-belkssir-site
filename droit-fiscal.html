@@ -51,19 +51,38 @@ header {
   z-index: 100;
 }
 
+/* LOGO + NOM */
+
 .logo {
   display: flex;
   align-items: center;
+  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .logo-image {
-  width: 165px;
-  height: 82px;
+  width: 85px;
+  height: 85px;
   object-fit: contain;
   display: block;
 }
+
+.logo-text h2 {
+  color: var(--gold);
+  font-size: 19px;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.logo-text p {
+  color: var(--white);
+  font-size: 10px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+/* NAVIGATION */
 
 nav {
   display: flex;
@@ -294,9 +313,25 @@ footer a {
     gap: 12px;
   }
 
+  /* LOGO ET TEXTE COTE A COTE */
+  .logo {
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
   .logo-image {
-    width: 150px;
-    height: 75px;
+    width: 82px;
+    height: 82px;
+  }
+
+  .logo-text h2 {
+    font-size: 17px;
+  }
+
+  .logo-text p {
+    font-size: 9px;
+    letter-spacing: 1.8px;
   }
 
   nav {
@@ -354,11 +389,18 @@ footer a {
 <header>
 
   <a href="index.html" class="logo">
+
     <img
       src="belkssir_consulting_logo.png"
-      alt="Belkssir Consulting - Amira Belkssir"
+      alt="Belkssir Consulting"
       class="logo-image"
     >
+
+    <div class="logo-text">
+      <h2>AMIRA BELKSSIR</h2>
+      <p>CONSEILLÈRE FISCALE</p>
+    </div>
+
   </a>
 
   <nav>
