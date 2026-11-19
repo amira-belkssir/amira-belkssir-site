@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,18 +34,25 @@ button.danger{background:#762e32;border-color:#bd6868;color:#fff}
 .table-wrap{overflow-x:auto;margin-top:15px}
 table{width:100%;border-collapse:collapse;min-width:700px}
 th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--gold);font: bold 14px Georgia,serif;background:#071725}
+th{color:var(--gold);font:bold 14px Georgia,serif;background:#071725}
 td{font-size:14px;overflow-wrap:anywhere}
 .row-actions{display:flex;gap:7px;flex-wrap:wrap}
 .row-actions button{padding:7px 10px;font-size:12px}
 .empty{text-align:center;color:var(--muted);padding:25px}
-.notice{font-size:12px;color:#d7dce0;margin-top:14px;line-height:1.6}
 #adminArea{display:none}
-@media(max-width:650px){body{padding:15px 10px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.panel{padding:16px}header{align-items:flex-start}}
+@media(max-width:650px){
+body{padding:15px 10px}
+.form-grid{grid-template-columns:1fr}
+.full{grid-column:auto}
+.panel{padding:16px}
+header{align-items:flex-start}
+}
 </style>
 </head>
 <body>
+
 <div class="wrap">
+
   <header>
     <div>
       <h1>Amira Belkssir</h1>
@@ -56,15 +64,19 @@ td{font-size:14px;overflow-wrap:anywhere}
   <section class="panel login" id="loginPanel">
     <h2>Connexion administrateur</h2>
     <p class="subtitle">Veuillez saisir le mot de passe pour continuer.</p>
+
     <form id="loginForm">
       <label for="password">Mot de passe</label>
       <input id="password" type="password" autocomplete="current-password" required>
       <div class="error" id="loginError" role="alert"></div>
-      <div class="actions"><button type="submit">Se connecter</button></div>
+      <div class="actions">
+        <button type="submit">Se connecter</button>
+      </div>
     </form>
   </section>
 
   <main id="adminArea">
+
     <section class="panel">
       <div class="topline">
         <div>
@@ -73,26 +85,32 @@ td{font-size:14px;overflow-wrap:anywhere}
         </div>
         <button class="secondary" type="button" id="logoutBtn">Déconnexion</button>
       </div>
+
       <form id="clientForm">
         <input type="hidden" id="recordId">
+
         <div class="form-grid">
           <div>
             <label for="clientName">Nom du client</label>
             <input id="clientName" maxlength="120" required>
           </div>
+
           <div>
             <label for="appointmentDate">Date de rendez-vous</label>
             <input id="appointmentDate" type="date" required>
           </div>
+
           <div>
             <label for="clientPhone">Téléphone</label>
             <input id="clientPhone" type="tel" maxlength="40" required>
           </div>
+
           <div class="full">
             <label for="clientProblem">Problème</label>
             <textarea id="clientProblem" maxlength="1500" required></textarea>
           </div>
         </div>
+
         <div class="actions">
           <button type="submit" id="saveBtn">Ajouter le client</button>
           <button type="button" class="secondary" id="cancelEdit" hidden>Annuler la modification</button>
@@ -107,25 +125,38 @@ td{font-size:14px;overflow-wrap:anywhere}
           <p class="subtitle" id="recordCount">0 client</p>
         </div>
       </div>
+
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Nom du client</th><th>Date de rendez-vous</th><th>Téléphone</th><th>Problème</th><th>Actions</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Nom du client</th>
+              <th>Date de rendez-vous</th>
+              <th>Téléphone</th>
+              <th>Problème</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
           <tbody id="recordsBody"></tbody>
         </table>
       </div>
-      <p class="empty" id="emptyMessage">Aucun rendez-vous enregistré pour le moment.</p>
-      <p class="notice">Prototype local : les données sont enregistrées uniquement dans le stockage de ce navigateur sur cet appareil. Elles ne sont ni synchronisées ni protégées par un véritable système d'authentification. N'y saisissez pas de données personnelles ou confidentielles réelles.</p>
+
+      <p class="empty" id="emptyMessage">
+        Aucun rendez-vous enregistré pour le moment.
+      </p>
     </section>
+
   </main>
 </div>
 
 <script>
+
 /*
   PROTOTYPE UNIQUEMENT :
   Un mot de passe placé dans JavaScript peut être lu ou contourné.
-  Ne pas utiliser pour protéger de vraies données personnelles.
 */
-const ADMIN_PASSWORD = "Bc318226bc#";
+
+const ADMIN_PASSWORD = "REMPLACEZ_PAR_VOTRE_MOT_DE_PASSE";
 const STORAGE_KEY = "amiraBelkssirAppointments_v1";
 
 const loginPanel = document.getElementById("loginPanel");
@@ -145,30 +176,41 @@ function getRecords(){
     return [];
   }
 }
+
 function saveRecords(records){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
 }
+
 function makeCell(value){
   const td = document.createElement("td");
   td.textContent = value || "";
   return td;
 }
+
 function renderRecords(){
   const records = getRecords();
+
   recordsBody.replaceChildren();
+
   emptyMessage.style.display = records.length ? "none" : "block";
-  recordCount.textContent = records.length + (records.length > 1 ? " clients" : " client");
+
+  recordCount.textContent = records.length +
+    (records.length > 1 ? " clients" : " client");
 
   records.forEach(record => {
+
     const tr = document.createElement("tr");
+
     tr.append(
       makeCell(record.name),
       makeCell(record.date),
       makeCell(record.phone),
       makeCell(record.problem)
     );
+
     const actionsCell = document.createElement("td");
     const actions = document.createElement("div");
+
     actions.className = "row-actions";
 
     const edit = document.createElement("button");
@@ -186,51 +228,77 @@ function renderRecords(){
     actions.append(edit, remove);
     actionsCell.append(actions);
     tr.append(actionsCell);
+
     recordsBody.append(tr);
   });
 }
+
 function resetForm(){
   clientForm.reset();
+
   document.getElementById("recordId").value = "";
   document.getElementById("formTitle").textContent = "Ajouter un client";
   document.getElementById("saveBtn").textContent = "Ajouter le client";
   document.getElementById("cancelEdit").hidden = true;
 }
+
 function editRecord(id){
+
   const record = getRecords().find(item => item.id === id);
+
   if (!record) return;
+
   document.getElementById("recordId").value = record.id;
   document.getElementById("clientName").value = record.name;
   document.getElementById("appointmentDate").value = record.date;
   document.getElementById("clientPhone").value = record.phone;
   document.getElementById("clientProblem").value = record.problem;
+
   document.getElementById("formTitle").textContent = "Modifier le client";
   document.getElementById("saveBtn").textContent = "Enregistrer les modifications";
   document.getElementById("cancelEdit").hidden = false;
+
   window.scrollTo({top:0,behavior:"smooth"});
 }
+
 function deleteRecord(id){
+
   if (!confirm("Voulez-vous vraiment supprimer ce rendez-vous ?")) return;
+
   saveRecords(getRecords().filter(item => item.id !== id));
+
   renderRecords();
-  if (document.getElementById("recordId").value === id) resetForm();
+
+  if (document.getElementById("recordId").value === id) {
+    resetForm();
+  }
 }
 
 loginForm.addEventListener("submit", event => {
+
   event.preventDefault();
+
   if (document.getElementById("password").value === ADMIN_PASSWORD) {
+
     loginError.textContent = "";
     loginPanel.style.display = "none";
     adminArea.style.display = "block";
+
     renderRecords();
+
   } else {
+
     loginError.textContent = "Mot de passe incorrect.";
+
   }
 });
 
 clientForm.addEventListener("submit", event => {
+
   event.preventDefault();
+
   const id = document.getElementById("recordId").value;
+
   const record = {
     id: id || (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random()),
     name: document.getElementById("clientName").value.trim(),
@@ -238,23 +306,38 @@ clientForm.addEventListener("submit", event => {
     phone: document.getElementById("clientPhone").value.trim(),
     problem: document.getElementById("clientProblem").value.trim()
   };
+
   if (!record.name || !record.date || !record.phone || !record.problem) return;
 
   const records = getRecords();
+
   const index = records.findIndex(item => item.id === id);
-  if (index >= 0) records[index] = record;
-  else records.unshift(record);
+
+  if (index >= 0) {
+    records[index] = record;
+  } else {
+    records.unshift(record);
+  }
+
   saveRecords(records);
+
   resetForm();
   renderRecords();
+
 });
+
 document.getElementById("cancelEdit").addEventListener("click", resetForm);
+
 document.getElementById("logoutBtn").addEventListener("click", () => {
+
   adminArea.style.display = "none";
   loginPanel.style.display = "block";
+
   loginForm.reset();
   resetForm();
+
 });
+
 </script>
 </body>
 </html>
