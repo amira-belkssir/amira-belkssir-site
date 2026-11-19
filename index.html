@@ -512,29 +512,29 @@ a {color:inherit;text-decoration:none;}
   margin-top:6px;
 }
 
-/* ARTICLE AND APPOINTMENT BUTTONS */
+/* ARTICLE, VIDEO AND APPOINTMENT BUTTONS */
 
 .assistant-actions {
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:12px;
   width:100%;
   max-width:440px;
   justify-self:center;
 }
 
 .assistant-action {
-  min-height:88px;
+  min-height:70px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:14px;
-  padding:15px 22px;
+  gap:12px;
+  padding:12px 18px;
   border:2px solid var(--gold);
   border-radius:17px;
   background:linear-gradient(120deg,#102c40,#071725);
   color:var(--white);
-  font:bold 22px Georgia,serif;
+  font:bold 20px Georgia,serif;
   box-shadow:0 5px 18px rgba(0,0,0,.2);
   transition:.25s;
 }
@@ -547,13 +547,13 @@ a {color:inherit;text-decoration:none;}
 
 .assistant-action .action-icon {
   color:var(--gold);
-  font-size:34px;
+  font-size:30px;
   flex-shrink:0;
 }
 
 .assistant-action .action-arrow {
   color:var(--gold);
-  font-size:27px;
+  font-size:24px;
   flex-shrink:0;
 }
 
@@ -570,9 +570,7 @@ a {color:inherit;text-decoration:none;}
   letter-spacing:.5px;
 }
 
-/* ==========================
-   APPOINTMENT CONTACT MODAL
-========================== */
+/* APPOINTMENT CONTACT MODAL */
 
 .appointment-modal {
   display:none;
@@ -1238,15 +1236,17 @@ a {color:inherit;text-decoration:none;}
     line-height:1.3;
   }
 
+  /* THREE COMPACT BUTTONS */
+
   .assistant-actions {
     width:100%;
-    gap:12px;
+    gap:8px;
     max-width:none;
   }
 
   .assistant-action {
-    min-height:65px;
-    padding:9px 8px;
+    min-height:53px;
+    padding:8px 9px;
     gap:5px;
     border-radius:12px;
     font-size:clamp(12px,3.5vw,17px);
@@ -1254,10 +1254,12 @@ a {color:inherit;text-decoration:none;}
   }
 
   .assistant-action .action-icon {
-    font-size:clamp(21px,6vw,29px);
+    font-size:clamp(21px,6vw,27px);
   }
 
-  .assistant-action .action-arrow {font-size:20px;}
+  .assistant-action .action-arrow {
+    font-size:19px;
+  }
 
   /* CHAT WINDOW MOBILE */
 
@@ -1298,12 +1300,12 @@ a {color:inherit;text-decoration:none;}
   }
 
   .assistant-action {
-    min-height:59px;
-    padding:7px 5px;
+    min-height:49px;
+    padding:6px 5px;
     font-size:11px;
   }
 
-  .assistant-action .action-icon {font-size:20px;}
+  .assistant-action .action-icon {font-size:19px;}
   .assistant-action .action-arrow {font-size:17px;}
 
   .amira-qr {
@@ -1354,9 +1356,9 @@ a {color:inherit;text-decoration:none;}
     <nav class="nav-links" id="main-nav">
       <a class="active" href="#accueil">Accueil</a>
       <a href="#services">Nos Services</a>
+      <a href="mes-videos.html">Mes vidéos</a>
       <a href="mes-articles.html">Mes Articles</a>
 
-      <!-- MODIFIÉ : OUVRIR LA FENÊTRE DE CONTACT -->
       <a href="rendez-vous.html"
          onclick="openAppointment(event)">Réserver un Rendez-vous</a>
 
@@ -1449,7 +1451,6 @@ a {color:inherit;text-decoration:none;}
         <span class="quick-arrow">›</span>
       </a>
 
-      <!-- MODIFIÉ : OUVRIR LA FENÊTRE DE CONTACT -->
       <a href="rendez-vous.html"
          class="quick-link"
          onclick="openAppointment(event)">
@@ -1537,7 +1538,7 @@ a {color:inherit;text-decoration:none;}
   </div>
 </div>
 
-<!-- ASSISTANT + QR CODE + TWO BUTTONS -->
+<!-- ASSISTANT + QR CODE + THREE BUTTONS -->
 
 <section class="assistant-section">
 
@@ -1572,13 +1573,21 @@ a {color:inherit;text-decoration:none;}
 
     <div class="assistant-actions">
 
+      <!-- MES VIDÉOS -->
+      <a href="mes-videos.html" class="assistant-action">
+        <span class="action-icon">▣</span>
+        <span>Mes vidéos</span>
+        <span class="action-arrow">›</span>
+      </a>
+
+      <!-- MES ARTICLES -->
       <a href="mes-articles.html" class="assistant-action">
         <span class="action-icon">▤</span>
         <span>Mes Articles</span>
         <span class="action-arrow">›</span>
       </a>
 
-      <!-- MODIFIÉ : OUVRIR LA FENÊTRE DE CONTACT -->
+      <!-- RENDEZ-VOUS -->
       <a href="rendez-vous.html"
          class="assistant-action"
          onclick="openAppointment(event)">
@@ -1601,9 +1610,7 @@ a {color:inherit;text-decoration:none;}
   © 2026 Amira Belkssir — Tous droits réservés.
 </footer>
 
-<!-- ==========================
-     APPOINTMENT CONTACT POPUP
-========================== -->
+<!-- APPOINTMENT CONTACT POPUP -->
 
 <div class="appointment-modal"
      id="appointmentModal"
@@ -1756,50 +1763,36 @@ a {color:inherit;text-decoration:none;}
 
 <script>
 
-/* ==========================
-   APPOINTMENT MODAL
-========================== */
+/* APPOINTMENT MODAL */
 
 const appointmentModal = document.getElementById('appointmentModal');
 
 function openAppointment(event) {
-
   if (event) {
     event.preventDefault();
   }
 
   appointmentModal.classList.add('active');
   appointmentModal.setAttribute('aria-hidden', 'false');
-
   document.body.style.overflow = 'hidden';
 }
 
 function closeAppointment() {
-
   appointmentModal.classList.remove('active');
   appointmentModal.setAttribute('aria-hidden', 'true');
-
   document.body.style.overflow = '';
 }
 
-/* CLOSE WHEN CLICKING OUTSIDE */
-
 appointmentModal.addEventListener('click', function(event) {
-
   if (event.target === appointmentModal) {
     closeAppointment();
   }
-
 });
 
-/* CLOSE WITH ESCAPE KEY */
-
 document.addEventListener('keydown', function(event) {
-
   if (event.key === 'Escape' && appointmentModal.classList.contains('active')) {
     closeAppointment();
   }
-
 });
 
 /* MENU */
@@ -1940,35 +1933,23 @@ function addMessage(text, isUser = false) {
 const answers = {
 
   fiscal: {
-
     fr: "Le droit fiscal concerne notamment la fiscalité des entreprises, les déclarations fiscales et l'optimisation fiscale.\n\nNotre cabinet peut vous accompagner selon votre situation.",
-
     ar: "يهتم القانون الجبائي بالضرائب المتعلقة بالمؤسسات والتصاريح الجبائية والتحسين الجبائي.\n\nيمكن لمكتب أميرة مرافقتكم حسب طبيعة وضعيتكم."
-
   },
 
   investissement: {
-
     fr: "Le droit d'investissement porte notamment sur l'accompagnement des projets, leur structuration et les aspects fiscaux liés à l'investissement.\n\nNous pouvons étudier votre projet et vos besoins.",
-
     ar: "يتعلق قانون الاستثمار بمرافقة المشاريع وتنظيمها والجوانب الجبائية المرتبطة بالاستثمار.\n\nيمكننا دراسة مشروعكم واحتياجاتكم."
-
   },
 
   contentieux: {
-
     fr: "Le contentieux fiscal concerne les litiges avec l'administration fiscale, les réclamations et les procédures de défense.\n\nNotre cabinet peut vous accompagner dans l'étude de votre dossier.",
-
     ar: "تتعلق النزاعات الجبائية بالخلافات مع الإدارة الجبائية والاعتراضات وإجراءات الدفاع.\n\nيمكن لمكتب أميرة مرافقتكم في دراسة ملفكم."
-
   },
 
   contact: {
-
     fr: "Vous pouvez contacter directement le cabinet Amira Belkssir au 50 073 838 ou par e-mail : mirabelkssir@gmail.com.\n\nNous serons ravis de vous accueillir.",
-
     ar: "يمكنكم التواصل مباشرة مع مكتب أميرة بلقصر على الرقم 50 073 838 أو عبر البريد الإلكتروني:\nmirabelkssir@gmail.com\n\nيسعدنا استقبالكم."
-
   }
 
 };
@@ -2004,13 +1985,11 @@ const labels = {
 function speakText(text, language) {
 
   if (!('speechSynthesis' in window)) {
-
     alert(
       language === 'ar'
       ? 'خاصية الصوت غير متاحة في هذا المتصفح.'
       : 'La lecture vocale n’est pas disponible sur ce navigateur.'
     );
-
     return;
   }
 
@@ -2025,21 +2004,17 @@ function speakText(text, language) {
   const voices = window.speechSynthesis.getVoices();
 
   const preferredVoice = voices.find(voice => {
-
     const lang = voice.lang.toLowerCase();
 
     return language === 'ar'
       ? lang.startsWith('ar') && /female|femme|woman/i.test(voice.name)
       : lang.startsWith('fr') && /female|femme|woman/i.test(voice.name);
-
   });
 
   const anyLanguageVoice = voices.find(voice => {
-
     return language === 'ar'
       ? voice.lang.toLowerCase().startsWith('ar')
       : voice.lang.toLowerCase().startsWith('fr');
-
   });
 
   if (preferredVoice || anyLanguageVoice) {
