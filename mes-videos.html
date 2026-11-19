@@ -252,16 +252,19 @@ a {
   position:relative;
   width:100%;
   aspect-ratio:16/9;
-  background:#020a10;
+  background:#000;
   overflow:hidden;
 }
 
-.video-frame iframe {
+.video-frame video {
   display:block;
   width:100%;
   height:100%;
-  border:0;
+  object-fit:contain;
+  background:#000;
 }
+
+/* VIDEO INFO */
 
 .video-info {
   padding:17px 19px 19px;
@@ -305,8 +308,8 @@ a {
 }
 
 .video-watch {
-  color:var(--gold);
-  font-size:12px;
+  color:var(--gold) !important;
+  font-size:12px !important;
   font-weight:bold;
 }
 
@@ -668,91 +671,16 @@ a {
 
     <div class="video-grid">
 
-      <!-- VIDEO 1 -->
+      <!-- VIDEO 1 : DROIT FISCAL -->
 
       <article class="video-card">
 
         <div class="video-frame">
 
-          <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID_1"
-            title="Vidéo 1 - Amira Belkssir"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-
-        </div>
-
-        <div class="video-info">
-
-          <span class="video-category">Conseil fiscal</span>
-
-          <h3>Conseils & Fiscalité</h3>
-
-          <p>
-            Découvrez des informations et des conseils
-            pour mieux comprendre la fiscalité.
-          </p>
-
-          <div class="video-meta">
-            <span>Amira Belkssir</span>
-            <span class="video-watch">▶ Regarder la vidéo</span>
-          </div>
-
-        </div>
-
-      </article>
-
-      <!-- VIDEO 2 -->
-
-      <article class="video-card">
-
-        <div class="video-frame">
-
-          <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID_2"
-            title="Vidéo 2 - Amira Belkssir"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-
-        </div>
-
-        <div class="video-info">
-
-          <span class="video-category">Investissement</span>
-
-          <h3>Comprendre l’investissement</h3>
-
-          <p>
-            Informations utiles concernant les projets,
-            l’investissement et leur structuration.
-          </p>
-
-          <div class="video-meta">
-            <span>Amira Belkssir</span>
-            <span class="video-watch">▶ Regarder la vidéo</span>
-          </div>
-
-        </div>
-
-      </article>
-
-      <!-- VIDEO 3 -->
-
-      <article class="video-card">
-
-        <div class="video-frame">
-
-          <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID_3"
-            title="Vidéo 3 - Amira Belkssir"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+          <video controls preload="none" playsinline>
+            <source src="droit-fiscal.mp4" type="video/mp4">
+            Votre navigateur ne prend pas en charge la lecture vidéo.
+          </video>
 
         </div>
 
@@ -760,11 +688,11 @@ a {
 
           <span class="video-category">Droit fiscal</span>
 
-          <h3>Informations juridiques</h3>
+          <h3>Droit fiscal</h3>
 
           <p>
-            Des explications pour mieux comprendre
-            certains aspects du droit fiscal.
+            Découvrez les règles fiscales et les informations
+            essentielles pour mieux comprendre vos obligations.
           </p>
 
           <div class="video-meta">
@@ -776,19 +704,49 @@ a {
 
       </article>
 
-      <!-- VIDEO 4 -->
+      <!-- VIDEO 2 : DROIT D'INVESTISSEMENT -->
 
       <article class="video-card">
 
         <div class="video-frame">
 
-          <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID_4"
-            title="Vidéo 4 - Amira Belkssir"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+          <video controls preload="none" playsinline>
+            <source src="droit-investissement.mp4" type="video/mp4">
+            Votre navigateur ne prend pas en charge la lecture vidéo.
+          </video>
+
+        </div>
+
+        <div class="video-info">
+
+          <span class="video-category">Investissement</span>
+
+          <h3>Droit d'investissement</h3>
+
+          <p>
+            Retrouvez des informations utiles sur le droit
+            de l’investissement et les projets d’investissement.
+          </p>
+
+          <div class="video-meta">
+            <span>Amira Belkssir</span>
+            <span class="video-watch">▶ Regarder la vidéo</span>
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- VIDEO 3 : CONTENTIEUX FISCAL -->
+
+      <article class="video-card">
+
+        <div class="video-frame">
+
+          <video controls preload="none" playsinline>
+            <source src="contentieux-fiscal.mp4" type="video/mp4">
+            Votre navigateur ne prend pas en charge la lecture vidéo.
+          </video>
 
         </div>
 
@@ -796,11 +754,11 @@ a {
 
           <span class="video-category">Contentieux fiscal</span>
 
-          <h3>Défense & Accompagnement</h3>
+          <h3>Contentieux fiscal</h3>
 
           <p>
-            Découvrez des informations sur les litiges fiscaux
-            et les démarches d’accompagnement.
+            Découvrez les procédures, les recours et les solutions
+            liés aux litiges en matière fiscale.
           </p>
 
           <div class="video-meta">
