@@ -11,7 +11,9 @@
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:var(--navy);color:var(--white);line-height:1.75}a{color:inherit;text-decoration:none}.container{width:min(1100px,calc(100% - 36px));margin:auto}
 header{position:sticky;top:0;z-index:10;background:rgba(5,18,29,.98);border-bottom:1px solid var(--line)}.nav-wrap{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:54px;height:54px;object-fit:contain}.brand-name{font:20px/1.2 Georgia,serif;color:var(--gold)}.brand-sub{display:block;color:white;font:10px Arial;letter-spacing:2px;margin-top:4px}.menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--gold);border-radius:6px;padding:6px 10px;font-size:21px}.nav-links{display:flex;align-items:center;gap:20px;font:14px Georgia,serif}.nav-links a:hover,.nav-links a.active{color:var(--gold)}.nav-links a.active{background:linear-gradient(135deg,var(--gold),#f0ca7d);color:#101820;padding:9px 14px;border-radius:6px}
 main{padding:45px 0 60px}.page-heading{text-align:center;margin-bottom:38px}.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px;text-transform:uppercase}.page-heading h1{font:clamp(32px,5vw,48px) Georgia,serif;color:var(--gold);margin:8px 0 13px}.rule{height:2px;width:100px;background:var(--gold);margin:0 auto 18px}.intro,.section-card{background:linear-gradient(145deg,#102b3e,#0b2030);border:1px solid rgba(229,180,93,.35);border-radius:16px;padding:clamp(20px,4vw,34px);box-shadow:0 8px 24px rgba(0,0,0,.16)}.intro p{font:17px/1.85 Georgia,serif;color:#e8e8e4;margin:0 0 17px}.intro p:last-child{margin-bottom:0}.section-title{text-align:center;color:var(--gold);font:27px Georgia,serif;margin:42px 0 22px}.expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.expertise-card{background:linear-gradient(145deg,#102b3e,#0b2030);border:1px solid rgba(229,180,93,.4);border-radius:13px;padding:22px 18px;text-align:center}.expertise-card .symbol{font-size:27px;color:var(--gold);margin-bottom:9px}.expertise-card h3{font:20px Georgia,serif;color:var(--gold);margin-bottom:9px}.expertise-card p{font:14px/1.7 Georgia,serif;color:#e0e4e7}.values{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.value{border:1px solid rgba(229,180,93,.3);border-radius:10px;background:#0b2030;padding:16px 18px;color:#e4e7e9}.value strong{color:var(--gold);font-family:Georgia,serif}.copyright{text-align:center;color:var(--gold);padding:18px 10px;border-top:1px solid rgba(229,180,93,.3);font:14px Georgia,serif}
-@media(max-width:760px){.container{width:calc(100% - 20px)}.nav-wrap{min-height:62px}.brand img{width:38px;height:38px}.brand-name{font-size:13px}.brand-sub{font-size:7px;letter-spacing:1px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;left:0;right:0;top:62px;background:#061522;border-bottom:1px solid var(--line);padding:12px 18px;flex-direction:column;align-items:stretch;gap:4px;font-size:14px}.nav-links.open{display:flex}.nav-links a{padding:8px 10px}.nav-links a.active{background:transparent;color:var(--gold)}main{padding:28px 0 40px}.intro p{font-size:15px}.expertise-grid{grid-template-columns:1fr;gap:10px}.expertise-card{padding:18px}.section-title{font-size:24px;margin:30px 0 17px}.values{grid-template-columns:1fr;gap:9px}}
+/* discreet music control */
+.music-button{position:fixed;right:18px;bottom:18px;z-index:30;width:48px;height:48px;border-radius:50%;border:1px solid var(--gold);background:rgba(7,23,37,.94);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:19px;cursor:pointer;box-shadow:0 5px 18px rgba(0,0,0,.35);transition:transform .2s,background .2s}.music-button:hover{transform:scale(1.06);background:#102a3d}.music-button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}.music-button.playing{box-shadow:0 0 0 3px rgba(229,180,93,.12),0 5px 18px rgba(0,0,0,.35)}
+@media(max-width:760px){.container{width:calc(100% - 20px)}.nav-wrap{min-height:62px}.brand img{width:38px;height:38px}.brand-name{font-size:13px}.brand-sub{font-size:7px;letter-spacing:1px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;left:0;right:0;top:62px;background:#061522;border-bottom:1px solid var(--line);padding:12px 18px;flex-direction:column;align-items:stretch;gap:4px;font-size:14px}.nav-links.open{display:flex}.nav-links a{padding:8px 10px}.nav-links a.active{background:transparent;color:var(--gold)}main{padding:28px 0 40px}.intro p{font-size:15px}.expertise-grid{grid-template-columns:1fr;gap:10px}.expertise-card{padding:18px}.section-title{font-size:24px;margin:30px 0 17px}.values{grid-template-columns:1fr;gap:9px}.music-button{width:44px;height:44px;right:13px;bottom:13px}}
 </style>
 </head>
 <body>
@@ -47,9 +49,40 @@ main{padding:45px 0 60px}.page-heading{text-align:center;margin-bottom:38px}.eye
  </section>
 </main>
 <footer class="copyright">© 2026 Amira Belkssir — Tous droits réservés.</footer>
+
+<audio id="pageMusic" preload="auto" loop>
+  <source src="cinematic-ambient-atmosphere.mp3" type="audio/mpeg">
+</audio>
+<button class="music-button" id="musicToggle" type="button" aria-label="Activer la musique" title="Activer la musique">♫</button>
 <script>
-const menuButton=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav-links');menuButton.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(isOpen));});nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
+const menuButton=document.querySelector('.menu-toggle');
+const nav=document.querySelector('.nav-links');
+menuButton.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(isOpen));});
+nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
 function openAppointment(event){if(event)event.preventDefault();window.location.href='rendez-vous.html';}
+
+const pageMusic=document.getElementById('pageMusic');
+const musicToggle=document.getElementById('musicToggle');
+pageMusic.volume=0.16;
+function updateMusicButton(){
+  const playing=!pageMusic.paused;
+  musicToggle.classList.toggle('playing',playing);
+  musicToggle.textContent=playing?'Ⅱ':'♫';
+  musicToggle.setAttribute('aria-label',playing?'Arrêter la musique':'Activer la musique');
+  musicToggle.title=playing?'Arrêter la musique':'Activer la musique';
+}
+async function attemptAutoplay(){
+  try{await pageMusic.play();updateMusicButton();}
+  catch(error){updateMusicButton();}
+}
+musicToggle.addEventListener('click',async()=>{
+  if(pageMusic.paused){try{await pageMusic.play();}catch(error){/* Le fichier audio doit être présent et le navigateur peut bloquer la lecture. */}}
+  else pageMusic.pause();
+  updateMusicButton();
+});
+pageMusic.addEventListener('play',updateMusicButton);
+pageMusic.addEventListener('pause',updateMusicButton);
+window.addEventListener('load',attemptAutoplay);
 </script>
 </body>
 </html>
