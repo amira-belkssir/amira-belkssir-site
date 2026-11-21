@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071725">
+
+<title>Création d'entreprise | Amira Belkssir</title>
+
+<meta name="description" content="Accompagnement et conseil dans la création, la structuration et le lancement de votre entreprise.">
+
+<style>
+:root{
+  --navy:#071725;
+  --navy2:#0b2030;
+  --card:#102a3d;
+  --gold:#e5b45d;
+  --gold2:#bd8d43;
+  --white:#f7f4ed;
+  --muted:#d7dce0;
+  --line:rgba(229,180,93,.45);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--navy);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.7;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(1150px,calc(100% - 36px));
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  background:#05121e;
+  border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  min-height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+}
+
+.brand-name{
+  color:var(--gold);
+  font:21px Georgia,serif;
+}
+
+.brand-sub{
+  display:block;
+  color:#fff;
+  font:10px Arial,sans-serif;
+  letter-spacing:2px;
+  text-align:center;
+  margin-top:4px;
+}
+
+.header-link{
+  border:1px solid var(--gold);
+  color:var(--gold);
+  padding:9px 16px;
+  border-radius:8px;
+  font-size:14px;
+  transition:.2s;
+}
+
+.header-link:hover{
+  background:var(--gold);
+  color:var(--navy);
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:90px 0 85px;
+  background:
+    radial-gradient(circle at 85% 25%,rgba(229,180,93,.10),transparent 35%),
+    linear-gradient(135deg,#0b2030,#071725 70%);
+  border-bottom:1px solid var(--line);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  right:-120px;
+  top:-100px;
+  border:1px solid rgba(229,180,93,.15);
+  border-radius:50%;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  right:-70px;
+  top:-50px;
+  border:1px solid rgba(229,180,93,.12);
+  border-radius:50%;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:800px;
+}
+
+.hero-label{
+  display:inline-block;
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  border:1px solid var(--line);
+  padding:7px 13px;
+  border-radius:30px;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font:clamp(34px,5vw,58px)/1.2 Georgia,serif;
+  color:var(--gold);
+  margin-bottom:22px;
+}
+
+.hero h1 span{
+  color:var(--white);
+}
+
+.hero-text{
+  font:18px/1.8 Georgia,serif;
+  color:#dce3e9;
+  max-width:700px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:12px 22px;
+  border-radius:9px;
+  font-weight:bold;
+  transition:.25s;
+}
+
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),#f0ca7d);
+  color:#071725;
+}
+
+.btn-gold:hover{
+  transform:translateY(-3px);
+  box-shadow:0 7px 20px rgba(229,180,93,.2);
+}
+
+.btn-outline{
+  border:1px solid var(--gold);
+  color:var(--gold);
+}
+
+.btn-outline:hover{
+  background:rgba(229,180,93,.08);
+}
+
+/* INTRO */
+
+.intro{
+  padding:70px 0;
+}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.section-heading span{
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.section-heading h2{
+  color:var(--white);
+  font:clamp(26px,3vw,38px) Georgia,serif;
+  margin:10px 0 14px;
+}
+
+.section-heading p{
+  color:var(--muted);
+  max-width:720px;
+  margin:auto;
+  font-size:15px;
+}
+
+.intro-box{
+  max-width:900px;
+  margin:auto;
+  padding:30px;
+  border:1px solid var(--line);
+  background:linear-gradient(145deg,#102a3d,#0b2030);
+  border-radius:16px;
+  text-align:center;
+}
+
+.intro-box p{
+  color:#e5e7eb;
+  font:17px/1.9 Georgia,serif;
+}
+
+/* SERVICES */
+
+.services{
+  padding:65px 0;
+  background:linear-gradient(180deg,#081a28,#071725);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+.service-card{
+  padding:26px 20px;
+  min-height:235px;
+  background:linear-gradient(145deg,#102b3e,#0b2030);
+  border:1px solid rgba(229,180,93,.4);
+  border-radius:14px;
+  transition:.25s;
+}
+
+.service-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--gold);
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.service-icon{
+  font-size:32px;
+  color:var(--gold);
+  margin-bottom:15px;
+}
+
+.service-card h3{
+  color:var(--gold);
+  font:21px Georgia,serif;
+  margin-bottom:12px;
+}
+
+.service-card p{
+  color:#d7dce0;
+  font-size:14px;
+}
+
+/* STEPS */
+
+.steps{
+  padding:75px 0;
+}
+
+.steps-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;
+}
+
+.step{
+  text-align:center;
+  padding:24px 14px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:rgba(16,42,61,.65);
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  margin:0 auto 15px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),#f0ca7d);
+  color:var(--navy);
+  font:bold 18px Georgia,serif;
+}
+
+.step h3{
+  color:var(--gold);
+  font:18px Georgia,serif;
+  margin-bottom:10px;
+}
+
+.step p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* WHY */
+
+.why{
+  padding:65px 0;
+  background:#091b29;
+  border-top:1px solid var(--line);
+}
+
+.why-box{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+}
+
+.why-box h2{
+  color:var(--gold);
+  font:clamp(25px,3vw,36px) Georgia,serif;
+  margin-bottom:20px;
+}
+
+.why-box p{
+  color:#d7dce0;
+  font-size:16px;
+  line-height:1.9;
+}
+
+/* CTA */
+
+.cta{
+  padding:70px 20px;
+  text-align:center;
+  background:
+    radial-gradient(circle at center,rgba(229,180,93,.08),transparent 65%),
+    #071725;
+  border-top:1px solid var(--line);
+}
+
+.cta h2{
+  color:var(--gold);
+  font:clamp(27px,4vw,40px) Georgia,serif;
+  margin-bottom:15px;
+}
+
+.cta p{
+  max-width:650px;
+  margin:0 auto 25px;
+  color:var(--muted);
+}
+
+.cta-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+/* FOOTER */
+
+footer{
+  padding:22px 12px;
+  background:#05121e;
+  color:var(--gold);
+  border-top:1px solid var(--line);
+  text-align:center;
+  font:14px Georgia,serif;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .header-inner{
+    min-height:65px;
+  }
+
+  .brand img{
+    width:42px;
+    height:42px;
+  }
+
+  .brand-name{
+    font-size:15px;
+  }
+
+  .brand-sub{
+    font-size:8px;
+    letter-spacing:1.5px;
+  }
+
+  .header-link{
+    font-size:11px;
+    padding:8px 10px;
+  }
+
+  .hero{
+    padding:60px 0;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .hero-text{
+    font-size:16px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .intro,
+  .services,
+  .steps,
+  .why{
+    padding:45px 0;
+  }
+
+  .intro-box{
+    padding:22px 16px;
+  }
+
+  .intro-box p{
+    font-size:15px;
+  }
+
+  .services-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .service-card{
+    min-height:auto;
+    padding:22px;
+  }
+
+  .service-card h3{
+    font-size:19px;
+  }
+
+  .steps-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .step{
+    padding:18px 10px;
+  }
+
+  .step h3{
+    font-size:16px;
+  }
+
+  .step p{
+    font-size:12px;
+  }
+
+  .cta{
+    padding:50px 15px;
+  }
+}
+
+@media(max-width:380px){
+
+  .brand-name{
+    font-size:13px;
+  }
+
+  .header-link{
+    padding:7px 8px;
+    font-size:10px;
+  }
+
+  .steps-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="container header-inner">
+
+    <a href="index.html" class="brand">
+      <img src="belkssir_consulting_logo.png"
+           alt="Belkssir Consulting">
+
+      <span class="brand-name">
+        AMIRA BELKSSIR
+        <span class="brand-sub">CONSEILLÈRE FISCALE</span>
+      </span>
+    </a>
+
+    <a href="index.html" class="header-link">
+      ← Accueil
+    </a>
+
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="container hero-content">
+
+    <div class="hero-label">
+      CONSEIL · ACCOMPAGNEMENT · STRUCTURATION
+    </div>
+
+    <h1>
+      Création d'entreprise<br>
+      <span>Construire votre projet avec confiance</span>
+    </h1>
+
+    <p class="hero-text">
+      Vous souhaitez lancer votre activité et concrétiser votre projet ?
+      Bénéficiez d'un accompagnement adapté à vos ambitions,
+      à votre activité et à vos objectifs.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="rendez-vous.html" class="btn btn-gold">
+        Prendre un Rendez-vous
+      </a>
+
+      <a href="#accompagnement" class="btn btn-outline">
+        Découvrir notre accompagnement
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- INTRO -->
+
+<section class="intro">
+
+  <div class="container">
+
+    <div class="section-heading">
+      <span>Votre projet mérite une vision claire</span>
+      <h2>De l'idée à la création</h2>
+
+      <p>
+        La création d'une entreprise est une étape importante.
+        Elle nécessite une réflexion structurée, une bonne préparation
+        et une compréhension des enjeux juridiques, fiscaux et économiques.
+      </p>
+    </div>
+
+    <div class="intro-box">
+
+      <p>
+        Notre accompagnement vise à vous aider à mieux préparer votre projet,
+        à réfléchir à sa structure, à comprendre les démarches nécessaires
+        et à avancer avec une vision cohérente de votre future activité.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ACCOMPAGNEMENT -->
+
+<section class="services" id="accompagnement">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span>Notre accompagnement</span>
+
+      <h2>Les étapes clés de votre projet</h2>
+
+      <p>
+        Un accompagnement réfléchi pour préparer votre lancement
+        et prendre les bonnes décisions dès le départ.
+      </p>
+
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+
+        <div class="service-icon">◇</div>
+
+        <h3>Étude du projet</h3>
+
+        <p>
+          Comprendre votre idée, votre activité, vos objectifs
+          et les besoins spécifiques de votre projet.
+        </p>
+
+      </div>
+
+      <div class="service-card">
+
+        <div class="service-icon">⌘</div>
+
+        <h3>Structuration de l'entreprise</h3>
+
+        <p>
+          Réfléchir à la structure de votre activité et aux choix
+          importants liés à la création de votre entreprise.
+        </p>
+
+      </div>
+
+      <div class="service-card">
+
+        <div class="service-icon">§</div>
+
+        <h3>Orientation juridique et fiscale</h3>
+
+        <p>
+          Identifier les principaux aspects juridiques et fiscaux
+          à prendre en considération selon votre projet.
+        </p>
+
+      </div>
+
+      <div class="service-card">
+
+        <div class="service-icon">▤</div>
+
+        <h3>Préparation des démarches</h3>
+
+        <p>
+          Vous orienter dans la préparation des formalités
+          et des éléments nécessaires à la création.
+        </p>
+
+      </div>
+
+      <div class="service-card">
+
+        <div class="service-icon">↗</div>
+
+        <h3>Vision stratégique</h3>
+
+        <p>
+          Construire une vision cohérente de votre activité,
+          de son organisation et de ses perspectives d'évolution.
+        </p>
+
+      </div>
+
+      <div class="service-card">
+
+        <div class="service-icon">✧</div>
+
+        <h3>Accompagnement personnalisé</h3>
+
+        <p>
+          Adapter les conseils et l'accompagnement
+          à la nature de votre projet et à vos besoins.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ETAPES -->
+
+<section class="steps">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span>Votre parcours</span>
+
+      <h2>Comment se déroule l'accompagnement ?</h2>
+
+    </div>
+
+    <div class="steps-grid">
+
+      <div class="step">
+
+        <div class="step-number">01</div>
+
+        <h3>Échange</h3>
+
+        <p>
+          Présentation de votre idée,
+          de vos besoins et de vos objectifs.
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-number">02</div>
+
+        <h3>Analyse</h3>
+
+        <p>
+          Étude de votre situation
+          et des éléments essentiels de votre projet.
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-number">03</div>
+
+        <h3>Orientation</h3>
+
+        <p>
+          Identification des pistes
+          et des démarches à envisager.
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-number">04</div>
+
+        <h3>Accompagnement</h3>
+
+        <p>
+          Avancement de votre projet
+          selon vos besoins et votre situation.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- POURQUOI -->
+
+<section class="why">
+
+  <div class="container why-box">
+
+    <h2>Créer aujourd'hui, préparer demain</h2>
+
+    <p>
+      Chaque projet est différent.
+      Notre approche privilégie l'écoute, l'analyse et la réflexion
+      afin de vous aider à prendre des décisions adaptées,
+      à anticiper les enjeux et à donner à votre entreprise
+      des bases solides pour son développement.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="cta">
+
+  <div class="container">
+
+    <h2>Vous avez un projet de création d'entreprise ?</h2>
+
+    <p>
+      Parlons de votre projet, de vos ambitions
+      et des solutions envisageables pour vous accompagner.
+    </p>
+
+    <div class="cta-buttons">
+
+      <a href="rendez-vous.html" class="btn btn-gold">
+        Réserver un Rendez-vous
+      </a>
+
+      <a href="tel:+21650073838" class="btn btn-outline">
+        ☎ 50 073 838
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  © 2026 Amira Belkssir — Tous droits réservés.
+</footer>
+
+</body>
+</html>
