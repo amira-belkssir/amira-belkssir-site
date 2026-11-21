@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -645,21 +644,49 @@ footer{
 
         <div class="fields">
 
+          <!-- RECTO -->
+
           <div class="field full">
 
-            <label for="document">
-              Copie CIN ou Passeport (PDF ou Image)
+            <label for="documentRecto">
+              Photo CIN ou Passeport – Recto
             </label>
 
             <div class="file-box">
 
               <input type="file"
-                     id="document"
-                     name="document"
-                     accept=".pdf,.jpg,.jpeg,.png,.webp">
+                     id="documentRecto"
+                     name="documentRecto"
+                     accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
 
               <p class="file-note">
-                Formats acceptés : PDF, JPG, JPEG, PNG ou WEBP.
+                Photo du recto (face avant).
+                Formats acceptés : JPG, JPEG, PNG ou WEBP.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- VERSO -->
+
+          <div class="field full">
+
+            <label for="documentVerso">
+              Photo CIN ou Passeport – Verso
+            </label>
+
+            <div class="file-box">
+
+              <input type="file"
+                     id="documentVerso"
+                     name="documentVerso"
+                     accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+
+              <p class="file-note">
+                Photo du verso (face arrière).
+                Formats acceptés : JPG, JPEG, PNG ou WEBP.
               </p>
 
             </div>
@@ -690,8 +717,8 @@ footer{
         <strong>Important :</strong>
         Après avoir cliqué sur le bouton d'envoi, WhatsApp s'ouvrira
         avec les informations de votre demande.
-        Vous devrez confirmer l'envoi du message et joindre votre
-        document directement dans WhatsApp.
+        Vous devrez confirmer l'envoi du message et joindre les deux
+        photos de votre document (Recto et Verso) directement dans WhatsApp.
       </div>
 
 
@@ -763,20 +790,33 @@ document.getElementById("companyForm").addEventListener("submit",function(e){
 
   });
 
-  const file = document.getElementById("document").files[0];
+  const recto = document.getElementById("documentRecto").files[0];
+  const verso = document.getElementById("documentVerso").files[0];
 
   message += "━━━━━━━━━━━━━━━━━━━━\n";
+  message += "📎 DOCUMENTS À JOINDRE DANS WHATSAPP\n\n";
 
-  if(file){
+  if(recto){
 
-    message += "📎 DOCUMENT À JOINDRE : " + file.name + "\n";
-    message += "Le client doit joindre ce fichier directement dans WhatsApp.\n\n";
+    message += "📷 CIN / Passeport – RECTO : " + recto.name + "\n";
 
   }else{
 
-    message += "📎 Aucun document sélectionné.\n\n";
+    message += "📷 CIN / Passeport – RECTO : Non sélectionné\n";
 
   }
+
+  if(verso){
+
+    message += "📷 CIN / Passeport – VERSO : " + verso.name + "\n";
+
+  }else{
+
+    message += "📷 CIN / Passeport – VERSO : Non sélectionné\n";
+
+  }
+
+  message += "\nLe client doit joindre les photos directement dans WhatsApp.\n\n";
 
   message += "Demande envoyée depuis le site Amira Belkssir.";
 
