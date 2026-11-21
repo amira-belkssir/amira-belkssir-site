@@ -349,7 +349,7 @@ a {color:inherit;text-decoration:none;}
 
 .trust-grid {
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:18px;
 }
 
@@ -1161,8 +1161,8 @@ a {color:inherit;text-decoration:none;}
   .trust-strip {padding:12px 0;}
 
   .trust-grid {
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:6px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
   }
 
   .trust-item {
@@ -1357,7 +1357,6 @@ a {color:inherit;text-decoration:none;}
 
       <a class="active" href="#accueil">Accueil</a>
 
-      <!-- NOUVEAU LIEN À PROPOS -->
       <a href="a-propos.html">À propos</a>
 
       <a href="#services">Nos Services</a>
@@ -1369,7 +1368,6 @@ a {color:inherit;text-decoration:none;}
 
       <a href="tel:+21650073838">Contact</a>
 
-      <!-- ESPACE ADMINISTRATEUR -->
       <a href="admin.html">Espace Administrateur</a>
 
     </nav>
@@ -1489,6 +1487,8 @@ a {color:inherit;text-decoration:none;}
 
   <div class="container trust-grid">
 
+    <!-- DROIT FISCAL -->
+
     <a class="trust-item"
        href="droit-fiscal.html"
        aria-label="Découvrir le droit fiscal">
@@ -1509,6 +1509,8 @@ a {color:inherit;text-decoration:none;}
       <span class="service-arrow">Découvrir →</span>
     </a>
 
+    <!-- DROIT D'INVESTISSEMENT -->
+
     <a class="trust-item"
        href="droit-investissement.html"
        aria-label="Découvrir le droit d'investissement">
@@ -1516,7 +1518,7 @@ a {color:inherit;text-decoration:none;}
       <span class="trust-icon">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <rect x="3" y="7" width="18" height="14" rx="2"/>
-          <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+          <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 a2 2v2"/>
           <path d="M3 12h18"/>
           <path d="M10 12v2h4v-2"/>
         </svg>
@@ -1529,6 +1531,8 @@ a {color:inherit;text-decoration:none;}
 
       <span class="service-arrow">Découvrir →</span>
     </a>
+
+    <!-- CONTENTIEUX FISCAL -->
 
     <a class="trust-item"
        href="contentieux-fiscal.html"
@@ -1548,6 +1552,29 @@ a {color:inherit;text-decoration:none;}
       <span>
         <strong>CONTENTIEUX FISCAL</strong>
         <span class="service-description">Défense & Représentation</span>
+      </span>
+
+      <span class="service-arrow">Découvrir →</span>
+    </a>
+
+    <!-- CRÉATION D'ENTREPRISE : NOUVELLE CARTE -->
+
+    <a class="trust-item"
+       href="creation-entreprise.html"
+       aria-label="Découvrir les services de création d'entreprise">
+
+      <span class="trust-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="14" rx="2"/>
+          <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 a2 2v2"/>
+          <path d="M12 11v6"/>
+          <path d="M9 14h6"/>
+        </svg>
+      </span>
+
+      <span>
+        <strong>CRÉATION D’ENTREPRISE</strong>
+        <span class="service-description">Accompagnement & Constitution</span>
       </span>
 
       <span class="service-arrow">Découvrir →</span>
@@ -1778,477 +1805,3 @@ a {color:inherit;text-decoration:none;}
   </div>
 
 </div>
-
-<script>
-
-/* APPOINTMENT MODAL */
-
-const appointmentModal = document.getElementById('appointmentModal');
-
-function openAppointment(event) {
-  if (event) {
-    event.preventDefault();
-  }
-
-  appointmentModal.classList.add('active');
-  appointmentModal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeAppointment() {
-  appointmentModal.classList.remove('active');
-  appointmentModal.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-appointmentModal.addEventListener('click', function(event) {
-  if (event.target === appointmentModal) {
-    closeAppointment();
-  }
-});
-
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape' && appointmentModal.classList.contains('active')) {
-    closeAppointment();
-  }
-});
-
-/* MENU */
-
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav-links');
-
-menuButton.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(isOpen));
-});
-
-nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuButton.setAttribute('aria-expanded', 'false');
-  });
-});
-
-/* ELEMENTS */
-
-const amiraWidget = document.getElementById('amiraWidget');
-const amiraChat = document.getElementById('amiraChat');
-const amiraDesign = document.getElementById('amiraDesign');
-const amiraClose = document.getElementById('amiraClose');
-
-const amiraMessages = document.getElementById('amiraMessages');
-const amiraChatBody = document.getElementById('amiraChatBody');
-
-const amiraChoices = document.getElementById('amiraChoices');
-const amiraInput = document.getElementById('amiraInput');
-const amiraForm = document.getElementById('amiraForm');
-const amiraMic = document.getElementById('amiraMic');
-const amiraNote = document.getElementById('amiraNote');
-
-let currentLanguage = 'fr';
-
-/* SCROLL */
-
-function scrollChatToBottom() {
-  requestAnimationFrame(() => {
-    amiraChatBody.scrollTop = amiraChatBody.scrollHeight;
-  });
-}
-
-/* OPEN / CLOSE CHAT */
-
-function openAmiraChat() {
-  amiraChat.classList.add('open');
-  amiraWidget.classList.add('chat-open');
-  scrollChatToBottom();
-}
-
-function closeAmiraChat() {
-  amiraChat.classList.remove('open');
-  amiraWidget.classList.remove('chat-open');
-}
-
-amiraDesign.addEventListener('click', openAmiraChat);
-amiraClose.addEventListener('click', closeAmiraChat);
-
-/* LANGUAGE */
-
-document.querySelectorAll('.amira-language button').forEach(button => {
-
-  button.addEventListener('click', () => {
-
-    currentLanguage = button.dataset.lang;
-
-    document.querySelectorAll('.amira-language button')
-      .forEach(b => b.classList.remove('selected'));
-
-    button.classList.add('selected');
-
-    if (currentLanguage === 'ar') {
-
-      amiraInput.placeholder = 'اكتب رسالتك هنا...';
-      amiraNote.textContent = 'يمكنك الكتابة أو التحدث مع مساعدتك.';
-
-      addMessage(
-        'مرحباً بك! أنا المساعدة الافتراضية لأميرة. كيف يمكنني مساعدتك؟'
-      );
-
-    } else {
-
-      amiraInput.placeholder = 'Écrivez votre message...';
-      amiraNote.textContent = 'Vous pouvez écrire ou parler avec votre assistante.';
-
-      addMessage(
-        "Bonjour ! Je suis l'assistante IA d'Amira. Comment puis-je vous aider ?"
-      );
-
-    }
-
-  });
-
-});
-
-/* ADD MESSAGE */
-
-function addMessage(text, isUser = false) {
-
-  const wrapper = document.createElement('div');
-
-  if (isUser) {
-
-    wrapper.className = 'amira-user-bubble';
-    wrapper.textContent = text;
-
-  } else {
-
-    wrapper.className = 'amira-bubble';
-
-    const textNode = document.createElement('span');
-    textNode.textContent = text;
-
-    const speaker = document.createElement('button');
-    speaker.className = 'amira-speak';
-    speaker.type = 'button';
-    speaker.textContent = '🔊';
-    speaker.title = 'Écouter';
-
-    speaker.addEventListener('click', () => {
-      speakText(text, currentLanguage);
-    });
-
-    wrapper.appendChild(speaker);
-    wrapper.appendChild(textNode);
-
-  }
-
-  amiraMessages.appendChild(wrapper);
-  scrollChatToBottom();
-}
-
-/* ANSWERS */
-
-const answers = {
-
-  fiscal: {
-    fr: "Le droit fiscal concerne notamment la fiscalité des entreprises, les déclarations fiscales et l'optimisation fiscale.\n\nNotre cabinet peut vous accompagner selon votre situation.",
-    ar: "يهتم القانون الجبائي بالضرائب المتعلقة بالمؤسسات والتصاريح الجبائية والتحسين الجبائي.\n\nيمكن لمكتب أميرة مرافقتكم حسب طبيعة وضعيتكم."
-  },
-
-  investissement: {
-    fr: "Le droit d'investissement porte notamment sur l'accompagnement des projets, leur structuration et les aspects fiscaux liés à l'investissement.\n\nNous pouvons étudier votre projet et vos besoins.",
-    ar: "يتعلق قانون الاستثمار بمرافقة المشاريع وتنظيمها والجوانب الجبائية المرتبطة بالاستثمار.\n\nيمكننا دراسة مشروعكم واحتياجاتكم."
-  },
-
-  contentieux: {
-    fr: "Le contentieux fiscal concerne les litiges avec l'administration fiscale, les réclamations et les procédures de défense.\n\nNotre cabinet peut vous accompagner dans l'étude de votre dossier.",
-    ar: "تتعلق النزاعات الجبائية بالخلافات مع الإدارة الجبائية والاعتراضات وإجراءات الدفاع.\n\nيمكن لمكتب أميرة مرافقتكم في دراسة ملفكم."
-  },
-
-  contact: {
-    fr: "Vous pouvez contacter directement le cabinet Amira Belkssir au 50 073 838 ou par e-mail : mirabelkssir@gmail.com.\n\nNous serons ravis de vous accueillir.",
-    ar: "يمكنكم التواصل مباشرة مع مكتب أميرة بلقصر على الرقم 50 073 838 أو عبر البريد الإلكتروني:\nmirabelkssir@gmail.com\n\nيسعدنا استقبالكم."
-  }
-
-};
-
-/* QUESTION LABELS */
-
-const labels = {
-
-  fiscal: {
-    fr:"Je souhaite des informations sur le droit fiscal.",
-    ar:"أريد معلومات حول القانون الجبائي."
-  },
-
-  investissement: {
-    fr:"Je souhaite des informations sur le droit d'investissement.",
-    ar:"أريد معلومات حول قانون الاستثمار."
-  },
-
-  contentieux: {
-    fr:"Je souhaite des informations sur le contentieux fiscal.",
-    ar:"أريد معلومات حول النزاعات الجبائية."
-  },
-
-  contact: {
-    fr:"Je souhaite contacter le cabinet.",
-    ar:"أريد التواصل مع مكتب أميرة."
-  }
-
-};
-
-/* SPEAK */
-
-function speakText(text, language) {
-
-  if (!('speechSynthesis' in window)) {
-    alert(
-      language === 'ar'
-      ? 'خاصية الصوت غير متاحة في هذا المتصفح.'
-      : 'La lecture vocale n’est pas disponible sur ce navigateur.'
-    );
-    return;
-  }
-
-  window.speechSynthesis.cancel();
-
-  const utterance = new SpeechSynthesisUtterance(text);
-
-  utterance.lang = language === 'ar' ? 'ar-TN' : 'fr-FR';
-  utterance.rate = 0.88;
-  utterance.pitch = 1.08;
-
-  const voices = window.speechSynthesis.getVoices();
-
-  const preferredVoice = voices.find(voice => {
-    const lang = voice.lang.toLowerCase();
-
-    return language === 'ar'
-      ? lang.startsWith('ar') && /female|femme|woman/i.test(voice.name)
-      : lang.startsWith('fr') && /female|femme|woman/i.test(voice.name);
-  });
-
-  const anyLanguageVoice = voices.find(voice => {
-    return language === 'ar'
-      ? voice.lang.toLowerCase().startsWith('ar')
-      : voice.lang.toLowerCase().startsWith('fr');
-  });
-
-  if (preferredVoice || anyLanguageVoice) {
-    utterance.voice = preferredVoice || anyLanguageVoice;
-  }
-
-  window.speechSynthesis.speak(utterance);
-}
-
-/* QUICK QUESTIONS */
-
-amiraChoices.querySelectorAll('button').forEach(button => {
-
-  button.addEventListener('click', () => {
-
-    const question = button.dataset.question;
-
-    addMessage(labels[question][currentLanguage], true);
-
-    const answer = answers[question][currentLanguage];
-
-    addMessage(answer);
-    speakText(answer, currentLanguage);
-
-    if (question === 'contact') {
-
-      const contact = document.createElement('a');
-
-      contact.href = 'tel:+21650073838';
-
-      contact.textContent =
-        currentLanguage === 'ar'
-        ? '☎ الاتصال بمكتب أميرة'
-        : '☎ Appeler le cabinet';
-
-      contact.style.cssText =
-        'display:block;text-align:center;background:#e5b45d;color:#071725;padding:11px;border-radius:8px;font-weight:bold;font-size:13px;margin:5px 0 12px;';
-
-      amiraMessages.appendChild(contact);
-      scrollChatToBottom();
-
-    }
-
-  });
-
-});
-
-/* SEND TEXT MESSAGE */
-
-amiraForm.addEventListener('submit', event => {
-
-  event.preventDefault();
-
-  const text = amiraInput.value.trim();
-
-  if (!text) return;
-
-  addMessage(text, true);
-  amiraInput.value = '';
-
-  processMessage(text);
-
-});
-
-/* KEYWORD RESPONSES */
-
-function processMessage(text) {
-
-  const value = text.toLowerCase();
-
-  let key = null;
-
-  if (
-    /fiscal|impôt|impots|taxe|déclaration|جبائي|جباية|ضريبة|ضرائب/.test(value)
-  ) {
-    key = 'fiscal';
-  }
-
-  else if (
-    /investissement|investir|projet|استثمار|الاستثمار|مشروع/.test(value)
-  ) {
-    key = 'investissement';
-  }
-
-  else if (
-    /contentieux|litige|réclamation|نزاع|نزاعات|اعتراض/.test(value)
-  ) {
-    key = 'contentieux';
-  }
-
-  else if (
-    /contact|téléphone|appeler|email|mail|اتصال|تواصل|هاتف/.test(value)
-  ) {
-    key = 'contact';
-  }
-
-  if (key) {
-
-    const answer = answers[key][currentLanguage];
-
-    setTimeout(() => {
-      addMessage(answer);
-      speakText(answer, currentLanguage);
-    }, 400);
-
-  } else {
-
-    const unknown = currentLanguage === 'ar'
-
-      ? 'شكراً على رسالتك. لم أتمكن من تحديد طلبك بدقة. يمكنك اختيار أحد المواضيع الأربعة أو التواصل مباشرة مع مكتب أميرة على الرقم 50 073 838.'
-
-      : "Merci pour votre message. Je n'ai pas bien compris votre demande. Vous pouvez choisir l'un des quatre sujets ou contacter directement le cabinet au 50 073 838.";
-
-    setTimeout(() => {
-      addMessage(unknown);
-      speakText(unknown, currentLanguage);
-    }, 400);
-
-  }
-
-}
-
-/* MICROPHONE */
-
-const SpeechRecognition =
-  window.SpeechRecognition || window.webkitSpeechRecognition;
-
-let recognition = null;
-
-if (SpeechRecognition) {
-
-  recognition = new SpeechRecognition();
-
-  recognition.continuous = false;
-  recognition.interimResults = false;
-
-  recognition.onstart = () => {
-
-    amiraMic.classList.add('listening');
-    amiraMic.textContent = '🔴';
-
-    amiraNote.textContent =
-      currentLanguage === 'ar'
-      ? 'أنا أستمع إليك...'
-      : 'Je vous écoute...';
-
-  };
-
-  recognition.onend = () => {
-
-    amiraMic.classList.remove('listening');
-    amiraMic.textContent = '🎙';
-
-    amiraNote.textContent =
-      currentLanguage === 'ar'
-      ? 'يمكنك الكتابة أو التحدث مع مساعدتك.'
-      : 'Vous pouvez écrire ou parler avec votre assistante.';
-
-  };
-
-  recognition.onresult = event => {
-
-    const spokenText = event.results[0][0].transcript;
-
-    amiraInput.value = spokenText;
-    amiraForm.requestSubmit();
-
-  };
-
-  recognition.onerror = () => {
-
-    amiraNote.textContent =
-      currentLanguage === 'ar'
-      ? 'لم أتمكن من سماعك. حاول مرة أخرى.'
-      : 'Je ne vous ai pas bien entendu. Réessayez.';
-
-  };
-
-  amiraMic.addEventListener('click', () => {
-
-    recognition.lang =
-      currentLanguage === 'ar' ? 'ar-TN' : 'fr-FR';
-
-    try {
-      recognition.start();
-    } catch (error) {
-      console.log('Microphone déjà actif.');
-    }
-
-  });
-
-} else {
-
-  amiraMic.addEventListener('click', () => {
-
-    alert(
-      currentLanguage === 'ar'
-      ? 'التعرف على الصوت غير مدعوم في هذا المتصفح. يمكنك الكتابة بدلاً من ذلك.'
-      : 'La reconnaissance vocale n’est pas prise en charge par ce navigateur. Vous pouvez écrire ce message.'
-    );
-
-  });
-
-}
-
-/* LOAD VOICES */
-
-if ('speechSynthesis' in window) {
-
-  window.speechSynthesis.onvoiceschanged = () => {
-    window.speechSynthesis.getVoices();
-  };
-
-}
-
-</script>
-
-</body>
-</html>
