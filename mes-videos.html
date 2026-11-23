@@ -134,43 +134,55 @@ a {
   cursor:pointer;
 }
 
-/* INTRO */
+/* HERO */
 
 .video-intro {
-  text-align:center;
-  padding:55px 20px 35px;
   position:relative;
-  background:
-    radial-gradient(ellipse at center,
-    rgba(189,141,67,.12),
-    transparent 70%),
-    var(--navy);
+  text-align:center;
+  padding:58px 20px 35px;
+  overflow:hidden;
   border-bottom:1px solid var(--line);
+  background:
+    linear-gradient(90deg,
+      rgba(4,15,25,.97),
+      rgba(4,15,25,.76),
+      rgba(4,15,25,.55)),
+    url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.video-intro .container {
+  position:relative;
+  z-index:1;
 }
 
 .intro-icon {
-  font-size:35px;
+  font-size:37px;
   color:var(--gold);
   margin-bottom:8px;
 }
 
 .video-intro h1 {
-  font:clamp(32px,5vw,47px) Georgia,serif;
-  color:var(--gold);
+  font:clamp(34px,5vw,52px) Georgia,serif;
+  color:var(--white);
   margin-bottom:10px;
 }
 
+.video-intro h1 span {
+  color:var(--gold);
+}
+
 .intro-line {
-  width:75px;
+  width:85px;
   height:2px;
   background:var(--gold);
-  margin:0 auto 16px;
+  margin:0 auto 17px;
 }
 
 .video-intro p {
   max-width:650px;
   margin:auto;
-  color:var(--muted);
+  color:#e1e6e9;
   font:16px/1.8 Georgia,serif;
 }
 
@@ -179,13 +191,13 @@ a {
   color:var(--gold);
   font:11px Arial,sans-serif;
   letter-spacing:2px;
-  margin-top:17px;
+  margin-top:18px;
 }
 
-/* VIDEO SECTION */
+/* SECTION */
 
 .videos-section {
-  padding:40px 0 65px;
+  padding:40px 0 55px;
 }
 
 .section-heading {
@@ -194,9 +206,9 @@ a {
 }
 
 .section-heading h2 {
-  color:var(--white);
-  font:27px Georgia,serif;
-  margin-bottom:7px;
+  color:var(--gold);
+  font:29px Georgia,serif;
+  margin-bottom:8px;
 }
 
 .section-heading p {
@@ -204,55 +216,40 @@ a {
   font-size:14px;
 }
 
-/* VIDEO GRID */
+/* GRID DESKTOP */
 
 .video-grid {
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:22px;
 }
 
-/* VIDEO CARD */
+/* CARD */
 
 .video-card {
   background:linear-gradient(145deg,#102a3d,#091b29);
-  border:1px solid rgba(229,180,93,.28);
-  border-radius:14px;
+  border:1px solid var(--line);
+  border-radius:13px;
   overflow:hidden;
-  transition:.3s ease;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+  min-width:0;
 }
 
 .video-card:hover {
   transform:translateY(-4px);
   border-color:var(--gold);
-  box-shadow:0 12px 30px rgba(0,0,0,.25);
+  box-shadow:0 12px 28px rgba(0,0,0,.3);
 }
 
-/* IMAGE COVER */
+/* COVER */
 
 .video-cover {
   position:relative;
   width:100%;
   aspect-ratio:16/9;
   overflow:hidden;
-  background:#0b2030;
-}
-
-.video-cover video {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:contain;
   background:#000;
-  display:none;
 }
-
-.video-cover video.active {
-  display:block;
-}
-
-/* Thumbnail */
 
 .video-thumbnail {
   position:absolute;
@@ -267,7 +264,22 @@ a {
   transform:scale(1.04);
 }
 
-/* Image overlay */
+.video-cover video {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#000;
+  display:none;
+  z-index:4;
+}
+
+.video-cover video.active {
+  display:block;
+}
+
+/* OVERLAY */
 
 .video-cover::after {
   content:"";
@@ -276,12 +288,21 @@ a {
   background:linear-gradient(
     180deg,
     rgba(4,13,22,.05),
-    rgba(4,13,22,.25)
+    rgba(4,13,22,.35)
   );
   pointer-events:none;
+  z-index:1;
 }
 
-/* PLAY BUTTON */
+.video-cover.playing::after {
+  display:none;
+}
+
+.video-cover.playing .video-thumbnail {
+  display:none;
+}
+
+/* PLAY */
 
 .play-button {
   position:absolute;
@@ -291,7 +312,7 @@ a {
   width:65px;
   height:65px;
   border-radius:50%;
-  background:rgba(229,180,93,.96);
+  background:rgba(229,180,93,.97);
   border:2px solid rgba(255,255,255,.85);
   display:flex;
   align-items:center;
@@ -305,7 +326,7 @@ a {
 }
 
 .play-button:hover {
-  transform:translate(-50%,-50%) scale(1.12);
+  transform:translate(-50%,-50%) scale(1.1);
   background:#f2cc80;
 }
 
@@ -313,15 +334,14 @@ a {
   margin-left:4px;
 }
 
-.video-cover.playing .play-button,
-.video-cover.playing .video-thumbnail {
+.video-cover.playing .play-button {
   display:none;
 }
 
-/* VIDEO TEXT */
+/* INFO */
 
 .video-info {
-  padding:20px;
+  padding:18px;
 }
 
 .video-category {
@@ -331,85 +351,100 @@ a {
   color:var(--gold);
   font-size:10px;
   font-weight:bold;
-  letter-spacing:1.5px;
+  letter-spacing:1.4px;
   text-transform:uppercase;
-  margin-bottom:9px;
+  margin-bottom:8px;
 }
 
 .video-category::before {
   content:"";
-  display:block;
-  width:22px;
+  width:20px;
   height:1px;
   background:var(--gold);
 }
 
 .video-info h3 {
-  font:23px Georgia,serif;
+  font:22px Georgia,serif;
   color:#fff;
-  margin-bottom:9px;
+  margin-bottom:8px;
 }
 
 .video-info p {
   color:#bdc8d0;
   font-size:13px;
-  line-height:1.8;
-  min-height:48px;
+  line-height:1.7;
+  min-height:66px;
 }
 
 .video-meta {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
-  margin-top:18px;
-  padding-top:13px;
+  gap:8px;
+  margin-top:15px;
+  padding-top:12px;
   border-top:1px solid rgba(229,180,93,.17);
 }
 
-.video-meta span {
+.video-meta .author {
   color:#aebbc4;
   font-size:11px;
+  white-space:nowrap;
 }
 
 .video-watch {
-  color:var(--gold) !important;
-  font-size:12px !important;
+  border:0;
+  background:none;
+  color:var(--gold);
+  font-size:12px;
   font-weight:bold;
+  cursor:pointer;
+  white-space:nowrap;
 }
 
-/* BOTTOM */
+.video-watch:hover {
+  color:#fff;
+}
+
+/* CONTACT */
 
 .video-bottom {
-  text-align:center;
-  padding:38px 20px;
+  padding:32px 20px;
   background:linear-gradient(180deg,#0b2030,#071725);
   border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
-.video-bottom h2 {
-  color:var(--gold);
-  font:25px Georgia,serif;
-  margin-bottom:10px;
-}
-
-.video-bottom p {
-  max-width:550px;
+.bottom-inner {
+  width:min(1000px,100%);
   margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.bottom-text h2 {
+  color:var(--gold);
+  font:24px Georgia,serif;
+  margin-bottom:6px;
+}
+
+.bottom-text p {
   color:#cbd3d9;
-  font-size:14px;
+  font-size:13px;
 }
 
 .bottom-contact {
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  margin-top:20px;
-  padding:12px 23px;
+  padding:12px 22px;
   background:linear-gradient(135deg,#e5b45d,#f0ca7d);
   color:#071725;
   font-weight:bold;
-  border-radius:8px;
+  border-radius:30px;
+  white-space:nowrap;
   transition:.2s;
 }
 
@@ -423,7 +458,7 @@ a {
 .back-home {
   display:flex;
   justify-content:center;
-  padding:22px 10px;
+  padding:20px 10px;
   background:#061522;
 }
 
@@ -443,17 +478,21 @@ a {
   background:var(--navy);
   color:var(--gold);
   text-align:center;
-  padding:18px 10px;
-  font:13px Georgia,serif;
+  padding:17px 10px;
+  font:12px Georgia,serif;
   border-top:1px solid rgba(229,180,93,.25);
 }
 
 /* TABLET */
 
-@media(max-width:850px) {
+@media(max-width:1000px) {
+
+  .container {
+    width:calc(100% - 32px);
+  }
 
   .nav-links {
-    gap:12px;
+    gap:13px;
     font-size:12px;
   }
 
@@ -467,13 +506,24 @@ a {
   }
 
   .video-grid {
-    gap:16px;
+    gap:15px;
   }
 
   .video-info {
-    padding:16px;
+    padding:15px;
   }
 
+  .video-info h3 {
+    font-size:20px;
+  }
+
+  .video-info p {
+    font-size:12px;
+  }
+
+  .video-watch {
+    font-size:11px;
+  }
 }
 
 /* MOBILE */
@@ -541,14 +591,19 @@ a {
     border-bottom:1px solid rgba(229,180,93,.1);
   }
 
-  /* Intro */
+  /* HERO MOBILE */
 
   .video-intro {
-    padding:35px 15px 28px;
+    padding:35px 15px 27px;
+    background:
+      linear-gradient(rgba(4,15,25,.91),rgba(4,15,25,.94)),
+      url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=80")
+      center/cover;
   }
 
   .intro-icon {
-    font-size:28px;
+    font-size:27px;
+    margin-bottom:4px;
   }
 
   .video-intro h1 {
@@ -557,21 +612,23 @@ a {
 
   .video-intro p {
     font-size:14px;
+    line-height:1.8;
   }
 
   .intro-sub {
     font-size:9px;
     letter-spacing:1.3px;
+    margin-top:14px;
   }
 
-  /* Cards */
+  /* SECTION */
 
   .videos-section {
-    padding:28px 0 40px;
+    padding:28px 0 35px;
   }
 
   .section-heading {
-    margin-bottom:22px;
+    margin-bottom:20px;
   }
 
   .section-heading h2 {
@@ -582,65 +639,115 @@ a {
     font-size:12px;
   }
 
+  /* MOBILE HORIZONTAL CARDS */
+
   .video-grid {
     grid-template-columns:1fr;
-    gap:20px;
+    gap:14px;
   }
 
   .video-card {
-    border-radius:13px;
+    display:grid;
+    grid-template-columns:42% 58%;
+    border-radius:12px;
+    min-height:145px;
   }
 
   .video-cover {
-    aspect-ratio:16/9;
+    height:100%;
+    min-height:145px;
+    aspect-ratio:auto;
+  }
+
+  .video-thumbnail {
+    object-fit:cover;
   }
 
   .play-button {
-    width:58px;
-    height:58px;
-    font-size:22px;
+    width:48px;
+    height:48px;
+    font-size:19px;
   }
 
   .video-info {
-    padding:17px;
+    padding:12px 11px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-width:0;
+  }
+
+  .video-category {
+    font-size:8px;
+    letter-spacing:.7px;
+    gap:5px;
+    margin-bottom:5px;
+  }
+
+  .video-category::before {
+    width:12px;
   }
 
   .video-info h3 {
-    font-size:21px;
+    font-size:17px;
+    line-height:1.35;
+    margin-bottom:5px;
   }
 
   .video-info p {
-    font-size:13px;
-    min-height:auto;
+    font-size:11px;
+    line-height:1.5;
+    min-height:0;
   }
 
   .video-meta {
-    margin-top:14px;
-    padding-top:12px;
+    margin-top:8px;
+    padding-top:8px;
+    gap:4px;
   }
+
+  .video-meta .author {
+    font-size:9px;
+  }
+
+  .video-watch {
+    font-size:10px;
+  }
+
+  /* CONTACT MOBILE */
 
   .video-bottom {
-    padding:29px 16px;
+    padding:24px 15px;
   }
 
-  .video-bottom h2 {
-    font-size:22px;
+  .bottom-inner {
+    flex-direction:column;
+    text-align:center;
+    gap:14px;
   }
 
-  .video-bottom p {
+  .bottom-text h2 {
+    font-size:21px;
+  }
+
+  .bottom-text p {
+    font-size:12px;
+  }
+
+  .bottom-contact {
+    padding:11px 20px;
     font-size:13px;
   }
 
   .copyright {
-    font-size:11px;
-    padding:15px 8px;
+    font-size:10px;
+    padding:14px 8px;
   }
-
 }
 
 /* SMALL PHONES */
 
-@media(max-width:360px) {
+@media(max-width:380px) {
 
   .brand-name {
     font-size:11px;
@@ -654,11 +761,27 @@ a {
     font-size:28px;
   }
 
-  .video-info h3 {
-    font-size:18px;
+  .video-card {
+    grid-template-columns:40% 60%;
   }
 
+  .video-info {
+    padding:10px 9px;
+  }
+
+  .video-info h3 {
+    font-size:15px;
+  }
+
+  .video-info p {
+    font-size:10px;
+  }
+
+  .video-watch {
+    font-size:9px;
+  }
 }
+
 </style>
 </head>
 
@@ -692,13 +815,9 @@ a {
     <nav class="nav-links" id="mainNav">
 
       <a href="index.html">Accueil</a>
-
       <a href="index.html#services">Nos Services</a>
-
       <a href="mes-articles.html">Mes Articles</a>
-
       <a href="mes-videos.html" style="color:var(--gold);">Mes vidéos</a>
-
       <a href="tel:+21650073838">Contact</a>
 
     </nav>
@@ -715,21 +834,25 @@ a {
 
 <section class="video-intro">
 
-  <div class="intro-icon">▣</div>
+  <div class="container">
 
-  <h1>Nos Vidéos</h1>
+    <div class="intro-icon">▣</div>
 
-  <div class="intro-line"></div>
+    <h1>Nos <span>Vidéos</span></h1>
 
-  <p>
-    Découvrez nos conseils et nos explications
-    pour mieux comprendre les questions fiscales,
-    juridiques et financières.
-  </p>
+    <div class="intro-line"></div>
 
-  <span class="intro-sub">
-    EXPERTISE · CONSEILS · INFORMATIONS
-  </span>
+    <p>
+      Découvrez nos conseils et nos explications
+      pour mieux comprendre les questions fiscales,
+      juridiques et financières.
+    </p>
+
+    <span class="intro-sub">
+      EXPERTISE · CONSEILS · INFORMATIONS
+    </span>
+
+  </div>
 
 </section>
 
@@ -749,7 +872,7 @@ a {
 
     <div class="video-grid">
 
-      <!-- VIDEO 1 : DROIT FISCAL -->
+      <!-- VIDEO 1 -->
 
       <article class="video-card">
 
@@ -783,15 +906,18 @@ a {
           </p>
 
           <div class="video-meta">
-            <span>Amira Belkssir</span>
-            <span class="video-watch">▶ Regarder la vidéo</span>
+            <span class="author">Amira Belkssir</span>
+
+            <button class="video-watch" type="button">
+              ▶ Regarder la vidéo
+            </button>
           </div>
 
         </div>
 
       </article>
 
-      <!-- VIDEO 2 : DROIT D'INVESTISSEMENT -->
+      <!-- VIDEO 2 -->
 
       <article class="video-card">
 
@@ -825,15 +951,18 @@ a {
           </p>
 
           <div class="video-meta">
-            <span>Amira Belkssir</span>
-            <span class="video-watch">▶ Regarder la vidéo</span>
+            <span class="author">Amira Belkssir</span>
+
+            <button class="video-watch" type="button">
+              ▶ Regarder la vidéo
+            </button>
           </div>
 
         </div>
 
       </article>
 
-      <!-- VIDEO 3 : CONTENTIEUX FISCAL -->
+      <!-- VIDEO 3 -->
 
       <article class="video-card">
 
@@ -867,8 +996,11 @@ a {
           </p>
 
           <div class="video-meta">
-            <span>Amira Belkssir</span>
-            <span class="video-watch">▶ Regarder la vidéo</span>
+            <span class="author">Amira Belkssir</span>
+
+            <button class="video-watch" type="button">
+              ▶ Regarder la vidéo
+            </button>
           </div>
 
         </div>
@@ -885,16 +1017,24 @@ a {
 
 <section class="video-bottom">
 
-  <h2>Besoin d'informations complémentaires ?</h2>
+  <div class="bottom-inner">
 
-  <p>
-    Notre cabinet reste à votre disposition pour vous accompagner
-    et répondre à vos questions.
-  </p>
+    <div class="bottom-text">
 
-  <a class="bottom-contact" href="tel:+21650073838">
-    ☎ Contacter le cabinet
-  </a>
+      <h2>Besoin d'informations complémentaires ?</h2>
+
+      <p>
+        Notre cabinet reste à votre disposition pour vous accompagner
+        et répondre à vos questions.
+      </p>
+
+    </div>
+
+    <a class="bottom-contact" href="tel:+21650073838">
+      ☎ Contacter le cabinet
+    </a>
+
+  </div>
 
 </section>
 
@@ -943,29 +1083,73 @@ mainNav.querySelectorAll('a').forEach(link => {
 
 });
 
-/* VIDEO PLAY */
+/* VIDEOS */
+
+function playSelectedVideo(cover) {
+
+  const video = cover.querySelector('video');
+
+  /* إيقاف الفيديوهات الأخرى وإرجاع أغلفتها */
+  document.querySelectorAll('.video-cover').forEach(otherCover => {
+
+    const otherVideo = otherCover.querySelector('video');
+
+    if (otherVideo !== video) {
+
+      otherVideo.pause();
+
+      otherVideo.currentTime = 0;
+
+      otherVideo.classList.remove('active');
+
+      otherCover.classList.remove('playing');
+
+    }
+
+  });
+
+  /* تشغيل الفيديو المختار */
+
+  cover.classList.add('playing');
+
+  video.classList.add('active');
+
+  video.play().catch(function() {
+
+    cover.classList.remove('playing');
+
+    video.classList.remove('active');
+
+  });
+
+}
+
+/* زر الصورة */
 
 document.querySelectorAll('.video-cover').forEach(cover => {
 
   const video = cover.querySelector('video');
-  const button = cover.querySelector('.play-button');
 
-  button.addEventListener('click', function() {
+  const playButton = cover.querySelector('.play-button');
 
-    /* إيقاف الفيديوهات الأخرى */
-    document.querySelectorAll('.video-cover video').forEach(otherVideo => {
-      if (otherVideo !== video) {
-        otherVideo.pause();
-      }
-    });
+  const watchButton = cover.closest('.video-card').querySelector('.video-watch');
 
-    cover.classList.add('playing');
-    video.classList.add('active');
-    video.controls = true;
+  playButton.addEventListener('click', function() {
+    playSelectedVideo(cover);
+  });
 
-    video.play().catch(function() {
-      video.controls = true;
-    });
+  watchButton.addEventListener('click', function() {
+    playSelectedVideo(cover);
+  });
+
+  /* عند نهاية الفيديو */
+  video.addEventListener('ended', function() {
+
+    cover.classList.remove('playing');
+
+    video.classList.remove('active');
+
+    video.currentTime = 0;
 
   });
 
