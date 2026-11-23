@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,8 +16,8 @@
   --gold:#e5b45d;
   --gold2:#bd8d43;
   --white:#f7f4ed;
-  --muted:#d7dce0;
-  --line:rgba(229,180,93,.45);
+  --muted:#c2ccd4;
+  --line:rgba(229,180,93,.38);
 }
 
 * {
@@ -138,55 +137,34 @@ a {
 /* INTRO */
 
 .video-intro {
-  position:relative;
   text-align:center;
-  padding:65px 20px 40px;
-  overflow:hidden;
-  border-bottom:1px solid var(--line);
+  padding:55px 20px 35px;
+  position:relative;
   background:
     radial-gradient(ellipse at center,
     rgba(189,141,67,.12),
-    transparent 65%),
+    transparent 70%),
     var(--navy);
-}
-
-.video-intro::before,
-.video-intro::after {
-  content:"";
-  position:absolute;
-  height:1px;
-  width:100px;
-  background:var(--gold);
-  top:50%;
-  opacity:.45;
-}
-
-.video-intro::before {
-  left:5%;
-}
-
-.video-intro::after {
-  right:5%;
+  border-bottom:1px solid var(--line);
 }
 
 .intro-icon {
-  font-size:34px;
+  font-size:35px;
+  color:var(--gold);
+  margin-bottom:8px;
+}
+
+.video-intro h1 {
+  font:clamp(32px,5vw,47px) Georgia,serif;
   color:var(--gold);
   margin-bottom:10px;
 }
 
-.video-intro h1 {
-  font:clamp(32px,5vw,48px) Georgia,serif;
-  color:var(--gold);
-  letter-spacing:1.5px;
-  margin-bottom:12px;
-}
-
 .intro-line {
-  width:85px;
+  width:75px;
   height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:0 auto 18px;
+  background:var(--gold);
+  margin:0 auto 16px;
 }
 
 .video-intro p {
@@ -199,26 +177,26 @@ a {
 .intro-sub {
   display:block;
   color:var(--gold);
-  font:12px Arial,sans-serif;
+  font:11px Arial,sans-serif;
   letter-spacing:2px;
-  margin-top:18px;
+  margin-top:17px;
 }
 
 /* VIDEO SECTION */
 
 .videos-section {
-  padding:45px 0 65px;
+  padding:40px 0 65px;
 }
 
 .section-heading {
   text-align:center;
-  margin-bottom:35px;
+  margin-bottom:30px;
 }
 
 .section-heading h2 {
-  color:var(--gold);
-  font:29px Georgia,serif;
-  margin-bottom:8px;
+  color:var(--white);
+  font:27px Georgia,serif;
+  margin-bottom:7px;
 }
 
 .section-heading p {
@@ -226,70 +204,157 @@ a {
   font-size:14px;
 }
 
+/* VIDEO GRID */
+
 .video-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:25px;
+  gap:22px;
 }
 
 /* VIDEO CARD */
 
 .video-card {
   background:linear-gradient(145deg,#102a3d,#091b29);
-  border:1px solid var(--line);
-  border-radius:15px;
+  border:1px solid rgba(229,180,93,.28);
+  border-radius:14px;
   overflow:hidden;
-  transition:transform .25s,border-color .25s,box-shadow .25s;
+  transition:.3s ease;
 }
 
 .video-card:hover {
   transform:translateY(-4px);
   border-color:var(--gold);
-  box-shadow:0 12px 28px rgba(0,0,0,.3);
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
 
-.video-frame {
+/* IMAGE COVER */
+
+.video-cover {
   position:relative;
   width:100%;
   aspect-ratio:16/9;
-  background:#000;
   overflow:hidden;
+  background:#0b2030;
 }
 
-.video-frame video {
-  display:block;
+.video-cover video {
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:contain;
   background:#000;
+  display:none;
 }
 
-/* VIDEO INFO */
+.video-cover video.active {
+  display:block;
+}
+
+/* Thumbnail */
+
+.video-thumbnail {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s ease;
+}
+
+.video-card:hover .video-thumbnail {
+  transform:scale(1.04);
+}
+
+/* Image overlay */
+
+.video-cover::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(4,13,22,.05),
+    rgba(4,13,22,.25)
+  );
+  pointer-events:none;
+}
+
+/* PLAY BUTTON */
+
+.play-button {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  background:rgba(229,180,93,.96);
+  border:2px solid rgba(255,255,255,.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#071725;
+  font-size:24px;
+  cursor:pointer;
+  z-index:3;
+  transition:.3s;
+  box-shadow:0 5px 25px rgba(0,0,0,.35);
+}
+
+.play-button:hover {
+  transform:translate(-50%,-50%) scale(1.12);
+  background:#f2cc80;
+}
+
+.play-button span {
+  margin-left:4px;
+}
+
+.video-cover.playing .play-button,
+.video-cover.playing .video-thumbnail {
+  display:none;
+}
+
+/* VIDEO TEXT */
 
 .video-info {
-  padding:17px 19px 19px;
+  padding:20px;
 }
 
 .video-category {
-  display:inline-block;
+  display:flex;
+  align-items:center;
+  gap:8px;
   color:var(--gold);
   font-size:10px;
   font-weight:bold;
   letter-spacing:1.5px;
   text-transform:uppercase;
-  margin-bottom:7px;
+  margin-bottom:9px;
+}
+
+.video-category::before {
+  content:"";
+  display:block;
+  width:22px;
+  height:1px;
+  background:var(--gold);
 }
 
 .video-info h3 {
-  font:21px Georgia,serif;
+  font:23px Georgia,serif;
   color:#fff;
-  margin-bottom:7px;
+  margin-bottom:9px;
 }
 
 .video-info p {
   color:#bdc8d0;
   font-size:13px;
-  line-height:1.7;
+  line-height:1.8;
+  min-height:48px;
 }
 
 .video-meta {
@@ -297,13 +362,13 @@ a {
   align-items:center;
   justify-content:space-between;
   gap:10px;
-  margin-top:15px;
-  padding-top:12px;
+  margin-top:18px;
+  padding-top:13px;
   border-top:1px solid rgba(229,180,93,.17);
 }
 
 .video-meta span {
-  color:#9eabb5;
+  color:#aebbc4;
   font-size:11px;
 }
 
@@ -317,7 +382,7 @@ a {
 
 .video-bottom {
   text-align:center;
-  padding:35px 20px;
+  padding:38px 20px;
   background:linear-gradient(180deg,#0b2030,#071725);
   border-top:1px solid var(--line);
 }
@@ -406,12 +471,9 @@ a {
   }
 
   .video-info {
-    padding:14px;
+    padding:16px;
   }
 
-  .video-info h3 {
-    font-size:19px;
-  }
 }
 
 /* MOBILE */
@@ -479,13 +541,10 @@ a {
     border-bottom:1px solid rgba(229,180,93,.1);
   }
 
-  .video-intro {
-    padding:42px 16px 30px;
-  }
+  /* Intro */
 
-  .video-intro::before,
-  .video-intro::after {
-    width:35px;
+  .video-intro {
+    padding:35px 15px 28px;
   }
 
   .intro-icon {
@@ -501,20 +560,22 @@ a {
   }
 
   .intro-sub {
-    font-size:10px;
+    font-size:9px;
     letter-spacing:1.3px;
   }
 
+  /* Cards */
+
   .videos-section {
-    padding:30px 0 40px;
+    padding:28px 0 40px;
   }
 
   .section-heading {
-    margin-bottom:23px;
+    margin-bottom:22px;
   }
 
   .section-heading h2 {
-    font-size:24px;
+    font-size:23px;
   }
 
   .section-heading p {
@@ -523,27 +584,43 @@ a {
 
   .video-grid {
     grid-template-columns:1fr;
-    gap:17px;
+    gap:20px;
   }
 
   .video-card {
-    border-radius:12px;
+    border-radius:13px;
+  }
+
+  .video-cover {
+    aspect-ratio:16/9;
+  }
+
+  .play-button {
+    width:58px;
+    height:58px;
+    font-size:22px;
   }
 
   .video-info {
-    padding:13px 15px 15px;
+    padding:17px;
   }
 
   .video-info h3 {
-    font-size:19px;
+    font-size:21px;
   }
 
   .video-info p {
-    font-size:12px;
+    font-size:13px;
+    min-height:auto;
+  }
+
+  .video-meta {
+    margin-top:14px;
+    padding-top:12px;
   }
 
   .video-bottom {
-    padding:28px 16px;
+    padding:29px 16px;
   }
 
   .video-bottom h2 {
@@ -558,6 +635,7 @@ a {
     font-size:11px;
     padding:15px 8px;
   }
+
 }
 
 /* SMALL PHONES */
@@ -577,7 +655,7 @@ a {
   }
 
   .video-info h3 {
-    font-size:17px;
+    font-size:18px;
   }
 
 }
@@ -637,16 +715,16 @@ a {
 
 <section class="video-intro">
 
-  <div class="intro-icon">▶</div>
+  <div class="intro-icon">▣</div>
 
-  <h1>Mes vidéos</h1>
+  <h1>Nos Vidéos</h1>
 
   <div class="intro-line"></div>
 
   <p>
-    Découvrez nos vidéos, conseils et informations
-    pour mieux comprendre les enjeux fiscaux,
-    juridiques et financiers.
+    Découvrez nos conseils et nos explications
+    pour mieux comprendre les questions fiscales,
+    juridiques et financières.
   </p>
 
   <span class="intro-sub">
@@ -663,9 +741,9 @@ a {
 
     <div class="section-heading">
 
-      <h2>Notre espace vidéo</h2>
+      <h2>Nos domaines d'expertise</h2>
 
-      <p>Retrouvez nos contenus et nos conseils en vidéo.</p>
+      <p>Des contenus utiles pour vous accompagner et vous informer.</p>
 
     </div>
 
@@ -675,12 +753,21 @@ a {
 
       <article class="video-card">
 
-        <div class="video-frame">
+        <div class="video-cover">
+
+          <img
+            class="video-thumbnail"
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1000&q=85"
+            alt="Livres de droit et fiscalité">
 
           <video controls preload="none" playsinline>
             <source src="droit-fiscal.mp4" type="video/mp4">
             Votre navigateur ne prend pas en charge la lecture vidéo.
           </video>
+
+          <button class="play-button" aria-label="Lire la vidéo Droit fiscal">
+            <span>▶</span>
+          </button>
 
         </div>
 
@@ -708,12 +795,21 @@ a {
 
       <article class="video-card">
 
-        <div class="video-frame">
+        <div class="video-cover">
+
+          <img
+            class="video-thumbnail"
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85"
+            alt="Graphiques et analyse financière">
 
           <video controls preload="none" playsinline>
             <source src="droit-investissement.mp4" type="video/mp4">
             Votre navigateur ne prend pas en charge la lecture vidéo.
           </video>
+
+          <button class="play-button" aria-label="Lire la vidéo Droit d'investissement">
+            <span>▶</span>
+          </button>
 
         </div>
 
@@ -741,12 +837,21 @@ a {
 
       <article class="video-card">
 
-        <div class="video-frame">
+        <div class="video-cover">
+
+          <img
+            class="video-thumbnail"
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1000&q=85"
+            alt="Justice et contentieux">
 
           <video controls preload="none" playsinline>
             <source src="contentieux-fiscal.mp4" type="video/mp4">
             Votre navigateur ne prend pas en charge la lecture vidéo.
           </video>
+
+          <button class="play-button" aria-label="Lire la vidéo Contentieux fiscal">
+            <span>▶</span>
+          </button>
 
         </div>
 
@@ -809,9 +914,11 @@ a {
 
 </footer>
 
-<!-- MENU SCRIPT -->
+<!-- MENU + VIDEO SCRIPT -->
 
 <script>
+
+/* MENU */
 
 const menuToggle = document.getElementById('menuToggle');
 const mainNav = document.getElementById('mainNav');
@@ -831,6 +938,34 @@ mainNav.querySelectorAll('a').forEach(link => {
     mainNav.classList.remove('open');
 
     menuToggle.setAttribute('aria-expanded', 'false');
+
+  });
+
+});
+
+/* VIDEO PLAY */
+
+document.querySelectorAll('.video-cover').forEach(cover => {
+
+  const video = cover.querySelector('video');
+  const button = cover.querySelector('.play-button');
+
+  button.addEventListener('click', function() {
+
+    /* إيقاف الفيديوهات الأخرى */
+    document.querySelectorAll('.video-cover video').forEach(otherVideo => {
+      if (otherVideo !== video) {
+        otherVideo.pause();
+      }
+    });
+
+    cover.classList.add('playing');
+    video.classList.add('active');
+    video.controls = true;
+
+    video.play().catch(function() {
+      video.controls = true;
+    });
 
   });
 
