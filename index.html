@@ -106,7 +106,7 @@ a{color:inherit;text-decoration:none}
 .appointment-whatsapp{background:#168b53;border:1px solid #25d366;color:#fff}
 .appointment-footer{margin-top:20px;color:#9faeb9;font-size:12px}
 
-/* CHAT WINDOW - FIXED SIZE */
+/* CHAT WINDOW */
 .amira-chat{
 display:none;
 position:fixed;
@@ -136,7 +136,7 @@ from{opacity:0;transform:translateY(10px)}
 to{opacity:1;transform:translateY(0)}
 }
 
-/* HEADER ثابت */
+/* HEADER */
 .amira-chat-header{
 flex:0 0 auto;
 background:#071725;
@@ -176,7 +176,6 @@ border-radius:50%;
 margin-right:5px;
 }
 
-/* أزرار الرأس */
 .amira-header-buttons{
 display:flex;
 align-items:center;
@@ -210,7 +209,7 @@ color:#aaa;
 background:#ffffff05;
 }
 
-/* LANGUAGES - ثابت */
+/* LANGUAGES */
 .amira-language{
 flex:0 0 auto;
 display:flex;
@@ -238,7 +237,7 @@ color:#fff;
 border-color:#e5b45d;
 }
 
-/* ONLY THIS AREA SCROLLS */
+/* CHAT BODY */
 .amira-chat-body{
 flex:1 1 0;
 min-height:0;
@@ -255,13 +254,8 @@ scrollbar-width:thin;
 scrollbar-color:#bd8d43 #eee8dc;
 }
 
-.amira-chat-body::-webkit-scrollbar{
-width:6px;
-}
-.amira-chat-body::-webkit-scrollbar-thumb{
-background:#bd8d43;
-border-radius:10px;
-}
+.amira-chat-body::-webkit-scrollbar{width:6px}
+.amira-chat-body::-webkit-scrollbar-thumb{background:#bd8d43;border-radius:10px}
 
 /* MESSAGES */
 .amira-messages{
@@ -336,7 +330,7 @@ padding:4px 5px 7px;
 flex-shrink:0;
 }
 
-/* INPUT AREA - FIXED AT BOTTOM */
+/* INPUT */
 .amira-input-area{
 flex:0 0 auto;
 display:flex;
@@ -474,7 +468,7 @@ backdrop-filter:blur(1px)
 .action-icon{font-size:clamp(21px,6vw,27px)}
 .action-arrow{font-size:19px}
 
-/* CHAT ON PHONE: FIXED AND NEVER EXPANDS */
+/* CHAT ON PHONE */
 .amira-chat{
 right:9px;
 bottom:9px;
@@ -728,15 +722,14 @@ let welcomeSpoken=false;
 const synth=window.speechSynthesis;
 
 /* ===================================
-   VOICE SYSTEM
+   VOICE SYSTEM - SOFTER VOICE
 =================================== */
 
-/* أصوات نسائية محتملة حسب أسماء الأصوات المتوفرة */
 const femaleHints=[
-'female','woman','femme','zira','samantha','amelie',
-'julie','audrey','marie','aria','sara','sarah',
-'hoda','laila','layla','noura','noora','monica',
-'paulina','helena','luciana','karen','sophie'
+'amelie','amélie','julie','audrey','marie',
+'denise','samantha','sophie','celine','céline',
+'helen','helena','lea','léa','camille',
+'female','woman','femme'
 ];
 
 function getVoices(){
@@ -746,25 +739,39 @@ return synth ? synth.getVoices() : [];
 function chooseVoice(language){
 
 const voices=getVoices();
-
 if(!voices.length)return null;
 
-const langPrefix=language==='ar'?'ar':'fr';
+const prefix=language==='ar'?'ar':'fr';
 
 const matching=voices.filter(v=>
-v.lang && v.lang.toLowerCase().startsWith(langPrefix)
+v.lang && v.lang.toLowerCase().startsWith(prefix)
 );
 
 if(!matching.length)return null;
 
-/* محاولة اختيار صوت نسائي */
-const femaleVoice=matching.find(v=>
-femaleHints.some(h=>v.name.toLowerCase().includes(h))
+/* اختيار صوت فرنسي من فرنسا */
+if(language==='fr'){
+
+const frenchFrance=matching.filter(v=>
+v.lang.toLowerCase()==='fr-fr'
 );
 
-if(femaleVoice)return femaleVoice;
+const pool=frenchFrance.length?frenchFrance:matching;
 
-/* إذا لم يوجد اسم واضح لصوت نسائي، نختار صوت اللغة */
+/* البحث عن صوت نسائي */
+const female=pool.find(v=>
+femaleHints.some(h=>
+v.name.toLowerCase().includes(h)
+)
+);
+
+if(female)return female;
+
+/* اختيار صوت فرنسي */
+return pool[0];
+}
+
+/* الصوت العربي */
 return matching[0];
 }
 
@@ -772,7 +779,6 @@ function speakBot(text){
 
 if(!synth || !voiceEnabled || !text)return;
 
-/* إيقاف الرد السابق قبل قراءة الجديد */
 synth.cancel();
 
 const cleanText=String(text)
@@ -784,22 +790,27 @@ if(!cleanText)return;
 
 const utterance=new SpeechSynthesisUtterance(cleanText);
 
+/* صوت أكثر نعومة وهدوءًا */
 utterance.lang=lang==='ar'?'ar-TN':'fr-FR';
-utterance.rate=0.92;
-utterance.pitch=1.08;
+utterance.rate=0.89;
+utterance.pitch=0.96;
 utterance.volume=1;
 
 const voice=chooseVoice(lang);
 
 if(voice){
 utterance.voice=voice;
-utterance.lang=voice.lang;
+}
+
+/* الحفاظ على الفرنسية */
+if(lang==='fr'){
+utterance.lang='fr-FR';
 }
 
 synth.speak(utterance);
 }
 
-/* تحميل الأصوات عند توفرها */
+/* تحميل الأصوات */
 if(synth){
 synth.onvoiceschanged=()=>{
 getVoices();
@@ -836,12 +847,10 @@ function openChat(){
 chat.classList.add('open');
 chat.setAttribute('aria-hidden','false');
 
-/* تمرير داخل مساحة الرسائل فقط */
 body.scrollTop=body.scrollHeight;
 
 setTimeout(()=>input.focus(),150);
 
-/* قراءة الترحيب مرة واحدة عند فتح المحادثة */
 if(!welcomeSpoken && voiceEnabled){
 welcomeSpoken=true;
 const welcome=document.getElementById('welcomeMessage');
@@ -856,7 +865,6 @@ function closeChat(){
 chat.classList.remove('open');
 chat.setAttribute('aria-hidden','true');
 
-/* إيقاف الصوت عند غلق النافذة */
 if(synth){
 synth.cancel();
 }
@@ -890,7 +898,6 @@ messages.appendChild(b);
 
 scrollChatToBottom();
 
-/* صوت للردود الآلية فقط */
 if(type==='bot'){
 speakBot(text);
 }
@@ -1007,7 +1014,6 @@ lang==='ar'
 ?'يمكنك كتابة رسالتك هنا.'
 :'Vous pouvez écrire votre message ici.';
 
-/* ترحيب باللغة الجديدة */
 addMessage(
 lang==='ar'
 ?'مرحباً بك! أنا المساعدة الافتراضية لأميرة. كيف يمكنني مساعدتك؟'
