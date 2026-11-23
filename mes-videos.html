@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,7 +7,7 @@
 <meta name="theme-color" content="#071725">
 
 <title>Mes vidéos | Amira Belkssir</title>
-<meta name="description" content="Découvrez les vidéos, conseils et contenus d'Amira Belkssir, conseillère fiscale.">
+<meta name="description" content="Découvrez les conseils et vidéos d'Amira Belkssir, conseillère fiscale.">
 
 <style>
 :root {
@@ -14,10 +15,10 @@
   --navy2:#0b2030;
   --card:#102a3d;
   --gold:#e5b45d;
-  --gold2:#bd8d43;
+  --gold-light:#f3ca7c;
   --white:#f7f4ed;
   --muted:#c2ccd4;
-  --line:rgba(229,180,93,.38);
+  --line:rgba(229,180,93,.55);
 }
 
 * {
@@ -47,23 +48,23 @@ a {
   margin:auto;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .site-header {
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(5,18,29,.98);
-  border-bottom:1px solid var(--line);
-  backdrop-filter:blur(10px);
+  background:rgba(3,14,24,.98);
+  border-bottom:1px solid var(--gold);
+  backdrop-filter:blur(12px);
 }
 
 .nav-wrap {
-  min-height:78px;
+  min-height:82px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
+  gap:18px;
 }
 
 .brand {
@@ -73,15 +74,15 @@ a {
 }
 
 .brand-mark {
-  width:55px;
-  height:55px;
+  width:58px;
+  height:58px;
   object-fit:contain;
 }
 
 .brand-name {
-  font:21px/1.2 Georgia,serif;
+  font:22px/1.2 Georgia,serif;
   color:var(--gold);
-  letter-spacing:.6px;
+  letter-spacing:.5px;
 }
 
 .brand-sub {
@@ -89,7 +90,6 @@ a {
   color:#fff;
   font:10px Arial,sans-serif;
   letter-spacing:2px;
-  text-align:center;
   margin-top:4px;
 }
 
@@ -101,21 +101,28 @@ a {
 }
 
 .nav-links a {
-  transition:.2s;
+  transition:.25s;
 }
 
 .nav-links a:hover {
   color:var(--gold);
 }
 
+.nav-links .active {
+  background:var(--gold);
+  color:var(--navy);
+  padding:9px 15px;
+  border-radius:9px;
+}
+
 .nav-cta {
-  padding:10px 16px;
+  padding:10px 15px;
   border:1px solid var(--gold);
-  border-radius:8px;
+  border-radius:9px;
   color:var(--gold);
   font-weight:bold;
   white-space:nowrap;
-  transition:.2s;
+  transition:.25s;
 }
 
 .nav-cta:hover {
@@ -128,76 +135,112 @@ a {
   background:none;
   border:1px solid var(--line);
   color:var(--gold);
-  border-radius:6px;
-  padding:6px 10px;
-  font-size:21px;
+  border-radius:8px;
+  padding:6px 11px;
+  font-size:23px;
   cursor:pointer;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
-.video-intro {
+.video-hero {
   position:relative;
-  text-align:center;
-  padding:58px 20px 35px;
+  min-height:340px;
+  display:flex;
+  align-items:center;
   overflow:hidden;
-  border-bottom:1px solid var(--line);
-  background:
+  border-bottom:1px solid var(--gold);
+
+  background-image:
     linear-gradient(90deg,
-      rgba(4,15,25,.97),
-      rgba(4,15,25,.76),
-      rgba(4,15,25,.55)),
-    url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
+      rgba(4,15,25,.97) 0%,
+      rgba(4,15,25,.88) 38%,
+      rgba(4,15,25,.35) 75%,
+      rgba(4,15,25,.18) 100%),
+    url("04-justice.jpg");
+
+  background-size:cover;
+  background-position:center right;
 }
 
-.video-intro .container {
+.hero-content {
   position:relative;
-  z-index:1;
-}
-
-.intro-icon {
-  font-size:37px;
-  color:var(--gold);
-  margin-bottom:8px;
-}
-
-.video-intro h1 {
-  font:clamp(34px,5vw,52px) Georgia,serif;
-  color:var(--white);
-  margin-bottom:10px;
-}
-
-.video-intro h1 span {
-  color:var(--gold);
-}
-
-.intro-line {
-  width:85px;
-  height:2px;
-  background:var(--gold);
-  margin:0 auto 17px;
-}
-
-.video-intro p {
-  max-width:650px;
+  z-index:2;
+  width:min(1200px,calc(100% - 40px));
   margin:auto;
-  color:#e1e6e9;
-  font:16px/1.8 Georgia,serif;
+  padding:45px 10px;
 }
 
-.intro-sub {
-  display:block;
+.hero-film {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:76px;
+  height:62px;
+  margin-bottom:15px;
   color:var(--gold);
-  font:11px Arial,sans-serif;
-  letter-spacing:2px;
-  margin-top:18px;
+  font-size:45px;
+  position:relative;
 }
 
-/* SECTION */
+.hero-film::before,
+.hero-film::after {
+  content:"";
+  position:absolute;
+  top:50%;
+  width:100px;
+  height:1px;
+  background:var(--gold);
+  opacity:.7;
+}
+
+.hero-film::before {
+  right:100%;
+  margin-right:20px;
+}
+
+.hero-film::after {
+  left:100%;
+  margin-left:20px;
+}
+
+.hero-content h1 {
+  font:clamp(38px,5vw,66px) Georgia,serif;
+  color:#fff;
+  line-height:1.15;
+  margin-bottom:15px;
+}
+
+.hero-content h1 span {
+  color:var(--gold);
+}
+
+.hero-content p {
+  max-width:580px;
+  color:#e5e7eb;
+  font:clamp(15px,2vw,22px)/1.6 Georgia,serif;
+}
+
+.hero-line {
+  width:115px;
+  height:5px;
+  background:var(--gold);
+  border-radius:10px;
+  margin:20px 0;
+}
+
+.hero-sub {
+  color:var(--gold-light);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2.5px;
+}
+
+/* ================= SECTION TITLE ================= */
 
 .videos-section {
-  padding:40px 0 55px;
+  padding:32px 0 55px;
+  background:linear-gradient(180,#0b2030,#071725);
 }
 
 .section-heading {
@@ -205,18 +248,34 @@ a {
   margin-bottom:30px;
 }
 
+.heading-decoration {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+}
+
+.heading-decoration::before,
+.heading-decoration::after {
+  content:"";
+  width:min(170px,15vw);
+  height:1px;
+  background:var(--gold);
+  opacity:.65;
+}
+
 .section-heading h2 {
+  font:30px Georgia,serif;
   color:var(--gold);
-  font:29px Georgia,serif;
-  margin-bottom:8px;
+  margin-bottom:5px;
 }
 
 .section-heading p {
-  color:#aebbc4;
-  font-size:14px;
+  color:#c4cdd5;
+  font:15px Georgia,serif;
 }
 
-/* GRID DESKTOP */
+/* ================= VIDEO GRID ================= */
 
 .video-grid {
   display:grid;
@@ -227,21 +286,20 @@ a {
 /* CARD */
 
 .video-card {
-  background:linear-gradient(145deg,#102a3d,#091b29);
-  border:1px solid var(--line);
-  border-radius:13px;
+  background:linear-gradient(180,#102a3d,#071725);
+  border:1px solid var(--gold);
+  border-radius:14px;
   overflow:hidden;
-  transition:transform .25s,border-color .25s,box-shadow .25s;
-  min-width:0;
+  box-shadow:0 7px 20px rgba(0,0,0,.25);
+  transition:transform .25s,box-shadow .25s;
 }
 
 .video-card:hover {
   transform:translateY(-4px);
-  border-color:var(--gold);
-  box-shadow:0 12px 28px rgba(0,0,0,.3);
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
 }
 
-/* COVER */
+/* IMAGE */
 
 .video-cover {
   position:relative;
@@ -257,21 +315,23 @@ a {
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:transform .5s ease;
+  transition:transform .5s;
 }
 
 .video-card:hover .video-thumbnail {
   transform:scale(1.04);
 }
 
+/* VIDEO PLAYER */
+
 .video-cover video {
+  display:none;
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   object-fit:contain;
   background:#000;
-  display:none;
   z-index:4;
 }
 
@@ -279,88 +339,76 @@ a {
   display:block;
 }
 
-/* OVERLAY */
+/* DARK OVERLAY */
 
 .video-cover::after {
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(
-    180deg,
-    rgba(4,13,22,.05),
-    rgba(4,13,22,.35)
+    0deg,
+    rgba(4,13,22,.55),
+    transparent 60%
   );
   pointer-events:none;
   z-index:1;
 }
 
-.video-cover.playing::after {
-  display:none;
-}
-
-.video-cover.playing .video-thumbnail {
-  display:none;
-}
-
-/* PLAY */
+/* PLAY BUTTON */
 
 .play-button {
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  width:65px;
-  height:65px;
+  width:67px;
+  height:67px;
   border-radius:50%;
   background:rgba(229,180,93,.97);
-  border:2px solid rgba(255,255,255,.85);
+  border:3px solid rgba(255,255,255,.9);
   display:flex;
   align-items:center;
   justify-content:center;
   color:#071725;
-  font-size:24px;
+  font-size:27px;
   cursor:pointer;
   z-index:3;
-  transition:.3s;
-  box-shadow:0 5px 25px rgba(0,0,0,.35);
-}
-
-.play-button:hover {
-  transform:translate(-50%,-50%) scale(1.1);
-  background:#f2cc80;
+  transition:.25s;
+  box-shadow:0 5px 25px rgba(0,0,0,.4);
 }
 
 .play-button span {
   margin-left:4px;
 }
 
-.video-cover.playing .play-button {
+.play-button:hover {
+  background:#f4d18a;
+  transform:translate(-50%,-50%) scale(1.1);
+}
+
+.video-cover.playing .video-thumbnail,
+.video-cover.playing .play-button,
+.video-cover.playing::after {
   display:none;
 }
 
-/* INFO */
+/* CARD INFO */
 
 .video-info {
-  padding:18px;
+  padding:17px 18px;
 }
 
 .video-category {
-  display:flex;
-  align-items:center;
-  gap:8px;
+  display:inline-block;
   color:var(--gold);
   font-size:10px;
   font-weight:bold;
   letter-spacing:1.4px;
   text-transform:uppercase;
-  margin-bottom:8px;
-}
-
-.video-category::before {
-  content:"";
-  width:20px;
-  height:1px;
-  background:var(--gold);
+  background:rgba(229,180,93,.13);
+  padding:5px 11px;
+  border-radius:20px;
+  margin-bottom:10px;
 }
 
 .video-info h3 {
@@ -370,10 +418,10 @@ a {
 }
 
 .video-info p {
-  color:#bdc8d0;
+  color:#c6d0d8;
   font-size:13px;
   line-height:1.7;
-  min-height:66px;
+  min-height:65px;
 }
 
 .video-meta {
@@ -381,57 +429,57 @@ a {
   align-items:center;
   justify-content:space-between;
   gap:8px;
-  margin-top:15px;
+  margin-top:14px;
   padding-top:12px;
-  border-top:1px solid rgba(229,180,93,.17);
+  border-top:1px solid rgba(229,180,93,.2);
 }
 
-.video-meta .author {
-  color:#aebbc4;
+.video-author {
+  color:#d6dce1;
   font-size:11px;
-  white-space:nowrap;
 }
 
 .video-watch {
-  border:0;
-  background:none;
-  color:var(--gold);
+  color:var(--gold-light);
   font-size:12px;
   font-weight:bold;
-  cursor:pointer;
-  white-space:nowrap;
 }
 
-.video-watch:hover {
-  color:#fff;
-}
-
-/* CONTACT */
+/* ================= CONTACT STRIP ================= */
 
 .video-bottom {
-  padding:32px 20px;
-  background:linear-gradient(180deg,#0b2030,#071725);
+  padding:28px 0;
+  background:linear-gradient(90deg,#0b2030,#102a3d,#0b2030);
   border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid var(--gold);
 }
 
-.bottom-inner {
-  width:min(1000px,100%);
-  margin:auto;
+.bottom-wrap {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:25px;
+  gap:20px;
+}
+
+.bottom-text {
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.bottom-icon {
+  font-size:43px;
+  color:var(--gold);
 }
 
 .bottom-text h2 {
-  color:var(--gold);
   font:24px Georgia,serif;
-  margin-bottom:6px;
+  color:var(--gold);
+  margin-bottom:5px;
 }
 
 .bottom-text p {
-  color:#cbd3d9;
+  color:#d2d9df;
   font-size:13px;
 }
 
@@ -439,60 +487,56 @@ a {
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:12px 22px;
+  gap:9px;
+  padding:14px 24px;
   background:linear-gradient(135deg,#e5b45d,#f0ca7d);
   color:#071725;
   font-weight:bold;
   border-radius:30px;
   white-space:nowrap;
-  transition:.2s;
+  transition:.25s;
 }
 
 .bottom-contact:hover {
   transform:translateY(-2px);
-  box-shadow:0 5px 18px rgba(229,180,93,.2);
+  box-shadow:0 6px 20px rgba(229,180,93,.2);
 }
 
-/* BACK HOME */
+/* ================= FOOTER ================= */
 
-.back-home {
+.footer {
+  background:#04121e;
+}
+
+.footer-main {
   display:flex;
-  justify-content:center;
-  padding:20px 10px;
-  background:#061522;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:17px 0;
 }
 
-.back-home a {
-  color:var(--gold);
-  font:14px Georgia,serif;
+.copyright {
+  color:#d6b56e;
+  font:12px Georgia,serif;
+}
+
+.back-top {
+  color:#fff;
+  font-size:13px;
   transition:.2s;
 }
 
-.back-home a:hover {
-  color:#fff;
-}
-
-/* FOOTER */
-
-.copyright {
-  background:var(--navy);
+.back-top:hover {
   color:var(--gold);
-  text-align:center;
-  padding:17px 10px;
-  font:12px Georgia,serif;
-  border-top:1px solid rgba(229,180,93,.25);
 }
 
-/* TABLET */
+/* ================= TABLET ================= */
 
-@media(max-width:1000px) {
-
-  .container {
-    width:calc(100% - 32px);
-  }
+@media(max-width:950px) {
 
   .nav-links {
-    gap:13px;
+    gap:12px;
     font-size:12px;
   }
 
@@ -501,8 +545,8 @@ a {
   }
 
   .nav-cta {
-    font-size:12px;
     padding:9px 11px;
+    font-size:12px;
   }
 
   .video-grid {
@@ -510,23 +554,16 @@ a {
   }
 
   .video-info {
-    padding:15px;
+    padding:14px;
   }
 
   .video-info h3 {
-    font-size:20px;
+    font-size:19px;
   }
 
-  .video-info p {
-    font-size:12px;
-  }
-
-  .video-watch {
-    font-size:11px;
-  }
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:650px) {
 
@@ -535,8 +572,8 @@ a {
   }
 
   .nav-wrap {
-    min-height:62px;
-    gap:6px;
+    min-height:66px;
+    gap:7px;
   }
 
   .brand {
@@ -544,8 +581,8 @@ a {
   }
 
   .brand-mark {
-    width:38px;
-    height:38px;
+    width:42px;
+    height:42px;
   }
 
   .brand-name {
@@ -570,15 +607,15 @@ a {
   .nav-links {
     display:none;
     position:absolute;
-    top:62px;
+    top:66px;
     left:0;
     right:0;
     flex-direction:column;
     align-items:stretch;
     gap:0;
     background:#061522;
-    border-bottom:1px solid var(--line);
-    padding:10px 16px;
+    border-bottom:1px solid var(--gold);
+    padding:10px 15px;
     font-size:14px;
   }
 
@@ -587,76 +624,117 @@ a {
   }
 
   .nav-links a {
-    padding:11px 8px;
-    border-bottom:1px solid rgba(229,180,93,.1);
+    padding:12px 9px;
+    border-bottom:1px solid rgba(229,180,93,.13);
   }
 
-  /* HERO MOBILE */
-
-  .video-intro {
-    padding:35px 15px 27px;
-    background:
-      linear-gradient(rgba(4,15,25,.91),rgba(4,15,25,.94)),
-      url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=80")
-      center/cover;
+  .nav-links .active {
+    background:transparent;
+    color:var(--gold);
+    padding:12px 9px;
+    border-radius:0;
   }
 
-  .intro-icon {
-    font-size:27px;
-    margin-bottom:4px;
+  /* HERO PHONE */
+
+  .video-hero {
+    min-height:290px;
+    background-position:65% center;
+
+    background-image:
+      linear-gradient(90deg,
+        rgba(4,15,25,.97),
+        rgba(4,15,25,.85) 48%,
+        rgba(4,15,25,.48)),
+      url("04-justice.jpg");
   }
 
-  .video-intro h1 {
-    font-size:32px;
+  .hero-content {
+    width:calc(100% - 30px);
+    padding:35px 5px;
   }
 
-  .video-intro p {
+  .hero-film {
+    width:45px;
+    height:42px;
+    font-size:30px;
+    margin-bottom:10px;
+  }
+
+  .hero-film::before,
+  .hero-film::after {
+    width:42px;
+  }
+
+  .hero-content h1 {
+    font-size:38px;
+    margin-bottom:10px;
+  }
+
+  .hero-content p {
     font-size:14px;
-    line-height:1.8;
+    max-width:340px;
   }
 
-  .intro-sub {
+  .hero-line {
+    width:85px;
+    height:4px;
+    margin:15px 0;
+  }
+
+  .hero-sub {
     font-size:9px;
-    letter-spacing:1.3px;
-    margin-top:14px;
+    letter-spacing:1.4px;
   }
 
   /* SECTION */
 
   .videos-section {
-    padding:28px 0 35px;
+    padding:26px 0 35px;
   }
 
   .section-heading {
-    margin-bottom:20px;
+    margin-bottom:22px;
+  }
+
+  .heading-decoration {
+    gap:9px;
+  }
+
+  .heading-decoration::before,
+  .heading-decoration::after {
+    width:35px;
   }
 
   .section-heading h2 {
-    font-size:23px;
+    font-size:22px;
   }
 
   .section-heading p {
     font-size:12px;
+    padding:0 10px;
   }
 
-  /* MOBILE HORIZONTAL CARDS */
+  /* MOBILE VIDEO CARDS - IMAGE LEFT, TEXT RIGHT */
 
   .video-grid {
     grid-template-columns:1fr;
-    gap:14px;
+    gap:15px;
   }
 
   .video-card {
-    display:grid;
-    grid-template-columns:42% 58%;
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
     border-radius:12px;
-    min-height:145px;
+    min-height:155px;
   }
 
   .video-cover {
-    height:100%;
-    min-height:145px;
+    width:44%;
+    flex-shrink:0;
     aspect-ratio:auto;
+    min-height:155px;
   }
 
   .video-thumbnail {
@@ -664,33 +742,32 @@ a {
   }
 
   .play-button {
-    width:48px;
-    height:48px;
+    width:46px;
+    height:46px;
     font-size:19px;
+    border-width:2px;
   }
 
   .video-info {
+    flex:1;
+    min-width:0;
     padding:12px 11px;
     display:flex;
     flex-direction:column;
     justify-content:center;
-    min-width:0;
   }
 
   .video-category {
     font-size:8px;
     letter-spacing:.7px;
-    gap:5px;
-    margin-bottom:5px;
-  }
-
-  .video-category::before {
-    width:12px;
+    padding:4px 7px;
+    margin-bottom:6px;
+    align-self:flex-start;
   }
 
   .video-info h3 {
-    font-size:17px;
-    line-height:1.35;
+    font-size:16px;
+    line-height:1.3;
     margin-bottom:5px;
   }
 
@@ -704,9 +781,10 @@ a {
     margin-top:8px;
     padding-top:8px;
     gap:4px;
+    flex-wrap:wrap;
   }
 
-  .video-meta .author {
+  .video-author {
     font-size:9px;
   }
 
@@ -717,37 +795,60 @@ a {
   /* CONTACT MOBILE */
 
   .video-bottom {
-    padding:24px 15px;
+    padding:22px 0;
   }
 
-  .bottom-inner {
+  .bottom-wrap {
     flex-direction:column;
-    text-align:center;
-    gap:14px;
+    align-items:stretch;
+    gap:17px;
+  }
+
+  .bottom-text {
+    gap:12px;
+  }
+
+  .bottom-icon {
+    font-size:34px;
   }
 
   .bottom-text h2 {
-    font-size:21px;
+    font-size:19px;
   }
 
   .bottom-text p {
-    font-size:12px;
+    font-size:11px;
+    line-height:1.6;
   }
 
   .bottom-contact {
-    padding:11px 20px;
+    width:100%;
+    padding:13px 18px;
     font-size:13px;
+  }
+
+  /* FOOTER MOBILE */
+
+  .footer-main {
+    flex-direction:column;
+    text-align:center;
+    gap:8px;
+    padding:14px 0;
   }
 
   .copyright {
     font-size:10px;
-    padding:14px 8px;
   }
+
+  .back-top {
+    font-size:12px;
+  }
+
 }
 
-/* SMALL PHONES */
+/* VERY SMALL PHONES */
 
-@media(max-width:380px) {
+@media(max-width:360px) {
 
   .brand-name {
     font-size:11px;
@@ -757,12 +858,17 @@ a {
     font-size:6px;
   }
 
-  .video-intro h1 {
-    font-size:28px;
+  .hero-content h1 {
+    font-size:32px;
   }
 
   .video-card {
-    grid-template-columns:40% 60%;
+    min-height:140px;
+  }
+
+  .video-cover {
+    min-height:140px;
+    width:42%;
   }
 
   .video-info {
@@ -770,7 +876,7 @@ a {
   }
 
   .video-info h3 {
-    font-size:15px;
+    font-size:14px;
   }
 
   .video-info p {
@@ -780,8 +886,8 @@ a {
   .video-watch {
     font-size:9px;
   }
-}
 
+}
 </style>
 </head>
 
@@ -815,9 +921,13 @@ a {
     <nav class="nav-links" id="mainNav">
 
       <a href="index.html">Accueil</a>
+
       <a href="index.html#services">Nos Services</a>
+
       <a href="mes-articles.html">Mes Articles</a>
-      <a href="mes-videos.html" style="color:var(--gold);">Mes vidéos</a>
+
+      <a href="mes-videos.html" class="active">Mes vidéos</a>
+
       <a href="tel:+21650073838">Contact</a>
 
     </nav>
@@ -830,17 +940,15 @@ a {
 
 </header>
 
-<!-- INTRO -->
+<!-- HERO -->
 
-<section class="video-intro">
+<section class="video-hero">
 
-  <div class="container">
+  <div class="hero-content">
 
-    <div class="intro-icon">▣</div>
+    <div class="hero-film">▣</div>
 
     <h1>Nos <span>Vidéos</span></h1>
-
-    <div class="intro-line"></div>
 
     <p>
       Découvrez nos conseils et nos explications
@@ -848,7 +956,9 @@ a {
       juridiques et financières.
     </p>
 
-    <span class="intro-sub">
+    <div class="hero-line"></div>
+
+    <span class="hero-sub">
       EXPERTISE · CONSEILS · INFORMATIONS
     </span>
 
@@ -864,7 +974,9 @@ a {
 
     <div class="section-heading">
 
-      <h2>Nos domaines d'expertise</h2>
+      <div class="heading-decoration">
+        <h2>Nos domaines d’expertise</h2>
+      </div>
 
       <p>Des contenus utiles pour vous accompagner et vous informer.</p>
 
@@ -880,8 +992,8 @@ a {
 
           <img
             class="video-thumbnail"
-            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1000&q=85"
-            alt="Livres de droit et fiscalité">
+            src="01-droit-fiscal.jpg"
+            alt="Droit fiscal">
 
           <video controls preload="none" playsinline>
             <source src="droit-fiscal.mp4" type="video/mp4">
@@ -906,11 +1018,8 @@ a {
           </p>
 
           <div class="video-meta">
-            <span class="author">Amira Belkssir</span>
-
-            <button class="video-watch" type="button">
-              ▶ Regarder la vidéo
-            </button>
+            <span class="video-author">Amira Belkssir</span>
+            <span class="video-watch">▶ Regarder</span>
           </div>
 
         </div>
@@ -925,8 +1034,8 @@ a {
 
           <img
             class="video-thumbnail"
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85"
-            alt="Graphiques et analyse financière">
+            src="02-investissement.jpg"
+            alt="Droit d’investissement">
 
           <video controls preload="none" playsinline>
             <source src="droit-investissement.mp4" type="video/mp4">
@@ -946,16 +1055,13 @@ a {
           <h3>Droit d'investissement</h3>
 
           <p>
-            Retrouvez des informations utiles sur le droit
-            de l’investissement et les projets d’investissement.
+            Conseils et avantages pour investir
+            en toute sécurité.
           </p>
 
           <div class="video-meta">
-            <span class="author">Amira Belkssir</span>
-
-            <button class="video-watch" type="button">
-              ▶ Regarder la vidéo
-            </button>
+            <span class="video-author">Amira Belkssir</span>
+            <span class="video-watch">▶ Regarder</span>
           </div>
 
         </div>
@@ -970,8 +1076,8 @@ a {
 
           <img
             class="video-thumbnail"
-            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1000&q=85"
-            alt="Justice et contentieux">
+            src="03-contentieux-fiscal.jpg"
+            alt="Contentieux fiscal">
 
           <video controls preload="none" playsinline>
             <source src="contentieux-fiscal.mp4" type="video/mp4">
@@ -991,16 +1097,13 @@ a {
           <h3>Contentieux fiscal</h3>
 
           <p>
-            Découvrez les procédures, les recours et les solutions
-            liés aux litiges en matière fiscale.
+            Vos droits et les procédures à suivre
+            en cas de litige.
           </p>
 
           <div class="video-meta">
-            <span class="author">Amira Belkssir</span>
-
-            <button class="video-watch" type="button">
-              ▶ Regarder la vidéo
-            </button>
+            <span class="video-author">Amira Belkssir</span>
+            <span class="video-watch">▶ Regarder</span>
           </div>
 
         </div>
@@ -1017,16 +1120,20 @@ a {
 
 <section class="video-bottom">
 
-  <div class="bottom-inner">
+  <div class="container bottom-wrap">
 
     <div class="bottom-text">
 
-      <h2>Besoin d'informations complémentaires ?</h2>
+      <div class="bottom-icon">♧</div>
 
-      <p>
-        Notre cabinet reste à votre disposition pour vous accompagner
-        et répondre à vos questions.
-      </p>
+      <div>
+        <h2>Besoin d'informations complémentaires ?</h2>
+
+        <p>
+          Notre cabinet reste à votre disposition pour vous accompagner
+          et répondre à vos questions.
+        </p>
+      </div>
 
     </div>
 
@@ -1038,27 +1145,27 @@ a {
 
 </section>
 
-<!-- BACK HOME -->
-
-<div class="back-home">
-
-  <a href="index.html">← Retour à l'accueil</a>
-
-</div>
-
 <!-- FOOTER -->
 
-<footer class="copyright">
+<footer class="footer">
 
-  © 2026 Amira Belkssir — Tous droits réservés.
+  <div class="container footer-main">
+
+    <div class="copyright">
+      © 2026 Amira Belkssir — Tous droits réservés.
+    </div>
+
+    <a href="#" class="back-top">↑ Retour en haut</a>
+
+  </div>
 
 </footer>
 
-<!-- MENU + VIDEO SCRIPT -->
+<!-- SCRIPT -->
 
 <script>
 
-/* MENU */
+/* MOBILE MENU */
 
 const menuToggle = document.getElementById('menuToggle');
 const mainNav = document.getElementById('mainNav');
@@ -1083,73 +1190,46 @@ mainNav.querySelectorAll('a').forEach(link => {
 
 });
 
-/* VIDEOS */
-
-function playSelectedVideo(cover) {
-
-  const video = cover.querySelector('video');
-
-  /* إيقاف الفيديوهات الأخرى وإرجاع أغلفتها */
-  document.querySelectorAll('.video-cover').forEach(otherCover => {
-
-    const otherVideo = otherCover.querySelector('video');
-
-    if (otherVideo !== video) {
-
-      otherVideo.pause();
-
-      otherVideo.currentTime = 0;
-
-      otherVideo.classList.remove('active');
-
-      otherCover.classList.remove('playing');
-
-    }
-
-  });
-
-  /* تشغيل الفيديو المختار */
-
-  cover.classList.add('playing');
-
-  video.classList.add('active');
-
-  video.play().catch(function() {
-
-    cover.classList.remove('playing');
-
-    video.classList.remove('active');
-
-  });
-
-}
-
-/* زر الصورة */
+/* VIDEO PLAYER */
 
 document.querySelectorAll('.video-cover').forEach(cover => {
 
   const video = cover.querySelector('video');
+  const button = cover.querySelector('.play-button');
 
-  const playButton = cover.querySelector('.play-button');
+  button.addEventListener('click', function() {
 
-  const watchButton = cover.closest('.video-card').querySelector('.video-watch');
+    /* Stop other videos */
 
-  playButton.addEventListener('click', function() {
-    playSelectedVideo(cover);
-  });
+    document.querySelectorAll('.video-cover video').forEach(otherVideo => {
 
-  watchButton.addEventListener('click', function() {
-    playSelectedVideo(cover);
-  });
+      if(otherVideo !== video) {
 
-  /* عند نهاية الفيديو */
-  video.addEventListener('ended', function() {
+        otherVideo.pause();
 
-    cover.classList.remove('playing');
+        otherVideo.currentTime = 0;
 
-    video.classList.remove('active');
+        otherVideo.classList.remove('active');
 
-    video.currentTime = 0;
+        otherVideo.closest('.video-cover').classList.remove('playing');
+
+      }
+
+    });
+
+    /* Start selected video */
+
+    cover.classList.add('playing');
+
+    video.classList.add('active');
+
+    video.controls = true;
+
+    video.play().catch(function() {
+
+      video.controls = true;
+
+    });
 
   });
 
